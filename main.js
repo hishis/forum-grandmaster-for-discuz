@@ -210,7 +210,7 @@ function main() {
     // Global Settings – End
 
     // Open source address
-    const OPEN_HOME = '';
+    const OPEN_HOME = 'https://github.com/hishis/forum-grandmaster-for-discuz';
 
     // Scene mode: Standard, Home, Office
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
@@ -601,7 +601,6 @@ function main() {
 
     const fastPostSubmit = document.getElementById('fastpostsubmit');
     !!fastPostSubmit && fastPostSubmit.addEventListener('click', editor_content, false);
-
 
     // Automatically expand all posts
     // if (typeof display_blocked_post === 'function') display_blocked_post();

@@ -46,9 +46,9 @@
 ![头像美化](https://greasyfork.org/system/screenshots/screenshots/000/020/272/original/002.png)
 
 ### 安装
-[GitHub](https://github.com/hishis/forum-grandmaster-for-discuz)
+[Install from GitHub](https://github.com/hishis/forum-grandmaster-for-discuz)
 
-[Greasy Fork](https://greasyfork.org/scripts/400250)（推荐）
+[Install from Greasy Fork](https://greasyfork.org/scripts/400250)（推荐）
 
 ### 捐助
 这个页面上没有捐助按钮。
