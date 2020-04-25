@@ -1,4 +1,5 @@
-# 论坛大师 – Discuz! &middot; [![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue.svg)](https://www.mozilla.org/MPL/2.0/)
+# 论坛大师 – Discuz!
+[![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue.svg)](https://www.mozilla.org/MPL/2.0/)
 
 ### 功能简介
 * 界面美化
