@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.2
+// @version           0.3.3
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -216,21 +216,113 @@
     // ads
 
     // bbs.pcbeta.com
-    !!~hn.indexOf('bbs.pcbeta.com') && GM_addStyle(`
-        #wp > div,
-        #nv_forum > span,
-        .pls .tip,
-        ignore_js_op .tip {
-            display: none;
+    if (!!~hn.indexOf('bbs.pcbeta.com')) {
+        for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+                GM_addStyle(`
+                    .function-buttons {
+                        display: none;
+                    }
+                `);
+            }, i * 100);
         }
+        setTimeout(() => {
+            GM_addStyle(common_css);
+            GM_addStyle(scene_mode_css);
+            GM_addStyle(`
+                #wp > div,
+                #nv_forum > span,
+                .pls .tip,
+                ignore_js_op .tip {
+                    display: none;
+                }
 
-        #wp > div:first-child,
-        #wp > div.cl,
-        #wp > div.wp,
-        #nv_forum #scrolltop {
-            display: block;
-        }
-    `);
+                #wp > div:first-child,
+                #wp > div.cl,
+                #wp > div.wp,
+                #nv_forum #scrolltop {
+                    display: block;
+                }
+
+                .pls .avatar {
+                    overflow: unset;
+                }
+
+                .pls .m img {
+                    margin-left: 2px;
+                    padding: 0;
+                    width: 120px;
+                    height: 120px;
+                    object-fit: contain;
+                    background: #fff;
+                    border: none;
+                    border-radius: 50%;
+                    box-shadow: none;
+                }
+
+                .pls .m img:hover {
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+
+                .pls .pi {
+                    padding-left: 0;
+                    padding-right: 0;
+                    text-align: center;
+                }
+
+                .pb_pls .avatar img {
+                    border-radius: 50%;
+                    background: none;
+                }
+
+                .pb_pls .avatar img:hover {
+                    border-radius: 0;
+                }
+
+                .hdc {
+                    position: relative;
+                }
+
+                #function-buttons {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    padding: 2px 8px 4px 0;
+                    border-radius: 4px;
+                }
+
+                .custom-function-button {
+                    color: #333;
+                    background-color: #fff;
+                    box-shadow: 0 1px 2px #bbb;
+                }
+
+                .custom-function-button:hover {
+                    color: #1985db;
+                    box-shadow: 0 2px 4px #bbb;
+                }
+
+                .pi {
+                    padding-left: 0;
+                    color: var(--gray);
+                }
+
+                .pi:hover {
+                    color: var(--gray-dark);
+                }
+            `);
+
+            if (scene_mode === 'Office') {
+                GM_addStyle(`
+                    td.pls > p,
+                    td.pls > dl {
+                        display: none;
+                    }
+                `);
+            }
+        }, 999);
+    }
 
     // www.zuanke8.com
     !!~hn.indexOf('zuanke8.com') && GM_addStyle(`
@@ -678,106 +770,16 @@ function main() {
 
     // bbs.pcbeta.com
     if (!!~hn.indexOf('bbs.pcbeta.com')) {
-        GM_addStyle(`
-            #wp > div,
-            #nv_forum > span,
-            .pls .tip,
-            ignore_js_op .tip {
-                display: none;
+        setTimeout(() => {
+            if (member === false) {
+                GM_addStyle(`
+                    .function-buttons {
+                        padding-top: 4px;
+                        padding-right: 0;
+                    }
+                `);
             }
-
-            #wp > div:first-child,
-            #wp > div.cl,
-            #wp > div.wp,
-            #nv_forum #scrolltop {
-                display: block;
-            }
-
-            .pls .avatar {
-                overflow: unset;
-            }
-
-            .pls .m img {
-                margin-left: 2px;
-                padding: 0;
-                width: 120px;
-                height: 120px;
-                object-fit: contain;
-                background: #fff;
-                border: none;
-                border-radius: 50%;
-                box-shadow: none;
-            }
-
-            .pls .m img:hover {
-                border-radius: 0;
-                box-shadow: none;
-            }
-
-            .pls .pi {
-                padding-left: 0;
-                padding-right: 0;
-                text-align: center;
-            }
-
-            .pb_pls .avatar img {
-                border-radius: 50%;
-                background: none;
-            }
-
-            .pb_pls .avatar img:hover {
-                border-radius: 0;
-            }
-
-            .hdc {
-                position: relative;
-            }
-
-            .function-buttons {
-                position: absolute;
-                right: 0;
-                padding: 2px 8px 4px 0;
-                border-radius: 4px;
-            }
-
-            .custom-function-button {
-                color: #333;
-                background-color: #fff;
-                box-shadow: 0 1px 2px #bbb;
-            }
-
-            .custom-function-button:hover {
-                color: #1985db;
-                box-shadow: 0 2px 4px #bbb;
-            }
-
-            .pi {
-                padding-left: 0;
-                color: var(--gray);
-            }
-
-            .pi:hover {
-                color: var(--gray-dark);
-            }
-        `);
-
-        if (scene_mode === 'Office') {
-            GM_addStyle(`
-                td.pls > p,
-                td.pls > dl {
-                    display: none;
-                }
-            `);
-        }
-
-        if (member === false) {
-            GM_addStyle(`
-                .function-buttons {
-                    padding-top: 4px;
-                    padding-right: 0;
-                }
-            `);
-        }
+        }, 1000);
     }
 
     // www.hostloc.com
@@ -938,8 +940,6 @@ function main() {
 
 document.onreadystatechange = function () {
     if (document.readyState === 'interactive') {
-        setTimeout(() => {
-            main();
-        }, 0);
+        main();
     }
 }
