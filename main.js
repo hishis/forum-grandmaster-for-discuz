@@ -22,8 +22,6 @@
 // @installURL        https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
 // @downloadURL       https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
 // @supportURL        https://github.com/hishis/forum-grandmaster-for-discuz/issues
-// @match             https://www.discuz.net/thread-*.html
-// @match             https://www.discuz.net/forum.php?mod=viewthread&tid=*
 // @match             https://www.52pojie.cn/thread-*.html
 // @match             https://www.52pojie.cn/forum.php?mod=viewthread&tid=*
 // @match             https://www.right.com.cn/forum/thread-*.html
@@ -85,7 +83,6 @@
 // @match             https://*/bbs/forum.php?mod=viewthread&tid=*
 // @match             https://*/forum/thread-*.html
 // @match             https://*/forum/forum.php?mod=viewthread&tid=*
-// @exclude           https://www.discuz.net/thread-10000-1-1.html
 // @compatible        Chrome  Works with Tampermonkey for Chrome
 // @compatible        Edge    Works with Tampermonkey for Edge
 // @compatible        Firefox Works with Tampermonkey for Firefox
