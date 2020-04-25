@@ -76,9 +76,9 @@
 // @match             https://iya.app/thread-*.html
 // @match             https://iya.app/forum.php?mod=viewthread&tid=*
 // @exclude           https://www.discuz.net/thread-10000-1-1.html
-// @compatible        Chrome  Works with Tampermonkey for Google Chrome
-// @compatible        Edge    Works with Tampermonkey for Microsoft Edge
-// @compatible        Firefox Works with Tampermonkey for Mozilla Firefox
+// @compatible        Chrome  Works with Tampermonkey for Chrome
+// @compatible        Edge    Works with Tampermonkey for Edge
+// @compatible        Firefox Works with Tampermonkey for Firefox
 // @compatible        Opera   Works with Tampermonkey for Opera
 // @compatible        Safari  Works with Tampermonkey for Safari
 // @run-at            document-start
