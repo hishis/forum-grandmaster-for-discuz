@@ -241,6 +241,14 @@
     `);
 })();
 
+unsafeWindow.addEventListener('beforescriptexecute', function (e) {
+    let src = e.target.src;
+    if (!!~src.indexOf('/ads') || !!~src.indexOf('alimama') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+}, false);
+
 function main() {
     // Global Settings – Start
     const GLOBAL_CONFIG = {
@@ -831,44 +839,35 @@ function main() {
 
     // www.zuanke8.com
     if (!!~hn.indexOf('zuanke8.com')) {
-        GM_addStyle(`
-            #hd .zuanamu,
-            #xad_mu {
-                display: none;
-            }
-        `);
-
-        try {
-            let ads = document.getElementsByClassName('adsbygoogle');
-            if (!!ads.length) {
-                for (let i = 0; i < ads.length; i++) {
-                    ads[i].style.display = 'none';
-                }
-            }
-
-            ads = document.getElementById('scbar_form').getElementsByTagName('td');
+        let ads = document.getElementsByClassName('adsbygoogle');
+        if (!!ads.length) {
             for (let i = 0; i < ads.length; i++) {
-                if (!!~ads[i].innerText.indexOf('手机客户端')) {
-                    ads[i].style.display = 'none';
+                ads[i].style.display = 'none';
+            }
+        }
+
+        ads = document.getElementById('scbar_form');
+        ads = !!ads ? ads.getElementsByTagName('td') : [];
+        for (let i = 0; i < ads.length; i++) {
+            if (!!~ads[i].innerText.indexOf('手机客户端')) {
+                ads[i].style.display = 'none';
+            }
+        }
+
+        ads = document.getElementById('wp');
+        ads = !!ads ? ads.getElementsByTagName('div')[1] : null;
+        if (!!ads && !!~ads.innerText.indexOf('您的果果低于')) {
+            ads.style.display = 'none';
+        }
+
+        ads = document.getElementsByClassName('pct');
+        for (let i = 0; i < ads.length; i++) {
+            let a = ads[i].getElementsByTagName('div');
+            for (let x = 0; x < a.length; x++) {
+                if (!!~a[x].innerText.indexOf('提供的广告')) {
+                    a[x].style.display = 'none';
                 }
             }
-
-            ads = document.getElementById('wp').getElementsByTagName('div')[1];
-            if (!!~ads.innerText.indexOf('您的果果低于')) {
-                ads.style.display = 'none';
-            }
-
-            ads = document.getElementsByClassName('pct');
-            for (let i = 0; i < ads.length; i++) {
-                let a = ads[i].getElementsByTagName('div');
-                for (let x = 0; x < a.length; x++) {
-                    if (!!~a[x].innerText.indexOf('提供的广告')) {
-                        a[x].style.display = 'none';
-                    }
-                }
-            }
-        } catch (error) {
-            GM_log(error);
         }
     }
 
@@ -939,6 +938,8 @@ function main() {
 
 document.onreadystatechange = function () {
     if (document.readyState === 'interactive') {
-        main();
+        setTimeout(() => {
+            main();
+        }, 0);
     }
 }
