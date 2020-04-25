@@ -133,6 +133,12 @@
      * The original copyright notice must be retained.
      */
 
+    // Hostname
+    const hn = window.location.hostname;
+
+    // User-Agent
+    const ua = window.navigator.userAgent;
+
     // Scene mode: Standard, Home, Office
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
     if (!~['Standard', 'Home', 'Office'].indexOf(scene_mode)) {
@@ -206,6 +212,33 @@
             break;
     }
     GM_addStyle(scene_mode_css);
+
+    // ads
+
+    // bbs.pcbeta.com
+    !!~hn.indexOf('bbs.pcbeta.com') && GM_addStyle(`
+        #wp > div,
+        #nv_forum > span,
+        .pls .tip,
+        ignore_js_op .tip {
+            display: none;
+        }
+
+        #wp > div:first-child,
+        #wp > div.cl,
+        #wp > div.wp,
+        #nv_forum #scrolltop {
+            display: block;
+        }
+    `);
+
+    // www.zuanke8.com
+    !!~hn.indexOf('zuanke8.com') && GM_addStyle(`
+        #hd .zuanamu,
+        #xad_mu {
+            display: none;
+        }
+    `);
 })();
 
 function main() {
@@ -232,16 +265,18 @@ function main() {
     // Freedom of network
     let freedom_of_network = GM_getValue('FREEDOM_OF_NETWORK', 'Check Later');
 
-    // Test code
+
+    // Hostname
+    const hn = window.location.hostname;
+    GM_log('Hostname:', hn);
+
+    // User-Agent
     const ua = window.navigator.userAgent;
     GM_log('User-Agent:', ua);
 
     GM_log('Scene mode:', scene_mode);
     GM_log('Display the users online status:', display_users_online_status);
     GM_log('Freedom of network:', freedom_of_network);
-
-    // Hostname
-    const hn = window.location.hostname;
 
     // Login status
     const member = !!document.getElementById('extcreditmenu') || !!document.getElementById('myprompt') || !!document.getElementById('myrepeats');
@@ -795,7 +830,7 @@ function main() {
     `);
 
     // www.zuanke8.com
-    if (!!~hn.indexOf('www.zuanke8.com')) {
+    if (!!~hn.indexOf('zuanke8.com')) {
         GM_addStyle(`
             #hd .zuanamu,
             #xad_mu {
