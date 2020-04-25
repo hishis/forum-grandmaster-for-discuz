@@ -41,12 +41,14 @@
 * 论坛 **快捷回复** 快捷键是 Ctrl + Enter 和 Alt + S（没错，和用鼠标点击 **发表回复** 效果相同）。
 
 ### 效果展示
-<img src="https://greasyfork.org/system/screenshots/screenshots/000/020/270/original/000.png">
-<img src="https://greasyfork.org/system/screenshots/screenshots/000/020/271/original/001.png">
-<img src="https://greasyfork.org/system/screenshots/screenshots/000/020/272/original/002.png">
+![功能强化](https://greasyfork.org/system/screenshots/screenshots/000/020/270/original/000.png)
+
+![界面优化](https://greasyfork.org/system/screenshots/screenshots/000/020/271/original/001.png)
+
+![头像美化](https://greasyfork.org/system/screenshots/screenshots/000/020/272/original/002.png)
 
 ### 兼容
-![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) |
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png) |
 --- | --- | --- | --- | --- | --- |
 Latest ✔ | Latest ✔ | Latest ✔ | Latest ❌ | Latest ✔ | Latest ✔ |
 
