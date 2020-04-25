@@ -1,5 +1,6 @@
 # 论坛大师 – Discuz!
-[![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue.svg)](https://www.mozilla.org/MPL/2.0/)
+[![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue)](https://www.mozilla.org/MPL/2.0/)
+[![Code size](https://img.shields.io/github/languages/code-size/hishis/forum-grandmaster-for-discuz)](https://github.com/hishis/forum-grandmaster-for-discuz)
 
 ### 功能简介
 * 界面美化
