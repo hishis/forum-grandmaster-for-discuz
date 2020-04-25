@@ -1,4 +1,4 @@
-# 论坛大师 – Discuz!🔊界面美化、广告移除、功能增强……
+# 论坛大师 – Discuz!
 [![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue)](https://www.mozilla.org/MPL/2.0/)
 [![Code size](https://img.shields.io/github/languages/code-size/hishis/forum-grandmaster-for-discuz)](https://github.com/hishis/forum-grandmaster-for-discuz)
 
