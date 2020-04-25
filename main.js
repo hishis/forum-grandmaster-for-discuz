@@ -1,19 +1,19 @@
 // ==UserScript==
 // @name              Forum Grandmaster for Discuz!
 // @name:en           Forum Grandmaster for Discuz!
-// @name:zh           论坛大师 – Discuz!🔊界面美化、广告移除、功能增强……
-// @name:zh-CN        论坛大师 – Discuz!🔊界面美化、广告移除、功能增强……
-// @name:zh-HK        論壇大師 – Discuz!🔊界面美化、廣告移除、功能增強……
-// @name:zh-TW        論壇大師 – Discuz!🔊界面美化、廣告移除、功能增強……
+// @name:zh           论坛大师 – Discuz!
+// @name:zh-CN        论坛大师 – Discuz!
+// @name:zh-HK        論壇大師 – Discuz!
+// @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
 // @version           0.3.1
 // @author            hostname
-// @description       Forum Grandmaster for Discuz!🔊Beautify the interface, Remove ads, Enhance functions.
-// @description:en    Forum Grandmaster for Discuz!🔊Beautify the interface, Remove ads, Enhance functions.
-// @description:zh    论坛大师 – Discuz!🔊界面美化、广告移除、功能增强……
-// @description:zh-CN 论坛大师 – Discuz!🔊界面美化、广告移除、功能增强……
-// @description:zh-HK 論壇大師 – Discuz!🔊界面美化、廣告移除、功能增強……
-// @description:zh-TW 論壇大師 – Discuz!🔊界面美化、廣告移除、功能增強……
+// @description       🔊Beautify the interface, Remove ads, Enhance functions.
+// @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
+// @description:zh    🔊界面美化、广告移除、功能增强……
+// @description:zh-CN 🔊界面美化、广告移除、功能增强……
+// @description:zh-HK 🔊界面美化、廣告移除、功能增強……
+// @description:zh-TW 🔊界面美化、廣告移除、功能增強……
 // @homepage          https://github.com/hishis/forum-grandmaster-for-discuz
 // @icon              https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/favicon.ico
 // @updateURL         https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
