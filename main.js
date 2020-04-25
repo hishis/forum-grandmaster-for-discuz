@@ -214,10 +214,6 @@ function main() {
 
     // Scene mode: Standard, Home, Office
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
-    if (!~['Standard', 'Home', 'Office'].indexOf(scene_mode)) {
-        scene_mode = 'Standard';
-        GM_setValue('SCENE_MODE', scene_mode);
-    }
 
     // Display the users online status: None, Standard, Advanced
     let display_users_online_status = GM_getValue('DISPLAY_USERS_ONLINE_STATUS', GLOBAL_CONFIG.display_users_online_status);
