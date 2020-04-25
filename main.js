@@ -4,6 +4,7 @@
 // @name:zh           论坛大师 – Discuz!
 // @name:zh-CN        论坛大师 – Discuz!
 // @name:zh-HK        論壇大師 – Discuz!
+// @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
 // @version           0.3.1
@@ -13,6 +14,7 @@
 // @description:zh    🔊界面美化、广告移除、功能增强……
 // @description:zh-CN 🔊界面美化、广告移除、功能增强……
 // @description:zh-HK 🔊界面美化、廣告移除、功能增強……
+// @description:zh-MO 🔊界面美化、廣告移除、功能增強……
 // @description:zh-TW 🔊界面美化、廣告移除、功能增強……
 // @homepage          https://github.com/hishis/forum-grandmaster-for-discuz
 // @icon              https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/favicon.ico
@@ -71,6 +73,14 @@
 // @match             http://bbs.nas66.com/forum.php?mod=viewthread&tid=*
 // @match             https://bbs.nas66.com/thread-*.html
 // @match             https://bbs.nas66.com/forum.php?mod=viewthread&tid=*
+// @match             http://www.yy.com/bbs/thread-*.html
+// @match             http://www.yy.com/bbs/forum.php?mod=viewthread&tid=*
+// @match             https://www.yy.com/bbs/thread-*.html
+// @match             https://www.yy.com/bbs/forum.php?mod=viewthread&tid=*
+// @match             http://xiage.yy.com/thread-*.html
+// @match             http://xiage.yy.com/forum.php?mod=viewthread&tid=*
+// @match             https://xiage.yy.com/thread-*.html
+// @match             https://xiage.yy.com/forum.php?mod=viewthread&tid=*
 // @match             https://www.mcbbs.net/thread-*.html
 // @match             https://www.mcbbs.net/forum.php?mod=viewthread&tid=*
 // @match             https://iya.app/thread-*.html
