@@ -73,18 +73,18 @@
 // @match             http://bbs.nas66.com/forum.php?mod=viewthread&tid=*
 // @match             https://bbs.nas66.com/thread-*.html
 // @match             https://bbs.nas66.com/forum.php?mod=viewthread&tid=*
-// @match             http://www.yy.com/bbs/thread-*.html
-// @match             http://www.yy.com/bbs/forum.php?mod=viewthread&tid=*
-// @match             https://www.yy.com/bbs/thread-*.html
-// @match             https://www.yy.com/bbs/forum.php?mod=viewthread&tid=*
-// @match             http://xiage.yy.com/thread-*.html
-// @match             http://xiage.yy.com/forum.php?mod=viewthread&tid=*
-// @match             https://xiage.yy.com/thread-*.html
-// @match             https://xiage.yy.com/forum.php?mod=viewthread&tid=*
-// @match             https://www.mcbbs.net/thread-*.html
-// @match             https://www.mcbbs.net/forum.php?mod=viewthread&tid=*
-// @match             https://iya.app/thread-*.html
-// @match             https://iya.app/forum.php?mod=viewthread&tid=*
+// @match             http://*/thread-*.html
+// @match             http://*/forum.php?mod=viewthread&tid=*
+// @match             http://*/bbs/thread-*.html
+// @match             http://*/bbs/forum.php?mod=viewthread&tid=*
+// @match             http://*/forum/thread-*.html
+// @match             http://*/forum/forum.php?mod=viewthread&tid=*
+// @match             https://*/thread-*.html
+// @match             https://*/forum.php?mod=viewthread&tid=*
+// @match             https://*/bbs/thread-*.html
+// @match             https://*/bbs/forum.php?mod=viewthread&tid=*
+// @match             https://*/forum/thread-*.html
+// @match             https://*/forum/forum.php?mod=viewthread&tid=*
 // @exclude           https://www.discuz.net/thread-10000-1-1.html
 // @compatible        Chrome  Works with Tampermonkey for Chrome
 // @compatible        Edge    Works with Tampermonkey for Edge
@@ -443,7 +443,7 @@ function main() {
     }
 
     // Execution as Create Button Group
-    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 54321); } create_button_group(); })();
+    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 222222); } create_button_group(); })();
 
     // Display the user real online status
     function display_user_real_online_status(avatar, id) {
