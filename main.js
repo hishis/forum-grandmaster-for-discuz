@@ -6,7 +6,7 @@
 // @name:zh-HK        論壇大師 – Discuz!　界面美化、廣告移除、功能增強……
 // @name:zh-TW        論壇大師 – Discuz!　界面美化、廣告移除、功能增強……
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.0
+// @version           0.3.1
 // @author            hostname
 // @description       Forum Grandmaster for Discuz! (Beautify the interface, Remove ads, Enhance functions.)
 // @description:en    Forum Grandmaster for Discuz! (Beautify the interface, Remove ads, Enhance functions.)
@@ -15,7 +15,7 @@
 // @description:zh-HK 論壇大師（香港繁體） – Discuz!　界面美化、廣告移除、功能增強……
 // @description:zh-TW 論壇大師（臺灣正體） – Discuz!　界面美化、廣告移除、功能增強……
 // @homepage          https://github.com/hishis/forum-grandmaster-for-discuz
-// @icon              https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/favicon.ico
+// @icon              https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/favicon.ico
 // @updateURL         https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
 // @installURL        https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
 // @downloadURL       https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
@@ -188,11 +188,11 @@
             break;
 
         case 'Home':
-            scene_mode_css = '.pls .avatar img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_middle.gif");border-radius:50%;transition:0.7s}.pls .avatar img:hover{border-radius:0}.bui .m img{}.bui .m img:hover{}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_small.gif");border-radius:50%;transition:0.7s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{content:none;border-radius:0}';
+            scene_mode_css = '.pls .avatar img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif");border-radius:50%;transition:0.7s}.pls .avatar img:hover{border-radius:0}.bui .m img{}.bui .m img:hover{}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif");border-radius:50%;transition:0.7s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{content:none;border-radius:0}';
             break;
 
         case 'Office':
-            scene_mode_css = '.pls .avatar img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_middle.gif");border-radius:50%}.pls .avatar img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_middle.gif")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_small.gif");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body{display:none}#postlist .plhin{background-image:none}.sign,.signature{display:none}';
+            scene_mode_css = '.pls .avatar img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif");border-radius:50%}.pls .avatar img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body{display:none}#postlist .plhin{background-image:none}.sign,.signature{display:none}';
             break;
 
         default:
@@ -506,27 +506,27 @@ function main() {
         let avatar = document.querySelectorAll('.avatar .avtm img');
         avatar = !!avatar.length ? avatar : document.querySelectorAll('.pls .avatar img');
         for (let i = 0; i < avatar.length; i++) {
-            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_middle.gif';
+            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif';
         }
 
         avatar = document.querySelectorAll('#tath a img');
         for (let i = 0; i < avatar.length; i++) {
-            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_small.gif';
+            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif';
         }
 
         avatar = document.querySelectorAll('.ratl_l a img');
         for (let i = 0; i < avatar.length; i++) {
-            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_small.gif';
+            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif';
         }
 
         avatar = document.querySelectorAll('.cm .vm img');
         for (let i = 0; i < avatar.length; i++) {
-            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_small.gif';
+            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif';
         }
 
         avatar = document.querySelectorAll('.rate dd li img');
         for (let i = 0; i < avatar.length; i++) {
-            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/noavatar_small.gif';
+            avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif';
         }
     }
 
@@ -563,7 +563,7 @@ function main() {
         !!fastre && skip_bottom(fastre);
     }
 
-    const attachContent = !!~hn.indexOf('hostloc.com') ? '󠀠'.repeat(10) : '\n\n[img]' + window.location.protocol + '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/images/patch.gif[/img]';
+    const attachContent = !!~hn.indexOf('hostloc.com') ? '󠀠'.repeat(10) : '\n\n[img]' + window.location.protocol + '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.gif[/img]';
 
     const fastPostMessage = document.getElementById('fastpostmessage');
 
