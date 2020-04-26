@@ -106,32 +106,32 @@
 // @license           MPL-2.0
 // ==/UserScript==
 
+/**
+ * Forum Grandmaster for Discuz! – https://github.com/hishis/forum-grandmaster-for-discuz
+ *
+ * == BEGIN LICENSE BLOCK ==
+ *
+ * Open name: Forum Grandmaster for Discuz!
+ * Open home: https://github.com/hishis/forum-grandmaster-for-discuz
+ * Copyright Forum Grandmaster for Discuz!
+ * Licensed under MPL 2.0 (https://www.mozilla.org/MPL/2.0/)
+ *
+ * == END LICENSE BLOCK ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ * 1. GPL – GNU General Public License
+ *    https://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * 2. MPL – Mozilla Public License
+ *    https://www.mozilla.org/MPL/2.0/
+ *
+ * The original copyright notice must be retained.
+ */
+
 (function () {
     'use strict';
-
-    /**
-     * Forum Grandmaster for Discuz! – https://github.com/hishis/forum-grandmaster-for-discuz
-     *
-     * == BEGIN LICENSE BLOCK ==
-     *
-     * Open name: Forum Grandmaster for Discuz!
-     * Open home: https://github.com/hishis/forum-grandmaster-for-discuz
-     * Copyright Forum Grandmaster for Discuz!
-     * Licensed under MPL 2.0 (https://www.mozilla.org/MPL/2.0/)
-     *
-     * == END LICENSE BLOCK ==
-     *
-     * Licensed under the terms of any of the following licenses at your
-     * choice:
-     *
-     * 1. GPL – GNU General Public License
-     *    https://www.gnu.org/licenses/gpl-3.0.html
-     *
-     * 2. MPL – Mozilla Public License
-     *    https://www.mozilla.org/MPL/2.0/
-     *
-     * The original copyright notice must be retained.
-     */
 
     // Hostname
     const hn = window.location.hostname;
@@ -348,6 +348,9 @@ function main() {
 
     // Open source address
     const OPEN_HOME = 'https://github.com/hishis/forum-grandmaster-for-discuz';
+
+    // Home page
+    const HOME_PAGE = 'https://greasyfork.org/zh-CN/scripts/400250';
 
     // Scene mode: Standard, Home, Office
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
