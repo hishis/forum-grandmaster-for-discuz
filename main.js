@@ -350,7 +350,7 @@ function main() {
     const OPEN_HOME = 'https://github.com/hishis/forum-grandmaster-for-discuz';
 
     // Home page
-    const HOME_PAGE = 'https://greasyfork.org/zh-CN/scripts/400250';
+    const HOME_PAGE = 'https://greasyfork.org/scripts/400250';
 
     // Scene mode: Standard, Home, Office
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
