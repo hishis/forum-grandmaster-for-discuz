@@ -712,7 +712,7 @@ function main() {
     const fastPostMessage = document.getElementById('fastpostmessage');
 
     // Harmonious
-    if (!!area) {
+    if (member && !!area) {
         // Harmonious button
         const harmonious_button = document.createElement('span');
         harmonious_button.className = 'harmonious-button';
