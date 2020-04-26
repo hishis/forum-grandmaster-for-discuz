@@ -716,7 +716,8 @@ function main() {
         // Harmonious button
         const harmonious_button = document.createElement('span');
         harmonious_button.className = 'harmonious-button';
-        harmonious_button.innerHTML = '免疫和谐';
+        harmonious_button.innerHTML = '免疫过滤';
+        harmonious_button.title = '绕过敏感内容过滤系统';
         harmonious_button.addEventListener('click', function () {
             let fastPostMessageContent = fastPostMessage.value;
             fastPostMessageContent = fastPostMessageContent.trim();
