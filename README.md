@@ -1,7 +1,7 @@
 # 论坛大师 – Discuz!
-[![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue)](https://www.mozilla.org/MPL/2.0/)
-[![Repo size](https://img.shields.io/github/repo-size/hishis/forum-grandmaster-for-discuz)](https://github.com/hishis/forum-grandmaster-for-discuz)
-[![Code size](https://img.shields.io/github/languages/code-size/hishis/forum-grandmaster-for-discuz)](https://github.com/hishis/forum-grandmaster-for-discuz)
+[![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue?logo=Open Source Initiative)](https://www.mozilla.org/MPL/2.0/)
+[![Repo size](https://img.shields.io/github/repo-size/hishis/forum-grandmaster-for-discuz?logo=GitHub)](https://github.com/hishis/forum-grandmaster-for-discuz)
+[![Code size](https://img.shields.io/github/languages/code-size/hishis/forum-grandmaster-for-discuz?logo=CodeSandbox)](https://github.com/hishis/forum-grandmaster-for-discuz)
 
 ### 功能简介
 * 界面美化
