@@ -413,7 +413,7 @@ function main() {
     function check_network_freedom() {
         GM_xmlhttpRequest({
             method: 'GET',
-            url: 'https://hunhun.appspot.com/api/status/json/data.json',
+            url: '//hunhun.appspot.com/api/status/json/data.json',
             timeout: 2000,
             responseType: 'json',
             onload: response => {
