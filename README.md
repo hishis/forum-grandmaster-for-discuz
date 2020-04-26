@@ -1,4 +1,5 @@
 # 论坛大师 – Discuz!
+[![Google Search](https://img.shields.io/badge/Google%20Search-论坛大师-blue?logo=Google)](https://www.google.com/search?q=论坛大师)
 [![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue?logo=Open%20Source%20Initiative)](https://www.mozilla.org/MPL/2.0/)
 [![Repo size](https://img.shields.io/github/repo-size/hishis/forum-grandmaster-for-discuz?logo=GitHub)](https://github.com/hishis/forum-grandmaster-for-discuz)
 [![Code size](https://img.shields.io/github/languages/code-size/hishis/forum-grandmaster-for-discuz?logo=CodeSandbox)](https://github.com/hishis/forum-grandmaster-for-discuz)
