@@ -192,7 +192,6 @@
     }
 
     let common_css = ':root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}body,table,input,button,select,textarea,a{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.mono,.md,.code,.pre,.tt,mono,md,code,pre,tt,.pl .blockcode ol li,.pl .blockcode ul li{font-family:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}.ads,.plc .dnch_eo_pt,.plc .dnch_eo_pb,#diynavtop,#drk_colee_left1,#drk_colee_left2,#drk_ledtd,#hd .wp .a_mu,table .a_pr,.hdc.cl h2 a img,.ad .plc .a_p,.a_h,.a_t,.a_pt,.a_pb{display:none}.pls .avatar{position:relative;padding-top:1px;text-align:center}.pls .avatar img{padding:0;width:120px;height:120px;object-fit:contain;background:none;border:4px solid #fff;box-shadow:0 0 4px #bbb}.pls .avatar img:hover{background:#fff;box-shadow:0 0 8px #bbb}.bui .m{text-align:center}.bui .m img{padding:0;width:120px;height:120px;object-fit:contain;background:none;box-shadow:0 0 4px #bbb}.bui .m img:hover{background:#fff}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{object-fit:contain}.user-online-status{display:block;margin:0;border-collapse:collapse;text-align:center;position:absolute;left:0;top:0;width:10px;height:10px;cursor:help}.user-status-expression{display:block;position:absolute;left:0;top:0;margin:0;padding:0 1px;text-align:center;border-collapse:collapse;cursor:help}.user-status-expression-online::after{content:"🌝"}.user-status-expression-offline::after{content:"🌚"}.offline{filter:grayscale(100%)}.function-buttons{padding:0 0 4px 0;text-align:right;white-space:nowrap;user-select:none}.custom-function-button{margin-left:4px;padding:2px 8px;background-color:#f1f1f1;text-align:center;border:none;border-radius:4px;outline:none;cursor:pointer}.custom-function-button:hover{box-shadow:0 1px 2px #bbb}.button-disabled{color:#808080;cursor:default}.button-disabled:hover{box-shadow:none}.pl .blockcode em{display:none}#hiddenpoststip{padding:0}#hiddenpoststip a{height:32px;line-height:32px;font-size:16px}#hiddenpoststip a:hover{color:#f33}#hiddenpoststip a::before{padding-right:8px;content:"🌜"}#hiddenpoststip a::after{padding-left:8px;content:"🌛"}.pgt,.pgs,.bar{user-select:none}#fastposteditor .area{position:relative}#fastposteditor .area .harmonious-button{position:absolute;right:4px;bottom:4px;padding:0 2px;color:#333;background-color:#f1f1f1;border:none;border-radius:2px;box-shadow:0 0 2px #bbb;outline:none;cursor:pointer;opacity:0.5}#fastposteditor .area .harmonious-button:hover{color:#369;box-shadow:0 0 4px #bbb;opacity:1}';
-    GM_addStyle(common_css);
 
     let scene_mode_css;
     switch (scene_mode) {
@@ -211,7 +210,7 @@
         default:
             break;
     }
-    GM_addStyle(scene_mode_css);
+    GM_addStyle(common_css + scene_mode_css);
 
     // ads
 
@@ -414,11 +413,11 @@ function main() {
     function check_network_freedom() {
         GM_xmlhttpRequest({
             method: 'GET',
-            url: 'https://hunhun.appspot.com/api/ip/json/data.json',
+            url: 'https://hunhun.appspot.com/api/status/json/data.json',
             timeout: 2000,
             responseType: 'json',
             onload: response => {
-                if (response.readyState === 4 && response.status === 200) {
+                if (response.readyState === 4 && response.status === 200 && response.response.status === true) {
                     GM_setValue('FREEDOM_OF_NETWORK', true);
                 }
             },
