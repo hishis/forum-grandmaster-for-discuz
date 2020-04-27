@@ -751,14 +751,14 @@ function main() {
         area.appendChild(harmonious_button);
     }
 
-    const patch = !!~hn.indexOf('hostloc.com') ? '\udb40\udc20'.repeat(10) : '\n\n[img]' + window.location.protocol + '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.gif[/img]';
+    const patch = '[img]'.concat(window.location.protocol, '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.gif[/img]');
 
     function editor_content() {
         let fastPostMessageContent = fastPostMessage.value;
-        if (fastPostMessageContent && fastPostMessageContent.length < 20) {
+        if (fastPostMessageContent) {
             fastPostMessageContent = fastPostMessageContent.trim();
             fastPostMessage.style.opacity = '0';
-            fastPostMessage.value = fastPostMessageContent.concat(patch);
+            fastPostMessage.value = fastPostMessageContent.concat('\n\n', patch);
             setTimeout(() => {
                 if (fastPostMessage.value.length > fastPostMessageContent.length) {
                     fastPostMessage.value = fastPostMessageContent;
