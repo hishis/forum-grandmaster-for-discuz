@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.4
+// @version           0.3.5
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -722,11 +722,12 @@ function main() {
             let fastPostMessageContent = fastPostMessage.value;
             fastPostMessageContent = fastPostMessageContent.trim();
             if (!!~hn.indexOf('hostloc.com')) {
-                fastPostMessageContent = fastPostMessageContent.replace('\u200b', '');
+                fastPostMessageContent = fastPostMessageContent.split('\u200b').join('');
                 fastPostMessage.value = Array.from(fastPostMessageContent).join('\u200b');
             } else {
+                fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
+                fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
                 fastPostMessage.value = '[font=None]' + Array.from(fastPostMessageContent).join('[/font][font=None]') + '[/font]';
-                harmonious_button.style.display = 'none';
             }
             let message = '免疫完成';
             !!fastPostMessageContent.length && show_dialog(message);
