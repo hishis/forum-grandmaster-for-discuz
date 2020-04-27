@@ -332,7 +332,7 @@
 
 unsafeWindow.addEventListener('beforescriptexecute', function (e) {
     let src = e.target.src;
-    if (!!~src.indexOf('/ads') || !!~src.indexOf('alimama') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
+    if (!!~src.indexOf('/ads') || !!~src.indexOf('analytics') || !!~src.indexOf('logs') || !!~src.indexOf('alimama') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
         e.preventDefault();
         e.stopPropagation();
     }
