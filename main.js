@@ -789,6 +789,24 @@ function main() {
 
     // Compatibility settings
 
+    const lang = window.navigator.language;
+    let lang_patch_css;
+    switch (lang) {
+        case 'zh-CN':
+            break;
+
+        case 'zh-HK':
+        case 'zh-MO':
+        case 'zh-TW':
+            lang_patch_css = '.t_f .zoom[src$="/forum-grandmaster-for-discuz/public/images/patch.gif"]{content:url("//img.shields.io/badge/油猴腳本-論壇大師-blue")}';
+            break;
+
+        default:
+            lang_patch_css = '.t_f .zoom[src$="/forum-grandmaster-for-discuz/public/images/patch.gif"]{content:url("//img.shields.io/badge/Greasy%20Fork-Forum%20Grandmaster%20for%20Discuz!-blue")}';
+            break;
+    }
+    !!lang_patch_css && GM_addStyle(lang_patch_css);
+
     // bbs.pcbeta.com
     if (!!~hn.indexOf('bbs.pcbeta.com')) {
         setTimeout(() => {
