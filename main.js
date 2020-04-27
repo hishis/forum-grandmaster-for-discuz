@@ -717,20 +717,25 @@ function main() {
         const harmonious_button = document.createElement('span');
         harmonious_button.className = 'harmonious-button';
         harmonious_button.innerHTML = '免疫过滤';
-        harmonious_button.title = '免疫敏感内容过滤系统';
+        harmonious_button.title = '🔊免疫敏感内容过滤系统\n📖左键免疫\n📖右键还原';
         harmonious_button.addEventListener('click', function () {
             let fastPostMessageContent = fastPostMessage.value;
             fastPostMessageContent = fastPostMessageContent.trim();
+            let message = '免疫完成';
             if (!!~hn.indexOf('hostloc.com')) {
                 fastPostMessageContent = fastPostMessageContent.split('\u200b').join('');
-                fastPostMessage.value = Array.from(fastPostMessageContent).join('\u200b');
+                if (!!fastPostMessageContent.length) {
+                    fastPostMessage.value = Array.from(fastPostMessageContent).join('\u200b');
+                    show_dialog(message);
+                }
             } else {
                 fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
                 fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
-                fastPostMessage.value = '[font=None]' + Array.from(fastPostMessageContent).join('[/font][font=None]') + '[/font]';
+                if (!!fastPostMessageContent.length) {
+                    fastPostMessage.value = '[font=None]' + Array.from(fastPostMessageContent).join('[/font][font=None]') + '[/font]';
+                    show_dialog(message);
+                }
             }
-            let message = '免疫完成';
-            !!fastPostMessageContent.length && show_dialog(message);
         }, false);
         harmonious_button.addEventListener('contextmenu', function (event) {
             event.preventDefault();
