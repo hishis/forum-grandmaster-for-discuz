@@ -331,7 +331,7 @@
 })();
 
 unsafeWindow.addEventListener('beforescriptexecute', function (event) {
-    let src = e.target.src;
+    let src = event.target.src;
     if (!!~src.indexOf('/ads') || !!~src.indexOf('analytics') || !!~src.indexOf('logs') || !!~src.indexOf('alimama') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
         event.preventDefault();
         event.stopPropagation();
