@@ -330,11 +330,11 @@
     `);
 })();
 
-unsafeWindow.addEventListener('beforescriptexecute', function (e) {
+unsafeWindow.addEventListener('beforescriptexecute', function (event) {
     let src = e.target.src;
     if (!!~src.indexOf('/ads') || !!~src.indexOf('analytics') || !!~src.indexOf('logs') || !!~src.indexOf('alimama') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
-        e.preventDefault();
-        e.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
     }
 }, false);
 
@@ -730,6 +730,17 @@ function main() {
                 fastPostMessage.value = '[font=None]' + Array.from(fastPostMessageContent).join('[/font][font=None]') + '[/font]';
             }
             let message = '免疫完成';
+            !!fastPostMessageContent.length && show_dialog(message);
+        }, false);
+        harmonious_button.addEventListener('contextmenu', function (event) {
+            event.preventDefault();
+            let fastPostMessageContent = fastPostMessage.value;
+            fastPostMessageContent = fastPostMessageContent.trim();
+            fastPostMessageContent = fastPostMessageContent.split('\u200b').join('');
+            fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
+            fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
+            fastPostMessage.value = fastPostMessageContent;
+            let message = '取消免疫';
             !!fastPostMessageContent.length && show_dialog(message);
         }, false);
         area.appendChild(harmonious_button);
