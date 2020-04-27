@@ -717,7 +717,7 @@ function main() {
         const harmonious_button = document.createElement('span');
         harmonious_button.className = 'harmonious-button';
         harmonious_button.innerHTML = '免疫过滤';
-        harmonious_button.title = '🔊免疫敏感内容过滤系统\n📖左键免疫\n📖右键还原';
+        harmonious_button.title = '🔊免疫敏感内容过滤系统！\n📖左键执行免疫\n📖右键取消免疫';
         harmonious_button.addEventListener('click', function () {
             let fastPostMessageContent = fastPostMessage.value;
             fastPostMessageContent = fastPostMessageContent.trim();
