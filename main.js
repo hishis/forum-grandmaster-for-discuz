@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.10
+// @version           0.3.11
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -712,6 +712,7 @@ function main() {
                 fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
                 if (!!fastPostMessageContent.length) {
                     fastPostMessage.value = '[font=None]' + Array.from(fastPostMessageContent).join('[/font][font=None]') + '[/font]';
+                    message = '免疫完成！';
                     show_dialog(message);
                 }
             }
@@ -885,6 +886,9 @@ function main() {
     // www.hostloc.com
     if (!!~hn.indexOf('hostloc.com')) {
         GM_addStyle(`
+            #hd .wp {
+                padding-top: 0;
+            }
             #spanButtonPlaceholder .img-upload {
                 margin-left: 2px;
                 cursor: pointer;
