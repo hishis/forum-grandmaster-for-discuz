@@ -704,6 +704,7 @@ function main() {
                 }
                 !!message && show_dialog(message);
             } else {
+                fastPostMessageContent = fastPostMessageContent.split('\u200b').join('');
                 fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
                 fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
                 if (!!fastPostMessageContent.length) {
