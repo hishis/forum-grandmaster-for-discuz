@@ -342,7 +342,7 @@ function main() {
     // Global Settings – Start
     const GLOBAL_CONFIG = {
         // Display the users online status: None, Standard, Advanced
-        display_users_online_status: 'Advanced',
+        displayUsersOnlineStatus: 'Advanced',
     }
     // Global Settings – End
 
@@ -356,7 +356,7 @@ function main() {
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
 
     // Display the users online status: None, Standard, Advanced
-    let display_users_online_status = GM_getValue('DISPLAY_USERS_ONLINE_STATUS', GLOBAL_CONFIG.display_users_online_status);
+    let display_users_online_status = GM_getValue('DISPLAY_USERS_ONLINE_STATUS', GLOBAL_CONFIG.displayUsersOnlineStatus);
     if (!~['None', 'Standard', 'Advanced'].indexOf(display_users_online_status)) {
         display_users_online_status = 'Advanced';
         GM_setValue('DISPLAY_USERS_ONLINE_STATUS', display_users_online_status);
@@ -575,7 +575,7 @@ function main() {
     }
 
     // Execution as Create Button Group
-    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 222222); } create_button_group(); })();
+    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 654321); } create_button_group(); })();
 
     // Display the user real online status
     function display_user_real_online_status(avatar, id) {
@@ -720,8 +720,8 @@ function main() {
         let fastPostMessageContent = fastPostMessage.value;
         if (fastPostMessageContent) {
             fastPostMessageContent = fastPostMessageContent.trim();
+            fastPostMessage.value = !!~fastPostMessageContent.indexOf(patch) ? fastPostMessageContent : fastPostMessageContent.concat('\n\n', patch);
             fastPostMessage.style.opacity = '0';
-            fastPostMessage.value = fastPostMessageContent.concat('\n\n', patch);
             setTimeout(() => {
                 if (fastPostMessage.value.length > fastPostMessageContent.length) {
                     fastPostMessage.value = fastPostMessageContent;
