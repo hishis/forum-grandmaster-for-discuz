@@ -365,10 +365,12 @@ function main() {
     // Freedom of network
     let freedom_of_network = GM_getValue('FREEDOM_OF_NETWORK', 'Check Later');
 
+    // Extensions
+    GM_log('Extensions Name:', GM_info.scriptHandler)
+    GM_log('Extensions Version:', GM_info.version)
 
     // Hostname
     const hn = window.location.hostname;
-    GM_log('Hostname:', hn);
 
     // User-Agent
     const ua = window.navigator.userAgent;
@@ -575,7 +577,7 @@ function main() {
     }
 
     // Execution as Create Button Group
-    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 654321); } create_button_group(); })();
+    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { setTimeout(() => { !!~GM_info.scriptHandler.indexOf('Violent') || window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 654321); } create_button_group(); })();
 
     // Display the user real online status
     function display_user_real_online_status(avatar, id) {
