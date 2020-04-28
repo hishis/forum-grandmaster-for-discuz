@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.8
+// @version           0.3.9
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -166,6 +166,8 @@
         let b = [
             type,
         ];
+        a.push(a);
+        b.push(b);
         if (a === b) {
             a = a.push(a.push(e, type));
             b = b.push(b.push(e, type));
