@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.7
+// @version           0.3.8
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -684,13 +684,25 @@ function main() {
         harmonious_button.addEventListener('click', function () {
             let fastPostMessageContent = fastPostMessage.value;
             fastPostMessageContent = fastPostMessageContent.trim();
-            let message = '免疫完成';
+            let message;
             if (!!~hn.indexOf('hostloc.com')) {
-                fastPostMessageContent = fastPostMessageContent.split('\u200b').join('');
-                if (!!fastPostMessageContent.length) {
-                    fastPostMessage.value = Array.from(fastPostMessageContent).join('\u200b');
-                    show_dialog(message);
+                if (!!~fastPostMessageContent.indexOf('\u200b')) {
+                    fastPostMessageContent = fastPostMessageContent.split('\u200b').join('');
+                    fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
+                    fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
+                    if (!!fastPostMessageContent.length) {
+                        fastPostMessage.value = '[font=None]' + Array.from(fastPostMessageContent).join('[/font][font=None]') + '[/font]';
+                        message = '免疫完成！（通过使用论坛标签）';
+                    }
+                } else {
+                    fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
+                    fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
+                    if (!!fastPostMessageContent.length) {
+                        fastPostMessage.value = Array.from(fastPostMessageContent).join('\u200b');
+                        message = '免疫完成！（通过使用零宽字符）';
+                    }
                 }
+                !!message && show_dialog(message);
             } else {
                 fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
                 fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
