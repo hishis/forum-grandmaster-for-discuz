@@ -83,6 +83,7 @@
 // @match             https://*/bbs/forum.php?mod=viewthread&tid=*
 // @match             https://*/forum/thread-*.html
 // @match             https://*/forum/forum.php?mod=viewthread&tid=*
+// @match             https://hishis.gitlab.io/tools/forum-grandmaster/
 // @compatible        Chrome  Works with Tampermonkey for Chrome
 // @compatible        Edge    Works with Tampermonkey for Edge
 // @compatible        Firefox Works with Tampermonkey for Firefox
