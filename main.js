@@ -582,7 +582,7 @@ function main() {
         settings_button.className = 'custom-function-button settings-button';
         settings_button.innerHTML = '大师设置';
         settings_button.addEventListener('click', function () {
-            show_dialog('这个功能正在开发，敬请期待！');
+            show_dialog('设置功能正在开发，敬请期待！');
         }, false);
         function_buttons.appendChild(settings_button);
 
