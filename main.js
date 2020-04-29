@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.11
+// @version           0.3.12
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -1063,7 +1063,7 @@ function main() {
 
 // System settings
 if (window.location.hostname === 'hishis.github.io') {
-    GM_info('Hello', GM_info.scriptHandler);
+    GM_log('Hello', GM_info.scriptHandler);
 }
 
 document.onreadystatechange = function () {
