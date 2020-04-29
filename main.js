@@ -83,7 +83,7 @@
 // @match             https://*/bbs/forum.php?mod=viewthread&tid=*
 // @match             https://*/forum/thread-*.html
 // @match             https://*/forum/forum.php?mod=viewthread&tid=*
-// @match             https://hishis.github.io/tools/forum-grandmaster/index.html
+// @match             https://hishis.github.io/tools/forum-grandmaster/
 // @compatible        Chrome  Works with Tampermonkey for Chrome
 // @compatible        Edge    Works with Tampermonkey for Edge
 // @compatible        Firefox Works with Tampermonkey for Firefox
@@ -485,7 +485,8 @@ function main() {
         settings_button.className = 'custom-function-button settings-button';
         settings_button.innerHTML = '大师设置';
         settings_button.addEventListener('click', function () {
-            show_dialog('设置功能正在开发，敬请期待！');
+            GM_openInTab('https://hishis.github.io/tools/forum-grandmaster/', false);
+            show_dialog('设置之后需要刷新页面才会生效！');
         }, false);
         // function_buttons.appendChild(settings_button);
 
