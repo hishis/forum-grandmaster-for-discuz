@@ -83,7 +83,7 @@
 // @match             https://*/bbs/forum.php?mod=viewthread&tid=*
 // @match             https://*/forum/thread-*.html
 // @match             https://*/forum/forum.php?mod=viewthread&tid=*
-// @match             https://hishis.gitlab.io/tools/forum-grandmaster/
+// @match             https://hishis.github.io/tools/forum-grandmaster/index.html
 // @compatible        Chrome  Works with Tampermonkey for Chrome
 // @compatible        Edge    Works with Tampermonkey for Edge
 // @compatible        Firefox Works with Tampermonkey for Firefox
@@ -226,122 +226,12 @@
     }
     GM_addStyle(common_css);
 
-    // ads
-
     // bbs.pcbeta.com
     if (!!~hn.indexOf('bbs.pcbeta.com')) {
-        for (let i = 0; i < 10; i++) {
-            setTimeout(() => {
-                GM_addStyle(`
-                    .function-buttons {
-                        display: none;
-                    }
-                `);
-            }, i * 100);
-        }
         setTimeout(() => {
-            GM_addStyle(common_css + scene_mode_css + `
-                #wp > div,
-                #nv_forum > span,
-                .pls .tip,
-                ignore_js_op .tip {
-                    display: none;
-                }
-
-                #wp > div:first-child,
-                #wp > div.cl,
-                #wp > div.wp,
-                #nv_forum #scrolltop {
-                    display: block;
-                }
-
-                .pls .avatar {
-                    overflow: unset;
-                }
-
-                .pls .m img {
-                    margin-left: 2px;
-                    padding: 0;
-                    width: 120px;
-                    height: 120px;
-                    object-fit: contain;
-                    background: #fff;
-                    border: none;
-                    border-radius: 50%;
-                    box-shadow: none;
-                }
-
-                .pls .m img:hover {
-                    border-radius: 0;
-                    box-shadow: none;
-                }
-
-                .pls .pi {
-                    padding-left: 0;
-                    padding-right: 0;
-                    text-align: center;
-                }
-
-                .pb_pls .avatar img {
-                    border-radius: 50%;
-                    background: none;
-                }
-
-                .pb_pls .avatar img:hover {
-                    border-radius: 0;
-                }
-
-                .hdc {
-                    position: relative;
-                }
-
-                #function-buttons {
-                    display: block;
-                    position: absolute;
-                    right: 0;
-                    padding: 2px 8px 4px 0;
-                    border-radius: 4px;
-                }
-
-                .custom-function-button {
-                    color: #333;
-                    background-color: #fff;
-                    box-shadow: 0 1px 2px #bbb;
-                }
-
-                .custom-function-button:hover {
-                    color: #1985db;
-                    box-shadow: 0 2px 4px #bbb;
-                }
-
-                .pi {
-                    padding-left: 0;
-                    color: var(--gray);
-                }
-
-                .pi:hover {
-                    color: var(--gray-dark);
-                }
-            `);
-
-            if (scene_mode === 'Office') {
-                GM_addStyle(`
-                    td.pls > p,
-                    td.pls > dl {
-                        display: none;
-                    }
-                `);
-            }
+            GM_addStyle(common_css);
         }, 999);
     }
-
-    // www.zuanke8.com
-    !!~hn.indexOf('zuanke8.com') && GM_addStyle(`
-        #hd .zuanamu,
-        #xad_mu {
-            display: none;
-        }
-    `);
 })();
 
 unsafeWindow.addEventListener('beforescriptexecute', function (event) {
@@ -900,6 +790,90 @@ function main() {
     // bbs.pcbeta.com
     if (!!~hn.indexOf('bbs.pcbeta.com')) {
         setTimeout(() => {
+            GM_addStyle(`
+                #wp > div,
+                #nv_forum > span,
+                .pls .tip,
+                ignore_js_op .tip {
+                    display: none;
+                }
+
+                #wp > div:first-child,
+                #wp > div.cl,
+                #wp > div.wp,
+                #nv_forum #scrolltop {
+                    display: block;
+                }
+
+                .pls .avatar {
+                    overflow: unset;
+                }
+
+                .pls .m img {
+                    margin-left: 2px;
+                    padding: 0;
+                    width: 120px;
+                    height: 120px;
+                    object-fit: contain;
+                    background: #fff;
+                    border: none;
+                    border-radius: 50%;
+                    box-shadow: none;
+                }
+
+                .pls .m img:hover {
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+
+                .pls .pi {
+                    padding-left: 0;
+                    padding-right: 0;
+                    text-align: center;
+                }
+
+                .pb_pls .avatar img {
+                    border-radius: 50%;
+                    background: none;
+                }
+
+                .pb_pls .avatar img:hover {
+                    border-radius: 0;
+                }
+
+                .hdc {
+                    position: relative;
+                }
+
+                #function-buttons {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    padding: 2px 8px 4px 0;
+                    border-radius: 4px;
+                }
+
+                .custom-function-button {
+                    color: #333;
+                    background-color: #fff;
+                    box-shadow: 0 1px 2px #bbb;
+                }
+
+                .custom-function-button:hover {
+                    color: #1985db;
+                    box-shadow: 0 2px 4px #bbb;
+                }
+
+                .pi {
+                    padding-left: 0;
+                    color: var(--gray);
+                }
+
+                .pi:hover {
+                    color: var(--gray-dark);
+                }
+            `);
+
             if (member === false) {
                 GM_addStyle(`
                     .function-buttons {
@@ -908,7 +882,17 @@ function main() {
                     }
                 `);
             }
-        }, 1000);
+
+            if (scene_mode === 'Office') {
+                GM_addStyle(`
+                    td.pls > p,
+                    td.pls > dl {
+                        display: none;
+                    }
+                `);
+            }
+        }, 999);
+
     }
 
     // www.hostloc.com
@@ -973,6 +957,13 @@ function main() {
 
     // www.zuanke8.com
     if (!!~hn.indexOf('zuanke8.com')) {
+        GM_addStyle(`
+            #hd .zuanamu,
+            #xad_mu {
+                display: none;
+            }
+        `);
+
         let ads = document.getElementsByClassName('adsbygoogle');
         if (!!ads.length) {
             for (let i = 0; i < ads.length; i++) {
@@ -1068,6 +1059,11 @@ function main() {
             background-color: #fff;
         }
     `);
+}
+
+// System settings
+if (window.location.hostname === 'hishis.github.io') {
+    GM_info('Hello', GM_info.scriptHandler);
 }
 
 document.onreadystatechange = function () {
