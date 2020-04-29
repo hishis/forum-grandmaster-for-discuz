@@ -452,6 +452,9 @@ function main() {
         const function_buttons = document.createElement('div');
         function_buttons.id = 'function-buttons';
         function_buttons.className = 'function-buttons';
+        function_buttons.addEventListener('contextmenu', function () {
+            event.preventDefault();
+        }, false);
         let function_buttons_package;
         switch (true) {
             case !!document.getElementsByClassName('xm_header_top_ul').length:
@@ -573,6 +576,15 @@ function main() {
             GM_openInTab('https://t.me/joinchat/Bc2EjlPZ0aOwiA-Gn73xKA', false);
         }, false);
         !!freedom_of_network && function_buttons.appendChild(group_button);
+
+        // Settings button
+        const settings_button = document.createElement('button');
+        settings_button.className = 'custom-function-button settings-button';
+        settings_button.innerHTML = '大师设置';
+        settings_button.addEventListener('click', function () {
+            show_dialog('这个功能正在开发，敬请期待！');
+        }, false);
+        function_buttons.appendChild(settings_button);
 
         function_buttons_package.appendChild(function_buttons);
     }
@@ -763,6 +775,9 @@ function main() {
 
     const fastPostSubmit = document.getElementById('fastpostsubmit');
     !!fastPostSubmit && fastPostSubmit.addEventListener('click', editor_content, false);
+
+    const messageText = document.getElementById('messagetext');
+    !!messageText && show_dialog('权限不够！');
 
     // Automatically expand all posts
     // if (typeof display_blocked_post === 'function') display_blocked_post();
