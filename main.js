@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.12
+// @version           0.3.13
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -487,7 +487,7 @@ function main() {
         settings_button.addEventListener('click', function () {
             show_dialog('设置功能正在开发，敬请期待！');
         }, false);
-        function_buttons.appendChild(settings_button);
+        // function_buttons.appendChild(settings_button);
 
         function_buttons_package.appendChild(function_buttons);
     }
@@ -1063,11 +1063,37 @@ function main() {
 
 // System settings
 if (window.location.hostname === 'hishis.github.io') {
-    GM_log('Hello', GM_info.scriptHandler);
+    GM_log('%c油猴脚本：论坛大师', 'color: #f33; font-size: 32px; cursor: default;');
+    GM_log('%c扩展：' + GM_info.scriptHandler, 'color: #036; font-size: 16px; cursor: default;')
+    GM_log('%c版本：' + GM_info.version, 'color: #036; font-size: 16px; cursor: default;')
+    GM_log('%c网络自由：' + GM_getValue('FREEDOM_OF_NETWORK', 'Check Later'), 'color: #036; font-size: 16px; cursor: default;')
+    // Check network degrees of freedom
+    function check_network_freedom() {
+        GM_xmlhttpRequest({
+            method: 'GET',
+            url: '//hunhun.appspot.com/api/status/json/data.json',
+            timeout: 2000,
+            responseType: 'json',
+            onload: response => {
+                if (response.readyState === 4 && response.status === 200 && response.response.status === true) {
+                    GM_setValue('FREEDOM_OF_NETWORK', true);
+                }
+            },
+            onerror: error => {
+                GM_setValue('FREEDOM_OF_NETWORK', false);
+            },
+            ontimeout: timeout => {
+                GM_setValue('FREEDOM_OF_NETWORK', false);
+            }
+        });
+    }
+    setTimeout(() => {
+        check_network_freedom();
+    }, 2000);
 }
 
 document.onreadystatechange = function () {
     if (document.readyState === 'interactive') {
-        main();
+        !!~window.location.hostname.indexOf('hishis.github.io') || main();
     }
 }
