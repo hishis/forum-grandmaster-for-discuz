@@ -487,7 +487,7 @@ function main() {
         settings_button.className = 'custom-function-button settings-button';
         settings_button.innerHTML = '大师设置';
         settings_button.addEventListener('click', function () {
-            GM_setValue('HOSTNAME', hn);
+            GM_setValue('FROM', hn);
             GM_openInTab('https://hishis.github.io/tools/forum-grandmaster/', false);
             setTimeout(() => {
                 show_dialog('设置之后需要刷新页面才会生效！');
@@ -1101,14 +1101,19 @@ if (window.location.hostname === 'hishis.github.io') {
     FG.extensions.version = GM_info.version;
     FG.script.name = GM_info.script.name;
     FG.script.version = GM_info.script.version;
-    FG.data.hostname = GM_getValue('HOSTNAME', null);
-    GM_log('%c扩展名字：'.concat(FG.extensions.name), 'color: #369; font-size: 16px; cursor: default;')
-    GM_log('%c扩展版本：'.concat(FG.extensions.version), 'color: #369; font-size: 16px; cursor: default;')
-    GM_log('%c脚本名字：'.concat(FG.script.name), 'color: #369; font-size: 16px; cursor: default;')
-    GM_log('%c脚本版本：'.concat(FG.script.version), 'color: #369; font-size: 16px; cursor: default;')
-    GM_log('%c用户代理：'.concat(window.navigator.userAgent), 'color: #369; font-size: 16px; cursor: default;')
-    GM_log('%c默认语言：'.concat(window.navigator.language), 'color: #369; font-size: 16px; cursor: default;')
-    GM_log('%c网络自由：'.concat(GM_getValue('FREEDOM_OF_NETWORK', 'Check Later')), 'color: #369; font-size: 16px; cursor: default;')
+
+    FG.data.from = GM_getValue('FROM', '');
+    FG.data.hostname = window.location.hostname;
+
+    let consoleCSS = 'color: #369; font-size: 16px; cursor: default;';
+
+    GM_log('%c扩展名字：'.concat(FG.extensions.name), consoleCSS)
+    GM_log('%c扩展版本：'.concat(FG.extensions.version), consoleCSS)
+    GM_log('%c脚本名字：'.concat(FG.script.name), consoleCSS)
+    GM_log('%c脚本版本：'.concat(FG.script.version), consoleCSS)
+    GM_log('%c用户代理：'.concat(window.navigator.userAgent), consoleCSS)
+    GM_log('%c默认语言：'.concat(window.navigator.language), consoleCSS)
+    GM_log('%c网络自由：'.concat(GM_getValue('FREEDOM_OF_NETWORK', 'Check Later')), consoleCSS)
 
     FG.m = new Map();
 
