@@ -272,9 +272,6 @@ function main() {
     // Display badge: true, false
     let display_badge = GM_getValue('DISPLAY_BADGE', false);
 
-    // Freedom of network
-    let freedom_of_network = GM_getValue('FREEDOM_OF_NETWORK', 'Check Later');
-
     // Hostname
     const hn = window.location.hostname;
 
@@ -284,7 +281,6 @@ function main() {
 
     GM_log('Scene mode:', scene_mode);
     GM_log('Display the users online status:', display_users_online_status);
-    GM_log('Freedom of network:', freedom_of_network);
 
     // Login status
     const member = !!document.getElementById('extcreditmenu') || !!document.getElementById('myprompt') || !!document.getElementById('myrepeats');
@@ -316,39 +312,6 @@ function main() {
         } catch (error) {
             alert(message);
         }
-    }
-
-    // Check network degrees of freedom
-    function check_network_freedom() {
-        GM_xmlhttpRequest({
-            method: 'GET',
-            url: '//hunhun.appspot.com/api/status/json/data.json',
-            timeout: 2000,
-            responseType: 'json',
-            onload: response => {
-                if (response.readyState === 4 && response.status === 200 && response.response.status === true) {
-                    GM_setValue('FREEDOM_OF_NETWORK', true);
-                }
-            },
-            onerror: error => {
-                GM_setValue('FREEDOM_OF_NETWORK', false);
-            },
-            ontimeout: timeout => {
-                GM_setValue('FREEDOM_OF_NETWORK', false);
-            }
-        });
-    }
-
-    // Recheck network degrees of freedom
-    if (freedom_of_network === 'Check Later') {
-        freedom_of_network = false;
-        setTimeout(() => {
-            check_network_freedom();
-        }, 1000 * 60);
-    } else if (Math.random() < 0.1) {
-        setTimeout(() => {
-            check_network_freedom();
-        }, 1000 * 600);
     }
 
     // Create Button Group
@@ -480,7 +443,7 @@ function main() {
         group_button.addEventListener('click', function () {
             GM_openInTab('https://t.me/joinchat/Bc2EjlPZ0aOwiA-Gn73xKA', false);
         }, false);
-        !!freedom_of_network && function_buttons.appendChild(group_button);
+        // function_buttons.appendChild(group_button);
 
         // Settings button
         const settings_button = document.createElement('button');
@@ -1094,16 +1057,20 @@ function main() {
 if (window.location.hostname === 'hishis.github.io') {
     unsafeWindow.forumGrandmaster = {};
     const FG = unsafeWindow.forumGrandmaster;
-    FG.data = {}
-    FG.extensions = {}
-    FG.script = {}
+    FG.data = {};
+    FG.extensions = {};
+    FG.script = {};
+
+    FG.data.ua = window.navigator.userAgent;
+    FG.data.lang = window.navigator.language;
+    FG.data.from = GM_getValue('FROM', '');
+    FG.data.hostname = window.location.hostname;
+    FG.data.freedom_of_network = GM_getValue('FREEDOM_OF_NETWORK', 'Check Later');
+
     FG.extensions.name = GM_info.scriptHandler;
     FG.extensions.version = GM_info.version;
     FG.script.name = GM_info.script.name;
     FG.script.version = GM_info.script.version;
-
-    FG.data.from = GM_getValue('FROM', '');
-    FG.data.hostname = window.location.hostname;
 
     let consoleCSS = 'color: #369; font-size: 16px; cursor: default;';
 
@@ -1111,9 +1078,9 @@ if (window.location.hostname === 'hishis.github.io') {
     GM_log('%c扩展版本：'.concat(FG.extensions.version), consoleCSS)
     GM_log('%c脚本名字：'.concat(FG.script.name), consoleCSS)
     GM_log('%c脚本版本：'.concat(FG.script.version), consoleCSS)
-    GM_log('%c用户代理：'.concat(window.navigator.userAgent), consoleCSS)
-    GM_log('%c默认语言：'.concat(window.navigator.language), consoleCSS)
-    GM_log('%c网络自由：'.concat(GM_getValue('FREEDOM_OF_NETWORK', 'Check Later')), consoleCSS)
+    GM_log('%c用户代理：'.concat(FG.data.ua), consoleCSS)
+    GM_log('%c默认语言：'.concat(FG.data.lang), consoleCSS)
+    GM_log('%c网络自由：'.concat(FG.data.freedom_of_network), consoleCSS)
 
     FG.m = new Map();
 
@@ -1126,8 +1093,8 @@ if (window.location.hostname === 'hishis.github.io') {
         FG.m.set(list[i], GM_getValue(list[i], null));
     }
 
-    // Check network degrees of freedom
-    function check_network_freedom() {
+    // Freedom of network
+    function check_freedom_of_network() {
         GM_xmlhttpRequest({
             method: 'GET',
             url: '//hunhun.appspot.com/api/status/json/data.json',
@@ -1188,7 +1155,7 @@ if (window.location.hostname === 'hishis.github.io') {
     }, 2000);
 
     setTimeout(() => {
-        check_network_freedom();
+        check_freedom_of_network();
     }, 9999);
 }
 
