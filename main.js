@@ -147,6 +147,12 @@
 (function () {
     'use strict';
 
+    if (typeof GM_addStyle === 'undefined') {
+        alert('论坛大师油猴脚本不支持 Greasemonkey，请先安装 Tampermonkey 或 Violentmonkey（暴力猴）');
+        window.location.replace('https://www.tampermonkey.net/');
+        document.body.innerHTML = '';
+    }
+
     // Hostname
     const hn = window.location.hostname;
 
