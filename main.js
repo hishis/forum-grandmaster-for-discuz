@@ -277,7 +277,6 @@ function main() {
 
     // User-Agent
     const ua = window.navigator.userAgent;
-    GM_log('User-Agent:', ua);
 
     GM_log('Scene mode:', scene_mode);
     GM_log('Display the users online status:', display_users_online_status);
