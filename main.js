@@ -716,20 +716,20 @@ function main() {
         let lang_patch_alt;
         switch (lang) {
             case 'zh-CN':
-                lang_patch_img = '//img.shields.io/badge/油猴脚本-论坛大师-blue?logo=Mozilla%20Firefox';
-                lang_patch_alt = '油猴脚本：论坛大师';
+                lang_patch_img = '//img.shields.io/badge/油猴脚本-论坛大师-blue';
+                lang_patch_alt = '油猴脚本 – 论坛大师';
                 break;
 
             case 'zh-HK':
             case 'zh-MO':
             case 'zh-TW':
-                lang_patch_img = '//img.shields.io/badge/油猴腳本-論壇大師-blue?logo=Mozilla%20Firefox';
-                lang_patch_alt = '油猴腳本：論壇大師';
+                lang_patch_img = '//img.shields.io/badge/油猴腳本-論壇大師-blue';
+                lang_patch_alt = '油猴腳本 – 論壇大師';
                 break;
 
             default:
                 lang_patch_img = '//img.shields.io/badge/Mozilla%20Firefox-Forum%20Grandmaster%20for%20Discuz!-blue?logo=Mozilla%20Firefox';
-                lang_patch_alt = 'Greasy Fork: Forum Grandmaster for Discuz!';
+                lang_patch_alt = 'Mozilla Firefox – Forum Grandmaster for Discuz!';
                 break;
         }
         const posts_img = document.getElementsByClassName('zoom');
