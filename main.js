@@ -686,7 +686,7 @@ function main() {
     !!fastPostSubmit && fastPostSubmit.addEventListener('click', editor_content, false);
 
     const messageText = document.getElementById('messagetext');
-    if (!!messageText && !!~messageText.innerText.indexOf('抱歉，本帖要求阅读权限高于')) {
+    if (false && !!messageText && !!~messageText.innerText.indexOf('抱歉，本帖要求阅读权限高于')) {
         GM_addStyle(`
             .nfl .f_c {
                 margin: 16px auto;
