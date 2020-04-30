@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.13
+// @version           0.3.14
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -91,6 +91,7 @@
 // @compatible        Safari  Works with Tampermonkey for Safari
 // @run-at            document-start
 // @connect           self
+// @connect           greasyfork.org
 // @connect           hunhun.appspot.com
 // @grant             unsafeWindow
 // @grant             GM_addStyle
@@ -152,13 +153,6 @@
     // User-Agent
     const ua = window.navigator.userAgent;
 
-    // Scene mode: Standard, Home, Office
-    let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
-    if (!~['Standard', 'Home', 'Office'].indexOf(scene_mode)) {
-        scene_mode = 'Standard';
-        GM_setValue('SCENE_MODE', scene_mode);
-    }
-
     // Runtime Type Checks – Runtime type checks for JavaScript and TypeScript
     const list_aaaa = [];
     const list_bbbb = [];
@@ -206,6 +200,12 @@
         }
     }
 
+    // Scene mode: Standard, Home, Office
+    let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
+
+    // Display badge: true, false
+    let display_badge = GM_getValue('DISPLAY_BADGE', false);
+
     let common_css = ':root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}body,table,input,button,select,textarea,a{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.mono,.md,.code,.pre,.tt,mono,md,code,pre,tt,.pl .blockcode ol li,.pl .blockcode ul li{font-family:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}.ads,.plc .dnch_eo_pt,.plc .dnch_eo_pb,#diynavtop,#drk_colee_left1,#drk_colee_left2,#drk_ledtd,#hd .wp .a_mu,table .a_pr,.ad .plc .a_p,.a_h,.a_t,.a_pt,.a_pb{display:none}.pls .avatar{position:relative;padding-top:1px;text-align:center}.pls .avatar img{padding:0;width:120px;height:120px;object-fit:contain;background:none;border:4px solid #fff;box-shadow:0 0 4px #bbb}.pls .avatar img:hover{background:#fff;box-shadow:0 0 8px #bbb}.bui .m{text-align:center}.bui .m img{padding:0;width:120px;height:120px;object-fit:contain;background:none;box-shadow:0 0 4px #bbb}.bui .m img:hover{background:#fff}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{object-fit:contain}.user-online-status{display:block;margin:0;border-collapse:collapse;text-align:center;position:absolute;left:0;top:0;width:10px;height:10px;cursor:help}.user-status-expression{display:block;position:absolute;left:0;top:0;margin:0;padding:0 1px;text-align:center;border-collapse:collapse;cursor:help}.user-status-expression-online::after{content:"🌝"}.user-status-expression-offline::after{content:"🌚"}.offline{filter:grayscale(100%)}.function-buttons{padding:0 0 4px 0;text-align:right;white-space:nowrap}.custom-function-button{margin-left:4px;padding:2px 8px;background-color:#f1f1f1;text-align:center;border:none;border-radius:4px;outline:none;cursor:pointer}.custom-function-button:hover{box-shadow:0 1px 2px #bbb}.button-disabled{color:#808080;cursor:default}.button-disabled:hover{box-shadow:none}.pl .blockcode em{display:none}#hiddenpoststip{padding:0}.t_f .zoom{margin:4px auto;box-shadow:0 0 2px #bbb}.t_f .zoom:hover{box-shadow:0 0 4px #bbb}#hiddenpoststip a{height:32px;line-height:32px;font-size:16px}#hiddenpoststip a:hover{color:#f33}#hiddenpoststip a::before{padding-right:8px;content:"🌜"}#hiddenpoststip a::after{padding-left:8px;content:"🌛"}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{display:none;margin:0 auto;padding:0;border:none;box-shadow:none;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.svg");user-select:none;transition:1s;cursor:default;opacity:0.5}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{opacity:1}.function-buttons,.cl .wp .y a,.cl .wp .z a,#um,#nv,#pt,.user-online-status,.pls .hm,.pls .bui,.pls .avatar,.pls .tns,.pls p,.pls dl,.pls li,.plc .po,.plc .pi,.plc .y,.plc > p,.pgt,.pgs,.pstatus,.pcb .rate,.bm_h,#tools,.modact,.bar,#hiddenpoststip,#fastsmiliesdiv,.harmonious-button{user-select:none}#fastposteditor .area{position:relative}#fastposteditor .area .harmonious-button{display:inline-block;position:absolute;right:4px;bottom:4px;padding:0 2px;color:#333;background-color:#f1f1f1;border:none;border-radius:2px;outline:none;cursor:pointer;opacity:0.5}#fastposteditor .area .harmonious-button:hover{color:#369;box-shadow:0 0 4px #bbb;opacity:1}';
 
     switch (scene_mode) {
@@ -223,6 +223,9 @@
 
         default:
             break;
+    }
+    if (display_badge === true) {
+        common_css += '.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{display:inline-block}';
     }
     GM_addStyle(common_css);
 
@@ -266,12 +269,11 @@ function main() {
         GM_setValue('DISPLAY_USERS_ONLINE_STATUS', display_users_online_status);
     }
 
+    // Display badge: true, false
+    let display_badge = GM_getValue('DISPLAY_BADGE', false);
+
     // Freedom of network
     let freedom_of_network = GM_getValue('FREEDOM_OF_NETWORK', 'Check Later');
-
-    // Extensions
-    GM_log('Extensions Name:', GM_info.scriptHandler)
-    GM_log('Extensions Version:', GM_info.version)
 
     // Hostname
     const hn = window.location.hostname;
@@ -289,17 +291,17 @@ function main() {
 
     GM_log('Login status:', member);
 
-    const scene_mode_dic = {
-        Standard: '标准模式',
-        Home: '家庭模式',
-        Office: '办公模式',
-    }
+    const scene_mode_map_corresponding = new Map([
+        ['Standard', '标准模式'],
+        ['Home', '家庭模式'],
+        ['Office', '办公模式'],
+    ]);
 
-    const scene_mode_cutover_dic = {
-        Standard: 'Home',
-        Home: 'Office',
-        Office: 'Standard',
-    }
+    const scene_mode_map_next = new Map([
+        ['Standard', 'Home'],
+        ['Home', 'Office'],
+        ['Office', 'Standard'],
+    ]);
 
     // Show Dialog
     function show_dialog(message) {
@@ -401,7 +403,7 @@ function main() {
         // Scene mode button
         function scene_mode_mouseenter() {
             scene_mode = GM_getValue('SCENE_MODE', scene_mode);
-            this.innerHTML = scene_mode_dic[scene_mode];
+            this.innerHTML = scene_mode_map_corresponding.get(scene_mode);
         }
         function scene_mode_switch() {
             this.disabled = true;
@@ -410,15 +412,15 @@ function main() {
                 this.disabled = false;
                 this.classList.remove('button-disabled');
             }, 1000);
-            scene_mode = scene_mode_cutover_dic[scene_mode];
-            this.innerHTML = scene_mode_dic[scene_mode];
+            scene_mode = scene_mode_map_next.get(scene_mode);
+            this.innerHTML = scene_mode_map_corresponding.get(scene_mode);
             GM_setValue('SCENE_MODE', scene_mode);
-            let message = '场景模式切换成功，刷新页面即可进入 <span style="color: var(--info);">' + scene_mode_dic[scene_mode] + '</span>。';
+            let message = '场景模式切换成功，刷新页面即可进入 <span style="color: var(--info);">' + scene_mode_map_corresponding.get(scene_mode) + '</span>。';
             show_dialog(message);
         }
         const scene_mode_button = document.createElement('button');
         scene_mode_button.className = 'custom-function-button scene-mode-button';
-        scene_mode_button.innerHTML = scene_mode_dic[scene_mode];
+        scene_mode_button.innerHTML = scene_mode_map_corresponding.get(scene_mode);
         scene_mode_button.addEventListener('mouseenter', scene_mode_mouseenter, false);
         scene_mode_button.addEventListener('click', scene_mode_switch, false);
         function_buttons.appendChild(scene_mode_button);
@@ -485,16 +487,19 @@ function main() {
         settings_button.className = 'custom-function-button settings-button';
         settings_button.innerHTML = '大师设置';
         settings_button.addEventListener('click', function () {
+            GM_setValue('HOSTNAME', hn);
             GM_openInTab('https://hishis.github.io/tools/forum-grandmaster/', false);
-            show_dialog('设置之后需要刷新页面才会生效！');
+            setTimeout(() => {
+                show_dialog('设置之后需要刷新页面才会生效！');
+            }, 1000);
         }, false);
-        // function_buttons.appendChild(settings_button);
+        function_buttons.appendChild(settings_button);
 
         function_buttons_package.appendChild(function_buttons);
     }
 
     // Execution as Create Button Group
-    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { setTimeout(() => { !!~GM_info.scriptHandler.indexOf('Violent') || window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 654321); } create_button_group(); })();
+    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { setTimeout(() => { if (!!~GM_info.scriptHandler.indexOf('Violent') && GM_info.script.name.length === 29) { } else { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); } }, 654321); } create_button_group(); })();
 
     // Display the user real online status
     function display_user_real_online_status(avatar, id) {
@@ -681,7 +686,31 @@ function main() {
     !!fastPostSubmit && fastPostSubmit.addEventListener('click', editor_content, false);
 
     const messageText = document.getElementById('messagetext');
-    !!messageText && show_dialog('权限不够！');
+    if (!!messageText && !!~messageText.innerText.indexOf('抱歉，本帖要求阅读权限高于')) {
+        GM_addStyle(`
+            .nfl .f_c {
+                margin: 16px auto;
+                padding: 8px;
+                which: 100%;
+                border: 2px solid #f1f1f1;
+            }
+            #messagetext {
+                padding: 8px;
+                font-size: 16px;
+                which: 100%;
+                background: none;
+            }
+            .alert_btnleft {
+                display: none;
+            }
+        `);
+        setTimeout(() => {
+            show_dialog('论坛大师正在尝试强行读取帖子内容！');
+            setTimeout(() => {
+                messageText.innerHTML = '';
+            }, 2000);
+        }, 2000);
+    }
 
     // Automatically expand all posts
     // if (typeof display_blocked_post === 'function') display_blocked_post();
@@ -690,7 +719,6 @@ function main() {
 
     // Lang
     const lang = window.navigator.language;
-
 
     // Fuck Firefox
     if (!!~ua.indexOf('Firefox')) {
@@ -1062,12 +1090,37 @@ function main() {
     `);
 }
 
-// System settings
+// Main settings
 if (window.location.hostname === 'hishis.github.io') {
-    GM_log('%c油猴脚本：论坛大师', 'color: #f33; font-size: 32px; cursor: default;');
-    GM_log('%c扩展：' + GM_info.scriptHandler, 'color: #036; font-size: 16px; cursor: default;')
-    GM_log('%c版本：' + GM_info.version, 'color: #036; font-size: 16px; cursor: default;')
-    GM_log('%c网络自由：' + GM_getValue('FREEDOM_OF_NETWORK', 'Check Later'), 'color: #036; font-size: 16px; cursor: default;')
+    unsafeWindow.forumGrandmaster = {};
+    const FG = unsafeWindow.forumGrandmaster;
+    FG.data = {}
+    FG.extensions = {}
+    FG.script = {}
+    FG.extensions.name = GM_info.scriptHandler;
+    FG.extensions.version = GM_info.version;
+    FG.script.name = GM_info.script.name;
+    FG.script.version = GM_info.script.version;
+    FG.data.hostname = GM_getValue('HOSTNAME', null);
+    GM_log('%c扩展名字：'.concat(FG.extensions.name), 'color: #369; font-size: 16px; cursor: default;')
+    GM_log('%c扩展版本：'.concat(FG.extensions.version), 'color: #369; font-size: 16px; cursor: default;')
+    GM_log('%c脚本名字：'.concat(FG.script.name), 'color: #369; font-size: 16px; cursor: default;')
+    GM_log('%c脚本版本：'.concat(FG.script.version), 'color: #369; font-size: 16px; cursor: default;')
+    GM_log('%c用户代理：'.concat(window.navigator.userAgent), 'color: #369; font-size: 16px; cursor: default;')
+    GM_log('%c默认语言：'.concat(window.navigator.language), 'color: #369; font-size: 16px; cursor: default;')
+    GM_log('%c网络自由：'.concat(GM_getValue('FREEDOM_OF_NETWORK', 'Check Later')), 'color: #369; font-size: 16px; cursor: default;')
+
+    FG.m = new Map();
+
+    FG.m.set('SCENE_MODE', GM_getValue('SCENE_MODE', 'Standard'));
+    FG.m.set('DISPLAY_USERS_ONLINE_STATUS', GM_getValue('DISPLAY_USERS_ONLINE_STATUS', 'Advanced'));
+    FG.m.set('DISPLAY_BADGE', GM_getValue('DISPLAY_BADGE', false));
+
+    let list = GM_listValues();
+    for (let i = 0; i < list.length; i++) {
+        FG.m.set(list[i], GM_getValue(list[i], null));
+    }
+
     // Check network degrees of freedom
     function check_network_freedom() {
         GM_xmlhttpRequest({
@@ -1088,12 +1141,54 @@ if (window.location.hostname === 'hishis.github.io') {
             }
         });
     }
+
+    // Check Version
+    function check_version() {
+        GM_xmlhttpRequest({
+            method: 'GET',
+            url: '//greasyfork.org/scripts/400250/code/user.js',
+            timeout: 10000,
+            onload: response => {
+                if (response.readyState === 4 && response.status === 200) {
+                    FG.script.ServerVersion = response.responseText.match(/\/\/\s@version\s+(.+)/)[1];
+                }
+            }
+        });
+    }
+
+    let domHas = false;
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+            if (domHas === false && !!document.getElementById('default-settings')) {
+                domHas = true;
+                document.getElementById('default-settings').addEventListener('click', function () {
+                    GM_log('恢复默认');
+                    let list = GM_listValues();
+                    for (let i = 0; i < list.length; i++) {
+                        GM_deleteValue(list[i]);
+                    }
+                }, false);
+                document.getElementById('save-settings').addEventListener('click', function () {
+                    GM_log('保存设置');
+                    for (let x of FG.m) {
+                        GM_setValue(x[0], x[1]);
+                    }
+                }, false);
+            }
+        }, i * 200 + 200);
+    }
+
+    setTimeout(() => {
+        check_version();
+    }, 2000);
+
     setTimeout(() => {
         check_network_freedom();
-    }, 2000);
+    }, 9999);
 }
 
 document.onreadystatechange = function () {
+    // Main code
     if (document.readyState === 'interactive') {
         !!~window.location.hostname.indexOf('hishis.github.io') || main();
     }
