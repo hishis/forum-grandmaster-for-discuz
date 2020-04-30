@@ -728,7 +728,7 @@ function main() {
                 break;
 
             default:
-                lang_patch_img = '//img.shields.io/badge/Greasy%20Fork-Forum%20Grandmaster%20for%20Discuz!-blue?logo=Mozilla%20Firefox';
+                lang_patch_img = '//img.shields.io/badge/Mozilla%20Firefox-Forum%20Grandmaster%20for%20Discuz!-blue?logo=Mozilla%20Firefox';
                 lang_patch_alt = 'Greasy Fork: Forum Grandmaster for Discuz!';
                 break;
         }
