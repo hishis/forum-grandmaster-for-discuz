@@ -435,15 +435,6 @@ function main() {
         check_in_button.addEventListener('click', check_in, false);
         !!member && function_buttons.appendChild(check_in_button);
 
-        // Group button
-        const group_button = document.createElement('button');
-        group_button.className = 'custom-function-button group-button';
-        group_button.innerHTML = '群组聊天';
-        group_button.addEventListener('click', function () {
-            GM_openInTab('https://t.me/joinchat/Bc2EjlPZ0aOwiA-Gn73xKA', false);
-        }, false);
-        // function_buttons.appendChild(group_button);
-
         // Settings button
         const settings_button = document.createElement('button');
         settings_button.className = 'custom-function-button settings-button';
