@@ -898,13 +898,13 @@ function main() {
                 `
                 <span class="img-upload"><em>🖼</em>伊姆古尔</span>
                 <span class="img-upload"><em>🖼</em>路过图床</span>
-                <span class="img-upload"><em>🖼</em>免费图床</span>
+                <span class="img-upload"><em>🖼</em>简单图床</span>
                 <span class="img-upload"><em>🖼</em>虐恋图床</span>
                 `;
             let up_list = [
                 'https://imgur.com/upload',
                 'https://imgchr.com/',
-                'https://imgurl.org/',
+                'https://imghost.tech/',
                 'https://sm.ms/',
             ];
             let up = spanButtonPlaceholder.getElementsByClassName('img-upload');
