@@ -1135,6 +1135,16 @@ if (window.location.hostname === 'hishis.github.io') {
         setTimeout(() => {
             if (domHas === false && !!document.getElementById('default-settings')) {
                 domHas = true;
+
+                // Close
+                if (!!~FG.data.ua.indexOf('Firefox')) {
+                    let bar = document.getElementsByClassName('q-bar');
+                    let button = !!bar.length ? bar[0].getElementsByTagName('button') : '';
+                    !!button.length && button[button.length - 1].addEventListener('click', function () {
+                        window.close();
+                    }, false);
+                }
+
                 document.getElementById('default-settings').addEventListener('click', function () {
                     GM_log('恢复默认');
                     let list = GM_listValues();
@@ -1148,15 +1158,6 @@ if (window.location.hostname === 'hishis.github.io') {
                         GM_setValue(x[0], x[1]);
                     }
                 }, false);
-
-                // Close
-                if (!!~FG.data.ua.indexOf('Firefox')) {
-                    let bar = document.getElementsByClassName('q-bar');
-                    let button = !!bar.length ? bar[0].getElementsByTagName('button') : null;
-                    !!button.length && button[button.length - 1].addEventListener('click', function () {
-                        window.close();
-                    }, false);
-                }
             }
         }, i * 200 + 200);
     }
