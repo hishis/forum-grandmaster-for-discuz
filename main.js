@@ -695,36 +695,42 @@ function main() {
     // Fuck Firefox
     if (!!~ua.indexOf('Firefox')) {
         // Default avatar for Firefox
-        function default_avatar() {
+        function default_avatar(avatar_big, avatar_middle, avatar_small) {
+            let avatar_img_src = avatar_middle || avatar_big;
             let avatar = document.querySelectorAll('.avatar .avtm img');
             avatar = !!avatar.length ? avatar : document.querySelectorAll('.pls .avatar img');
             for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif';
+                avatar[i].src = avatar_img_src;
             }
+
+            avatar_img_src = avatar_small || avatar_middle || avatar_big;
 
             avatar = document.querySelectorAll('#tath a img');
             for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif';
+                avatar[i].src = avatar_img_src;
             }
 
             avatar = document.querySelectorAll('.ratl_l a img');
             for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif';
+                avatar[i].src = avatar_img_src;
             }
 
             avatar = document.querySelectorAll('.cm .vm img');
             for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif';
+                avatar[i].src = avatar_img_src;
             }
 
             avatar = document.querySelectorAll('.rate dd li img');
             for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif';
+                avatar[i].src = avatar_img_src;
             }
         }
-        if (scene_mode === 'Home' || scene_mode === 'Office') {
-            // Set as Default avatar
-            default_avatar();
+
+        // Set as Default avatar
+        if (scene_mode === 'Home') {
+            default_avatar('', '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif', '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif');
+        } else if (scene_mode === 'Office') {
+            default_avatar('', '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png', '');
         }
 
         // Style for Firefox
