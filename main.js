@@ -221,7 +221,7 @@
     }
 })();
 
-unsafeWindow.addEventListener('beforescriptexecute', function (event) {
+unsafeWindow.addEventListener('beforescriptexecute', event => {
     let src = event.target.src;
     if (!!~src.indexOf('/ads') || !!~src.indexOf('analytics') || !!~src.indexOf('logs') || !!~src.indexOf('alimama') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
         event.preventDefault();
@@ -293,7 +293,7 @@ function main() {
         const function_buttons = document.createElement('div');
         function_buttons.id = 'function-buttons';
         function_buttons.className = 'function-buttons';
-        function_buttons.addEventListener('contextmenu', function () {
+        function_buttons.addEventListener('contextmenu', event => {
             event.preventDefault();
         }, false);
         let function_buttons_package;
@@ -331,7 +331,7 @@ function main() {
         const open_home_button = document.createElement('button');
         open_home_button.className = 'custom-function-button open-home-button';
         open_home_button.innerHTML = '论坛大师';
-        open_home_button.addEventListener('click', function () {
+        open_home_button.addEventListener('click', event => {
             GM_openInTab(OPEN_HOME, false);
         }, false);
         function_buttons.appendChild(open_home_button);
@@ -413,7 +413,7 @@ function main() {
         const settings_button = document.createElement('button');
         settings_button.className = 'custom-function-button settings-button';
         settings_button.innerHTML = '大师设置';
-        settings_button.addEventListener('click', function () {
+        settings_button.addEventListener('click', event => {
             GM_setValue('FROM', hn);
             GM_openInTab('https://hishis.github.io/tools/forum-grandmaster/', false);
             setTimeout(() => {
@@ -499,7 +499,7 @@ function main() {
         try {
             params.removeAttribute('onclick');
             params.href = 'javascript:;';
-            params.addEventListener('click', function (event) {
+            params.addEventListener('click', event => {
                 window.scrollTo(0, 54321);
                 let fastPostMessage = document.getElementById('fastpostmessage');
                 !!fastPostMessage && fastPostMessage.focus();
@@ -532,7 +532,7 @@ function main() {
         harmonious_button.className = 'harmonious-button';
         harmonious_button.innerHTML = '免疫过滤';
         harmonious_button.title = '🔊免疫敏感内容过滤系统！\n📖左键点击执行免疫\n📖右键点击取消免疫';
-        harmonious_button.addEventListener('click', function () {
+        harmonious_button.addEventListener('click', event => {
             let fastPostMessageContent = fastPostMessage.value;
             fastPostMessageContent = fastPostMessageContent.trim();
             let message;
@@ -565,7 +565,7 @@ function main() {
                 }
             }
         }, false);
-        harmonious_button.addEventListener('contextmenu', function (event) {
+        harmonious_button.addEventListener('contextmenu', event => {
             event.preventDefault();
             let fastPostMessageContent = fastPostMessage.value;
             fastPostMessageContent = fastPostMessageContent.trim();
@@ -597,14 +597,28 @@ function main() {
             }
         }
 
-        let textareaDefaultContent = edit_textarea.value;
-        if (!!~textareaDefaultContent.indexOf(patch_content)) {
-            textareaDefaultContent = textareaDefaultContent.replace(patch_content, '');
-            edit_textarea.value = textareaDefaultContent.trim();
+        // Uninstall patch
+        function patch_uninstall() {
+            let textareaDefaultContent = edit_textarea.value;
+            if (!!~textareaDefaultContent.indexOf(patch_content)) {
+                textareaDefaultContent = textareaDefaultContent.replace(patch_content, '');
+                edit_textarea.value = textareaDefaultContent.trim();
+            }
         }
 
+        // Uninstall patch
+        patch_uninstall();
+
+        // Deal with a web page within a web page
+        let edit_iframe = document.getElementById('e_iframe');
+        if (!!edit_iframe) {
+            let edit_switcher = document.getElementById('e_switcher');
+            !!edit_switcher && edit_switcher.addEventListener('click', patch_uninstall, false);
+        }
+
+        // Keydown event
         edit_textarea.removeAttribute('onkeydown');
-        edit_textarea.addEventListener('keydown', function (event) {
+        edit_textarea.addEventListener('keydown', event => {
             if (event.ctrlKey && event.which === 13) {
                 patch_up();
                 if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
@@ -615,6 +629,7 @@ function main() {
             }
         }, false);
 
+        // Click event
         submit_button.addEventListener('click', patch_up, false);
     }
 
@@ -707,10 +722,10 @@ function main() {
                 posts_img[i].removeAttribute('onmouseover');
                 posts_img[i].removeAttribute('onload');
                 posts_img[i].classList.add('forum-grandmaster-badge');
-                posts_img[i].addEventListener('click', function (event) {
+                posts_img[i].addEventListener('click', event => {
                     event.preventDefault();
                 }, false);
-                posts_img[i].addEventListener('contextmenu', function (event) {
+                posts_img[i].addEventListener('contextmenu', event => {
                     event.preventDefault();
                 }, false);
             }
@@ -874,7 +889,7 @@ function main() {
             ];
             let up = spanButtonPlaceholder.getElementsByClassName('img-upload');
             for (let i = 0; i < up.length; i++) {
-                up[i].addEventListener('click', function () {
+                up[i].addEventListener('click', event => {
                     GM_openInTab(up_list[i], false);
                 }, false);
 
@@ -1094,20 +1109,20 @@ if (window.location.hostname === 'hishis.github.io') {
                 if (!!~FG.data.ua.indexOf('Firefox')) {
                     let close = document.getElementsByClassName('close');
                     for (let i = 0; i < close.length; i++) {
-                        close[i].addEventListener('click', function () {
+                        close[i].addEventListener('click', event => {
                             window.close();
                         }, false);
                     }
                 }
 
-                document.getElementById('default-settings').addEventListener('click', function () {
+                document.getElementById('default-settings').addEventListener('click', event => {
                     GM_log('恢复系统默认设置');
                     let list = GM_listValues();
                     for (let i = 0; i < list.length; i++) {
                         GM_deleteValue(list[i]);
                     }
                 }, false);
-                document.getElementById('save-settings').addEventListener('click', function () {
+                document.getElementById('save-settings').addEventListener('click', event => {
                     GM_log('保存设置');
                     for (let x of FG.m) {
                         !!~x[0].indexOf('__') || GM_setValue(x[0], x[1]);
