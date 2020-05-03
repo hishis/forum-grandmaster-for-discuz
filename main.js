@@ -646,6 +646,26 @@ function main() {
         !!postSubmit && post_patch(editTextarea, postSubmit, 'Edit');
     }
 
+    // Badge
+    let posts_img;
+    if (display_badge === true) {
+        posts_img = document.getElementsByClassName('zoom');
+        for (let i = 0; i < posts_img.length; i++) {
+            posts_img[i].removeAttribute('onclick');
+            posts_img[i].removeAttribute('onmouseover');
+            posts_img[i].removeAttribute('onload');
+            posts_img[i].addEventListener('click', event => {
+                event.preventDefault();
+            }, false);
+            posts_img[i].addEventListener('dragstart', event => {
+                event.preventDefault();
+            }, false);
+            posts_img[i].addEventListener('contextmenu', event => {
+                event.preventDefault();
+            }, false);
+        }
+    }
+
     // Automatically expand all posts
     // if (typeof display_blocked_post === 'function') display_blocked_post();
 
@@ -693,41 +713,33 @@ function main() {
         // GM_addStyle();
 
         // Badge for Firefox
-        let lang_patch_img;
-        let lang_patch_alt;
-        switch (lang) {
-            case 'zh-CN':
-                lang_patch_img = '//img.shields.io/badge/油猴脚本-论坛大师-blue';
-                lang_patch_alt = '油猴脚本 – 论坛大师';
-                break;
+        if (display_badge === true) {
+            let lang_patch_img_src;
+            let lang_patch_img_alt;
+            switch (lang) {
+                case 'zh-CN':
+                    lang_patch_img_src = '//img.shields.io/badge/油猴脚本-论坛大师-blue';
+                    lang_patch_img_alt = '油猴脚本 – 论坛大师';
+                    break;
 
-            case 'zh-HK':
-            case 'zh-MO':
-            case 'zh-TW':
-                lang_patch_img = '//img.shields.io/badge/油猴腳本-論壇大師-blue';
-                lang_patch_alt = '油猴腳本 – 論壇大師';
-                break;
+                case 'zh-HK':
+                case 'zh-MO':
+                case 'zh-TW':
+                    lang_patch_img_src = '//img.shields.io/badge/油猴腳本-論壇大師-blue';
+                    lang_patch_img_alt = '油猴腳本 – 論壇大師';
+                    break;
 
-            default:
-                lang_patch_img = '//img.shields.io/badge/Mozilla%20Firefox-Forum%20Grandmaster%20for%20Discuz!-blue?logo=Mozilla%20Firefox';
-                lang_patch_alt = 'Mozilla Firefox – Forum Grandmaster for Discuz!';
-                break;
-        }
-        const posts_img = document.getElementsByClassName('zoom');
-        for (let i = 0; i < posts_img.length; i++) {
-            if (!!~posts_img[i].src.indexOf('/public/images/patch.gif')) {
-                posts_img[i].src = lang_patch_img;
-                posts_img[i].alt = lang_patch_alt;
-                posts_img[i].removeAttribute('onclick');
-                posts_img[i].removeAttribute('onmouseover');
-                posts_img[i].removeAttribute('onload');
-                posts_img[i].classList.add('forum-grandmaster-badge');
-                posts_img[i].addEventListener('click', event => {
-                    event.preventDefault();
-                }, false);
-                posts_img[i].addEventListener('contextmenu', event => {
-                    event.preventDefault();
-                }, false);
+                default:
+                    lang_patch_img_src = '//img.shields.io/badge/Mozilla%20Firefox-Forum%20Grandmaster%20for%20Discuz!-blue?logo=Mozilla%20Firefox';
+                    lang_patch_img_alt = 'Mozilla Firefox – Forum Grandmaster for Discuz!';
+                    break;
+            }
+            for (let i = 0; i < posts_img.length; i++) {
+                if (!!~posts_img[i].src.indexOf('/public/images/patch.gif')) {
+                    posts_img[i].src = lang_patch_img_src;
+                    posts_img[i].alt = lang_patch_img_alt;
+                    posts_img[i].classList.add('forum-grandmaster-badge');
+                }
             }
         }
     }
