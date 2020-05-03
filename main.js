@@ -23,55 +23,24 @@
 // @downloadURL       https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
 // @supportURL        https://github.com/hishis/forum-grandmaster-for-discuz/issues
 // @match             https://www.52pojie.cn/thread-*.html
-// @match             https://www.52pojie.cn/forum.php?mod=viewthread&tid=*
-// @match             https://www.right.com.cn/forum/thread-*.html
-// @match             https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=*
+// @match             https://www.right.com.cn/thread-*.html
 // @match             https://bbs.kafan.cn/thread-*.html
-// @match             https://bbs.kafan.cn/forum.php?mod=viewthread&tid=*
-// @match             https://hostloc.com/thread-*.html
-// @match             https://hostloc.com/forum.php?mod=viewthread&tid=*
 // @match             https://www.hostloc.com/thread-*.html
-// @match             https://www.hostloc.com/forum.php?mod=viewthread&tid=*
-// @match             http://bbs.pcbeta.com/thread-*.html
-// @match             http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=*
-// @match             http://bbs.pcbeta.com/viewthread-*.html
 // @match             https://bbs.pcbeta.com/thread-*.html
-// @match             https://bbs.pcbeta.com/forum.php?mod=viewthread&tid=*
-// @match             https://bbs.pcbeta.com/viewthread-*.html
-// @match             http://www.zuanke8.com/thread-*.html
-// @match             http://www.zuanke8.com/forum.php?mod=viewthread&tid=*
 // @match             https://www.zuanke8.com/thread-*.html
-// @match             https://www.zuanke8.com/forum.php?mod=viewthread&tid=*
+// @match             https://bbs.51credit.com/thread-*.html
+// @match             https://bbs.ydss.cn/thread-*.html
 // @match             https://bbs.fobshanghai.com/thread-*.html
-// @match             https://bbs.fobshanghai.com/forum.php?mod=viewthread&tid=*
-// @match             https://bbs.fobshanghai.com/viewthread.php?tid=*
-// @match             http://bbs.huorong.cn/thread-*.html
-// @match             http://bbs.huorong.cn/forum.php?mod=viewthread&tid=*
 // @match             https://bbs.huorong.cn/thread-*.html
-// @match             https://bbs.huorong.cn/forum.php?mod=viewthread&tid=*
-// @match             http://bbs.360.cn/thread-*.html
-// @match             http://bbs.360.cn/forum.php?mod=viewthread&tid=*
 // @match             https://bbs.360.cn/thread-*.html
-// @match             https://bbs.360.cn/forum.php?mod=viewthread&tid=*
-// @match             http://www.gebi1.com/thread-*.html
-// @match             http://www.gebi1.com/forum.php?mod=viewthread&tid=*
 // @match             https://www.gebi1.com/thread-*.html
-// @match             https://www.gebi1.com/forum.php?mod=viewthread&tid=*
 // @match             https://www.advertcn.com/thread-*.html
-// @match             https://www.advertcn.com/forum.php?mod=viewthread&tid=*
 // @match             https://www.fglt.net/thread-*.html
-// @match             https://www.fglt.net/forum.php?mod=viewthread&tid=*
 // @match             https://www.fglt.cn/thread-*.html
-// @match             https://www.fglt.cn/forum.php?mod=viewthread&tid=*
-// @match             http://www.aihao.cc/thread-*.html
-// @match             http://www.aihao.cc/forum.php?mod=viewthread&tid=*
 // @match             https://www.aihao.cc/thread-*.html
-// @match             https://www.aihao.cc/forum.php?mod=viewthread&tid=*
-// @match             http://bbs.nas66.com/thread-*.html
-// @match             http://bbs.nas66.com/forum.php?mod=viewthread&tid=*
 // @match             https://bbs.nas66.com/thread-*.html
-// @match             https://bbs.nas66.com/forum.php?mod=viewthread&tid=*
 // @match             http://*/thread-*.html
+// @match             http://*/viewthread-*.html
 // @match             http://*/forum.php?mod=viewthread&tid=*
 // @match             http://*/forum.php?mod=post&action=edit&*
 // @match             http://*/bbs/thread-*.html
@@ -81,6 +50,7 @@
 // @match             http://*/forum/forum.php?mod=viewthread&tid=*
 // @match             http://*/forum/forum.php?mod=post&action=edit&*
 // @match             https://*/thread-*.html
+// @match             https://*/viewthread-*.html
 // @match             https://*/forum.php?mod=viewthread&tid=*
 // @match             https://*/forum.php?mod=post&action=edit&*
 // @match             https://*/bbs/thread-*.html
@@ -659,34 +629,6 @@ function main() {
         let editTextarea = document.getElementById('e_textarea');
         let postSubmit = !!editTextarea ? document.getElementById('postsubmit') : null;
         !!postSubmit && post_patch(editTextarea, postSubmit, 'Edit');
-    }
-
-    // const messageText = document.getElementById('messagetext');
-    const messageText = false;
-    if (!!messageText && !!~messageText.innerText.indexOf('抱歉，本帖要求阅读权限高于')) {
-        GM_addStyle(`
-            .nfl .f_c {
-                margin: 16px auto;
-                padding: 8px;
-                which: 100%;
-                border: 2px solid #f1f1f1;
-            }
-            #messagetext {
-                padding: 8px;
-                font-size: 16px;
-                which: 100%;
-                background: none;
-            }
-            .alert_btnleft {
-                display: none;
-            }
-        `);
-        setTimeout(() => {
-            show_dialog('论坛大师正在尝试强行读取帖子内容！');
-            setTimeout(() => {
-                messageText.innerHTML = '';
-            }, 2000);
-        }, 2000);
     }
 
     // Automatically expand all posts
