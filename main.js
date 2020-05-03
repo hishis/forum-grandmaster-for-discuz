@@ -564,14 +564,14 @@ function main() {
                     fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
                     if (!!fastPostMessageContent.length) {
                         fastPostMessage.value = '[font=None]' + Array.from(fastPostMessageContent).join('[/font][font=None]') + '[/font]';
-                        message = '免疫完成！（通过使用论坛标签）';
+                        message = '免疫完成！<span style="color: var(--gray);">（通过使用论坛标签）</span>';
                     }
                 } else {
                     fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
                     fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
                     if (!!fastPostMessageContent.length) {
                         fastPostMessage.value = Array.from(fastPostMessageContent).join('\u200b');
-                        message = '免疫完成！（通过使用零宽字符）';
+                        message = '免疫完成！<span style="color: var(--gray);">（通过使用零宽字符）</span>';
                     }
                 }
                 !!message && show_dialog(message);
