@@ -85,10 +85,10 @@
 // @match             https://*/forum.php?mod=post&action=edit&*
 // @match             https://*/bbs/thread-*.html
 // @match             https://*/bbs/forum.php?mod=viewthread&tid=*
-// @match             https://*/bbs//forum.php?mod=post&action=edit&*
+// @match             https://*/bbs/forum.php?mod=post&action=edit&*
 // @match             https://*/forum/thread-*.html
 // @match             https://*/forum/forum.php?mod=viewthread&tid=*
-// @match             https://*/forum//forum.php?mod=post&action=edit&*
+// @match             https://*/forum/forum.php?mod=post&action=edit&*
 // @match             https://hishis.github.io/tools/forum-grandmaster/
 // @compatible        Chrome  Works with Tampermonkey for Chrome
 // @compatible        Edge    Works with Tampermonkey for Edge
