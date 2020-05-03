@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.16
+// @version           0.3.17
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -73,16 +73,22 @@
 // @match             https://bbs.nas66.com/forum.php?mod=viewthread&tid=*
 // @match             http://*/thread-*.html
 // @match             http://*/forum.php?mod=viewthread&tid=*
+// @match             http://*/forum.php?mod=post&action=edit&*
 // @match             http://*/bbs/thread-*.html
 // @match             http://*/bbs/forum.php?mod=viewthread&tid=*
+// @match             http://*/bbs/forum.php?mod=post&action=edit&*
 // @match             http://*/forum/thread-*.html
 // @match             http://*/forum/forum.php?mod=viewthread&tid=*
+// @match             http://*/forum/forum.php?mod=post&action=edit&*
 // @match             https://*/thread-*.html
 // @match             https://*/forum.php?mod=viewthread&tid=*
+// @match             https://*/forum.php?mod=post&action=edit&*
 // @match             https://*/bbs/thread-*.html
 // @match             https://*/bbs/forum.php?mod=viewthread&tid=*
+// @match             https://*/bbs//forum.php?mod=post&action=edit&*
 // @match             https://*/forum/thread-*.html
 // @match             https://*/forum/forum.php?mod=viewthread&tid=*
+// @match             https://*/forum//forum.php?mod=post&action=edit&*
 // @match             https://hishis.github.io/tools/forum-grandmaster/
 // @compatible        Chrome  Works with Tampermonkey for Chrome
 // @compatible        Edge    Works with Tampermonkey for Edge
@@ -214,28 +220,25 @@
     // Scene mode: Standard, Home, Office
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
 
-    // Display badge: true, false
-    let display_badge = GM_getValue('DISPLAY_BADGE', false);
-
     let common_css = ':root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}body,table,input,button,select,textarea,a{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.mono,.md,.code,.pre,.tt,mono,md,code,pre,tt,.pl .blockcode ol li,.pl .blockcode ul li{font-family:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}.ads,.plc .dnch_eo_pt,.plc .dnch_eo_pb,#diynavtop,#drk_colee_left1,#drk_colee_left2,#drk_ledtd,#hd .wp .a_mu,table .a_pr,.ad .plc .a_p,.a_h,.a_t,.a_pt,.a_pb{display:none}.pls .avatar{position:relative;padding-top:1px;text-align:center}.pls .avatar img{padding:0;width:120px;height:120px;object-fit:contain;background:none;border:4px solid #fff;box-shadow:0 0 4px #bbb}.pls .avatar img:hover{background:#fff;box-shadow:0 0 8px #bbb}.bui .m{text-align:center}.bui .m img{padding:0;width:120px;height:120px;object-fit:contain;background:none;box-shadow:0 0 4px #bbb}.bui .m img:hover{background:#fff}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{object-fit:contain}.user-online-status{display:block;margin:0;border-collapse:collapse;text-align:center;position:absolute;left:0;top:0;width:10px;height:10px;cursor:help}.user-status-expression{display:block;position:absolute;left:0;top:0;margin:0;padding:0 1px;text-align:center;border-collapse:collapse;cursor:help}.user-status-expression-online::after{content:"🌝"}.user-status-expression-offline::after{content:"🌚"}.offline{filter:grayscale(100%)}.function-buttons{padding:0 0 4px 0;text-align:right;white-space:nowrap}.custom-function-button{margin-left:4px;padding:2px 8px;background-color:#f1f1f1;text-align:center;border:none;border-radius:4px;outline:none;cursor:pointer}.custom-function-button:hover{box-shadow:0 1px 2px #bbb}.button-disabled{color:#808080;cursor:default}.button-disabled:hover{box-shadow:none}.pl .blockcode em{display:none}#hiddenpoststip{padding:0}.t_f .zoom{margin:4px auto;box-shadow:0 0 2px #bbb}.t_f .zoom:hover{box-shadow:0 0 4px #bbb}#hiddenpoststip a{height:32px;line-height:32px;font-size:16px}#hiddenpoststip a:hover{color:#f33}#hiddenpoststip a::before{padding-right:8px;content:"🌜"}#hiddenpoststip a::after{padding-left:8px;content:"🌛"}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{display:none;margin:0 auto;padding:0;border:none;box-shadow:none;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.svg");user-select:none;transition:1s;cursor:default;opacity:0.5}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{opacity:1}.function-buttons,.cl .wp .y a,.cl .wp .z a,#um,#nv,#pt,.user-online-status,.pls .hm,.pls .bui,.pls .avatar,.pls .tns,.pls p,.pls dl,.pls li,.plc .po,.plc .pi,.plc .y,.plc > p,.pgt,.pgs,.pstatus,.pcb .rate,.bm_h,#tools,.modact,.bar,#hiddenpoststip,#fastsmiliesdiv,.harmonious-button{user-select:none}#fastposteditor .area{position:relative}#fastposteditor .area .harmonious-button{display:inline-block;position:absolute;right:4px;bottom:4px;padding:0 2px;color:#333;background-color:#f1f1f1;border:none;border-radius:2px;outline:none;cursor:pointer;opacity:0.5}#fastposteditor .area .harmonious-button:hover{color:#369;box-shadow:0 0 4px #bbb;opacity:1}';
 
     switch (scene_mode) {
         case 'Standard':
-            common_css += '#Mode-Standard{font-size:16px}.pls .avatar img,.personinformaion .person-imgs img{border-radius:50%;transition:0.5s}.pls .avatar img:hover,.personinformaion .person-imgs img:hover{transform:rotate(360deg)}.bui .m img{border-radius:50%;transition:0.5s}.bui .m img:hover{border-radius:0}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{border-radius:50%;transition:0.5s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{transform:rotate(360deg)}';
+            common_css += '#Mode-Standard{user-select:none}.pls .avatar img,.personinformaion .person-imgs img{border-radius:50%;transition:0.5s}.pls .avatar img:hover,.personinformaion .person-imgs img:hover{transform:rotate(360deg)}.bui .m img{border-radius:50%;transition:0.5s}.bui .m img:hover{border-radius:0}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{border-radius:50%;transition:0.5s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{transform:rotate(360deg)}';
             break;
 
         case 'Home':
-            common_css += '#Mode-Home{font-size:16px}.pls .avatar img,.personinformaion .person-imgs img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif");border-radius:50%;transition:0.7s}.pls .avatar img:hover,.personinformaion .person-imgs img:hover{border-radius:0}.bui .m img{}.bui .m img:hover{}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif");border-radius:50%;transition:0.7s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{content:none;border-radius:0}.sign img,.signature img{display:none}';
+            common_css += '#Mode-Home{user-select:none}.pls .avatar img,.personinformaion .person-imgs img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif");border-radius:50%;transition:0.7s}.pls .avatar img:hover,.personinformaion .person-imgs img:hover{border-radius:0}.bui .m img{}.bui .m img:hover{}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif");border-radius:50%;transition:0.7s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{content:none;border-radius:0}.sign img,.signature img{display:none}';
             break;
 
         case 'Office':
-            common_css += '#Mode-Office{font-size:16px}body{background:none}.pls .avatar img,.personinformaion .person-imgs img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}.pls .avatar img:hover,.personinformaion .person-imgs img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{opacity:0.1}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{opacity:1}#hd .wp .comiis_nav,.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body{display:none}#postlist .plhin{background:none}.sign,.signature{display:none}';
+            common_css += '#Mode-Office{user-select:none}body{background:none}.pls .avatar img,.personinformaion .person-imgs img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}.pls .avatar img:hover,.personinformaion .person-imgs img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{opacity:0.1}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{opacity:1}#hd .wp .comiis_nav,.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body{display:none}#postlist .plhin{background:none}.sign,.signature{display:none}';
             break;
 
         default:
             break;
     }
-    if (display_badge === true) {
+    if (GM_getValue('DISPLAY_BADGE') === true) {
         common_css += '.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{display:inline-block}';
     }
     GM_addStyle(common_css);
@@ -280,6 +283,7 @@ function main() {
 
     GM_log('Scene mode:', scene_mode);
     GM_log('Display the users online status:', display_users_online_status);
+    GM_log('Display badge:', display_badge);
 
     // Login status
     const member = !!document.getElementById('extcreditmenu') || !!document.getElementById('myprompt') || !!document.getElementById('myrepeats');
@@ -546,7 +550,7 @@ function main() {
     }
 
 
-    // Post
+    // Fast Post
     const fastPostEditor = document.getElementById('fastposteditor');
     const area = !!fastPostEditor ? fastPostEditor.getElementsByClassName('area')[0] : null;
     const fastPostMessage = document.getElementById('fastpostmessage');
@@ -605,38 +609,57 @@ function main() {
         area.appendChild(harmonious_button);
     }
 
-    const patch = '[img]'.concat(window.location.protocol, '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.gif[/img]');
-
-    function editor_content() {
-        let fastPostMessageContent = fastPostMessage.value;
-        if (fastPostMessageContent) {
-            fastPostMessageContent = fastPostMessageContent.trim();
-            fastPostMessage.value = !!~fastPostMessageContent.indexOf(patch) ? fastPostMessageContent : fastPostMessageContent.concat('\n\n', patch);
-            fastPostMessage.style.opacity = '0';
-            setTimeout(() => {
-                if (fastPostMessage.value.length > fastPostMessageContent.length) {
-                    fastPostMessage.value = fastPostMessageContent;
-                }
-                fastPostMessage.style.opacity = '1';
-            }, 200);
+    // Post Patch
+    const patch_content = '[img]'.concat(window.location.protocol, '//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.gif[/img]');
+    function post_patch(edit_textarea, submit_button, action) {
+        function patch_up() {
+            let edit_textarea_content = edit_textarea.value;
+            if (!!~edit_textarea_content.indexOf(patch_content) === false) {
+                edit_textarea_content = edit_textarea_content.trim();
+                edit_textarea.value = edit_textarea_content.concat('\n\n', patch_content);
+                edit_textarea.style.opacity = '0';
+                setTimeout(() => {
+                    if (edit_textarea.value.length > edit_textarea_content.length) {
+                        edit_textarea.value = edit_textarea_content;
+                    }
+                    edit_textarea.style.opacity = '1';
+                }, 200);
+            }
         }
+
+        let textareaDefaultContent = edit_textarea.value;
+        if (!!~textareaDefaultContent.indexOf(patch_content)) {
+            textareaDefaultContent = textareaDefaultContent.replace(patch_content, '');
+            edit_textarea.value = textareaDefaultContent.trim();
+        }
+
+        edit_textarea.removeAttribute('onkeydown');
+        edit_textarea.addEventListener('keydown', function (event) {
+            if (event.ctrlKey && event.which === 13) {
+                patch_up();
+                if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
+            }
+            if (event.altKey && event.which === 83) {
+                patch_up();
+                if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
+            }
+        }, false);
+
+        submit_button.addEventListener('click', patch_up, false);
     }
 
-    !!fastPostMessage && fastPostMessage.removeAttribute('onkeydown');
+    // Fast Post Patch
+    const fastPostSubmit = !!fastPostMessage ? document.getElementById('fastpostsubmit') : null;
+    !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Post');
 
-    !!fastPostMessage && fastPostMessage.addEventListener('keydown', function (event) {
-        if (event.ctrlKey && event.which === 13) {
-            editor_content();
-            seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
-        }
-        if (event.altKey && event.which === 83) {
-            editor_content();
-            seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
-        }
-    }, false);
-
-    const fastPostSubmit = document.getElementById('fastpostsubmit');
-    !!fastPostSubmit && fastPostSubmit.addEventListener('click', editor_content, false);
+    // Post Edit Patch
+    let url = window.location.href;
+    if (!!~url.indexOf('mod=post') && !!~url.indexOf('action=edit')) {
+        GM_addStyle('#rstnotice { display: none; }');
+        let editTextarea = document.getElementById('e_textarea');
+        let postSubmit = !!editTextarea ? document.getElementById('postsubmit') : null;
+        !!postSubmit && post_patch(editTextarea, postSubmit, 'Edit');
+    }
 
     // const messageText = document.getElementById('messagetext');
     const messageText = false;
@@ -1075,20 +1098,20 @@ if (window.location.hostname === 'hishis.github.io') {
 
     FG.m = new Map();
 
+    let list = GM_listValues();
+    for (let i = 0; i < list.length; i++) {
+        FG.m.set(list[i], GM_getValue(list[i]));
+    }
+
     FG.m.set('SCENE_MODE', GM_getValue('SCENE_MODE', 'Standard'));
     FG.m.set('DISPLAY_USERS_ONLINE_STATUS', GM_getValue('DISPLAY_USERS_ONLINE_STATUS', 'None'));
     FG.m.set('DISPLAY_BADGE', GM_getValue('DISPLAY_BADGE', false));
-
-    let list = GM_listValues();
-    for (let i = 0; i < list.length; i++) {
-        FG.m.set(list[i], GM_getValue(list[i], null));
-    }
 
     // Freedom of network
     function check_freedom_of_network() {
         GM_xmlhttpRequest({
             method: 'GET',
-            url: '//hunhun.appspot.com/api/status/json/data.json',
+            url: 'https://hunhun.appspot.com/api/status/json/data.json',
             timeout: 2000,
             responseType: 'json',
             onload: response => {
@@ -1109,7 +1132,7 @@ if (window.location.hostname === 'hishis.github.io') {
     function check_version() {
         GM_xmlhttpRequest({
             method: 'GET',
-            url: '//greasyfork.org/scripts/400250/code/user.js',
+            url: 'https://greasyfork.org/scripts/400250/code/user.js',
             timeout: 10000,
             onload: response => {
                 if (response.readyState === 4 && response.status === 200) {
@@ -1127,15 +1150,16 @@ if (window.location.hostname === 'hishis.github.io') {
 
                 // Close
                 if (!!~FG.data.ua.indexOf('Firefox')) {
-                    let bar = document.getElementsByClassName('q-bar');
-                    let button = !!bar.length ? bar[0].getElementsByTagName('button') : '';
-                    !!button.length && button[button.length - 1].addEventListener('click', function () {
-                        window.close();
-                    }, false);
+                    let close = document.getElementsByClassName('close');
+                    for (let i = 0; i < close.length; i++) {
+                        close[i].addEventListener('click', function () {
+                            window.close();
+                        }, false);
+                    }
                 }
 
                 document.getElementById('default-settings').addEventListener('click', function () {
-                    GM_log('恢复默认');
+                    GM_log('恢复系统默认设置');
                     let list = GM_listValues();
                     for (let i = 0; i < list.length; i++) {
                         GM_deleteValue(list[i]);
@@ -1143,11 +1167,9 @@ if (window.location.hostname === 'hishis.github.io') {
                 }, false);
                 document.getElementById('save-settings').addEventListener('click', function () {
                     GM_log('保存设置');
-                    setTimeout(() => {
-                        for (let x of FG.m) {
-                            GM_setValue(x[0], x[1]);
-                        }
-                    }, 200);
+                    for (let x of FG.m) {
+                        !!~x[0].indexOf('__') || GM_setValue(x[0], x[1]);
+                    }
                 }, false);
             }
         }, i * 200 + 200);
