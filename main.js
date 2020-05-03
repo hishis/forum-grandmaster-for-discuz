@@ -651,18 +651,20 @@ function main() {
     if (display_badge === true) {
         posts_img = document.getElementsByClassName('zoom');
         for (let i = 0; i < posts_img.length; i++) {
-            posts_img[i].removeAttribute('onclick');
-            posts_img[i].removeAttribute('onmouseover');
-            posts_img[i].removeAttribute('onload');
-            posts_img[i].addEventListener('click', event => {
-                event.preventDefault();
-            }, false);
-            posts_img[i].addEventListener('dragstart', event => {
-                event.preventDefault();
-            }, false);
-            posts_img[i].addEventListener('contextmenu', event => {
-                event.preventDefault();
-            }, false);
+            if (!!~posts_img[i].src.indexOf('/public/images/patch.gif')) {
+                posts_img[i].removeAttribute('onclick');
+                posts_img[i].removeAttribute('onmouseover');
+                posts_img[i].removeAttribute('onload');
+                posts_img[i].addEventListener('click', event => {
+                    event.preventDefault();
+                }, false);
+                posts_img[i].addEventListener('dragstart', event => {
+                    event.preventDefault();
+                }, false);
+                posts_img[i].addEventListener('contextmenu', event => {
+                    event.preventDefault();
+                }, false);
+            }
         }
     }
 
