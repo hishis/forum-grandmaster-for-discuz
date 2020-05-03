@@ -531,15 +531,16 @@ function main() {
                 skip_bottom(locked[i].getElementsByTagName('a')[0]);
             }
         }
-        const fastre = member && document.getElementsByClassName('fastre')[0];
+        let fastre = member && document.getElementsByClassName('fastre')[0];
         !!fastre && skip_bottom(fastre);
     }
 
 
-    // Fast Post
+    // Fast Post Message
     const fastPostEditor = document.getElementById('fastposteditor');
     const area = !!fastPostEditor ? fastPostEditor.getElementsByClassName('area')[0] : null;
     const fastPostMessage = document.getElementById('fastpostmessage');
+    const fastPostSubmit = document.getElementById('fastpostsubmit');
 
     // Harmonious
     if (member && !!area) {
@@ -637,11 +638,11 @@ function main() {
         edit_textarea.addEventListener('keydown', event => {
             if (event.ctrlKey && event.which === 13) {
                 patch_up();
-                if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
+                if (action === 'Fast Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
             }
             if (event.altKey && event.which === 83) {
                 patch_up();
-                if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
+                if (action === 'Fast Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
             }
         }, false);
 
@@ -649,17 +650,30 @@ function main() {
         submit_button.addEventListener('click', patch_up, false);
     }
 
-    // Fast Post Patch
-    const fastPostSubmit = !!fastPostMessage ? document.getElementById('fastpostsubmit') : null;
-    !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Post');
+    // Fast Post Message
+    !!fastPostMessage && !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Fast Post Message');
 
-    // Post Edit Patch
+    // Post Message
+    const fastre = document.getElementsByClassName('fastre');
+    if (!!fastre.length) {
+        for (let i = 0; i < fastre.length; i++) {
+            fastre[i].addEventListener('click', event => {
+                setTimeout(() => {
+                    const postMessage = document.getElementById('postmessage');
+                    const postSubmit = !!postMessage ? document.getElementById('postsubmit') : null;
+                    !!postSubmit && post_patch(postMessage, postSubmit , 'Post Message');
+                }, 2000);
+            }, false);
+        }
+    }
+
+    // Edit Textarea
     let url = window.location.href;
     if (!!~url.indexOf('mod=post') && !!~url.indexOf('action=edit')) {
         GM_addStyle('#rstnotice { display: none; }');
         let editTextarea = document.getElementById('e_textarea');
         let postSubmit = !!editTextarea ? document.getElementById('postsubmit') : null;
-        !!postSubmit && post_patch(editTextarea, postSubmit, 'Edit');
+        !!postSubmit && post_patch(editTextarea, postSubmit, 'Edit Textarea');
     }
 
     // Badge
