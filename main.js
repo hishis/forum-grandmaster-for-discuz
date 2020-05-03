@@ -639,10 +639,12 @@ function main() {
             if (event.ctrlKey && event.which === 13) {
                 patch_up();
                 if (action === 'Fast Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
+                if (action === 'Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
             }
             if (event.altKey && event.which === 83) {
                 patch_up();
                 if (action === 'Fast Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
+                if (action === 'Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
             }
         }, false);
 
