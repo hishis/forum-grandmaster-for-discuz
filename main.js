@@ -11,11 +11,11 @@
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
-// @description:zh    🔊界面美化、广告移除、功能增强……
-// @description:zh-CN 🔊界面美化、广告移除、功能增强……
-// @description:zh-HK 🔊界面美化、廣告移除、功能增強……
-// @description:zh-MO 🔊界面美化、廣告移除、功能增強……
-// @description:zh-TW 🔊界面美化、廣告移除、功能增強……
+// @description:zh    🔊论坛网站页面美化、广告移除、功能增强，享受美轮美奂的论坛时光……
+// @description:zh-CN 🔊论坛网站页面美化、广告移除、功能增强，享受美轮美奂的论坛时光……
+// @description:zh-HK 🔊論壇網站頁面美化、廣告移除、功能增強，享受美輪美奐的論壇時光……
+// @description:zh-MO 🔊論壇網站頁面美化、廣告移除、功能增強，享受美輪美奐的論壇時光……
+// @description:zh-TW 🔊論壇網站頁面美化、廣告移除、功能增強，享受美輪美奐的論壇時光……
 // @homepage          https://github.com/hishis/forum-grandmaster-for-discuz
 // @icon              https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/favicon.ico
 // @updateURL         https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
