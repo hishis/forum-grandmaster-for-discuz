@@ -22,74 +22,50 @@
 // @installURL        https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/main.user.js
 // @downloadURL       https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/main.user.js
 // @supportURL        https://github.com/hishis/forum-grandmaster-for-discuz/issues
-// @match             https://www.52pojie.cn/
-// @match             https://www.right.com.cn/
-// @match             https://bbs.kafan.cn/
-// @match             https://www.hostloc.com/
-// @match             https://bbs.pcbeta.com/
-// @match             https://www.zuanke8.com/
-// @match             https://bbs.51credit.com/
-// @match             https://bbs.ydss.cn/
-// @match             https://bbs.fobshanghai.com/
-// @match             https://bbs.huorong.cn/
-// @match             https://bbs.360.cn/
-// @match             https://www.gebi1.com/
-// @match             https://www.advertcn.com/
-// @match             https://www.fglt.net/
-// @match             https://www.fglt.cn/
-// @match             https://www.aihao.cc/
-// @match             https://bbs.nas66.com/
-// @match             http://*/forum.php
-// @match             http://*/forum-*.html
-// @match             http://*/forumdisplay.php?*
-// @match             http://*/thread-*.html
-// @match             http://*/viewthread-*.html
-// @match             http://*/viewthread.php?*
-// @match             http://*/htm_data/*.html
-// @match             http://*/forum.php?mod=viewthread&tid=*
-// @match             http://*/forum.php?mod=post&action=edit&*
-// @match             http://*/bbs/forum.php
-// @match             http://*/bbs/forum-*.html
-// @match             http://*/bbs/forumdisplay.php?*
-// @match             http://*/bbs/thread-*.html
-// @match             http://*/bbs/viewthread-*.html
-// @match             http://*/bbs/viewthread.php?*
-// @match             http://*/bbs/forum.php?mod=viewthread&tid=*
-// @match             http://*/bbs/forum.php?mod=post&action=edit&*
-// @match             http://*/forum/forum.php
-// @match             http://*/forum/forum-*.html
-// @match             http://*/forum/forumdisplay.php?*
-// @match             http://*/forum/thread-*.html
-// @match             http://*/forum/viewthread-*.html
-// @match             http://*/forum/viewthread.php?*
-// @match             http://*/forum/forum.php?mod=viewthread&tid=*
-// @match             http://*/forum/forum.php?mod=post&action=edit&*
-// @match             https://*/forum.php
-// @match             https://*/forum-*.html
-// @match             https://*/forumdisplay.php?*
-// @match             https://*/thread-*.html
-// @match             https://*/viewthread-*.html
-// @match             https://*/viewthread.php?*
-// @match             https://*/htm_data/*.html
-// @match             https://*/forum.php?mod=viewthread&tid=*
-// @match             https://*/forum.php?mod=post&action=edit&*
-// @match             https://*/bbs/forum.php
-// @match             https://*/bbs/forum-*.html
-// @match             https://*/bbs/forumdisplay.php?*
-// @match             https://*/bbs/thread-*.html
-// @match             https://*/bbs/viewthread-*.html
-// @match             https://*/bbs/viewthread.php?*
-// @match             https://*/bbs/forum.php?mod=viewthread&tid=*
-// @match             https://*/bbs/forum.php?mod=post&action=edit&*
-// @match             https://*/forum/forum.php
-// @match             https://*/forum/forum-*.html
-// @match             https://*/forum/forumdisplay.php?*
-// @match             https://*/forum/thread-*.html
-// @match             https://*/forum/viewthread-*.html
-// @match             https://*/forum/viewthread.php?*
-// @match             https://*/forum/forum.php?mod=viewthread&tid=*
-// @match             https://*/forum/forum.php?mod=post&action=edit&*
-// @match             https://hishis.github.io/tools/forum-grandmaster/
+// @match             http*://www.52pojie.cn/
+// @match             http*://www.right.com.cn/
+// @match             http*://bbs.kafan.cn/
+// @match             http*://www.hostloc.com/
+// @match             http*://bbs.pcbeta.com/
+// @match             http*://www.zuanke8.com/
+// @match             http*://bbs.51credit.com/
+// @match             http*://bbs.ydss.cn/
+// @match             http*://bbs.fobshanghai.com/
+// @match             http*://bbs.huorong.cn/
+// @match             http*://bbs.360.cn/
+// @match             http*://www.gebi1.com/
+// @match             http*://www.advertcn.com/
+// @match             http*://www.fglt.net/
+// @match             http*://www.fglt.cn/
+// @match             http*://www.aihao.cc/
+// @match             http*://bbs.nas66.com/
+// @match             http*://www.viidii.info/?action=image&*
+// @match             http*://*/forum.php
+// @match             http*://*/forum-*.html
+// @match             http*://*/forumdisplay.php?*
+// @match             http*://*/thread-*.html
+// @match             http*://*/viewthread-*.html
+// @match             http*://*/viewthread.php?*
+// @match             http*://*/htm_data/*.html
+// @match             http*://*/forum.php?mod=viewthread&tid=*
+// @match             http*://*/forum.php?mod=post&action=edit&*
+// @match             http*://*/bbs/forum.php
+// @match             http*://*/bbs/forum-*.html
+// @match             http*://*/bbs/forumdisplay.php?*
+// @match             http*://*/bbs/thread-*.html
+// @match             http*://*/bbs/viewthread-*.html
+// @match             http*://*/bbs/viewthread.php?*
+// @match             http*://*/bbs/forum.php?mod=viewthread&tid=*
+// @match             http*://*/bbs/forum.php?mod=post&action=edit&*
+// @match             http*://*/forum/forum.php
+// @match             http*://*/forum/forum-*.html
+// @match             http*://*/forum/forumdisplay.php?*
+// @match             http*://*/forum/thread-*.html
+// @match             http*://*/forum/viewthread-*.html
+// @match             http*://*/forum/viewthread.php?*
+// @match             http*://*/forum/forum.php?mod=viewthread&tid=*
+// @match             http*://*/forum/forum.php?mod=post&action=edit&*
+// @match             http*://hishis.github.io/tools/forum-grandmaster/
 // @compatible        Chrome  Works with Tampermonkey for Chrome
 // @compatible        Edge    Works with Tampermonkey for Edge
 // @compatible        Firefox Works with Tampermonkey for Firefox
@@ -1105,6 +1081,12 @@ function main() {
             background-color: #fff;
         }
     `);
+
+    // Speechless
+    if (hn === 'www.viidii.info') {
+        GM_openInTab(document.body.innerHTML.match(/<a href="(.+?)"/)[1], false);
+        window.close();
+    }
 }
 
 // Main settings
