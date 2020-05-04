@@ -65,9 +65,9 @@
 Latest ✔ | Latest ✔ | Latest ✔ | Latest ❌ | Latest ✔ | Latest ✔ |
 
 ### 开源地址
-[Forum Grandmaster for GitHub](https://github.com/hishis/forum-grandmaster-for-discuz)
+[Forum Grandmaster for Discuz! – GitHub](https://github.com/hishis/forum-grandmaster-for-discuz)
 
-[Forum Grandmaster for Greasy Fork](https://greasyfork.org/scripts/400250)
+[Forum Grandmaster for Discuz! – Greasy Fork](https://greasyfork.org/scripts/400250)
 
 ### 安装地址
 [Click to install Forum Grandmaster for Discuz! – GitHub](https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/main.user.js)
