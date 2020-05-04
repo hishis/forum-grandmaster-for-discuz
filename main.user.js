@@ -227,14 +227,6 @@
     }
 })();
 
-unsafeWindow.addEventListener('beforescriptexecute', event => {
-    let src = event.target.src;
-    if (!!~src.indexOf('/ads') || !!~src.indexOf('analytics') || !!~src.indexOf('logs') || !!~src.indexOf('alimama') || !!~src.indexOf('//cpro.baidustatic.com/cpro/ui/c.js') || !!~src.indexOf('.lduhtrp.net/image-') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
-        event.preventDefault();
-        event.stopPropagation();
-    }
-}, false);
-
 function main() {
     // Open source address
     const OPEN_HOME = 'https://github.com/hishis/forum-grandmaster-for-discuz';
