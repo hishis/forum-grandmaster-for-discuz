@@ -18,9 +18,9 @@
 // @description:zh-TW 🔊論壇網站頁面美化、廣告移除、功能增強。美輪美奐的視覺享受，安然恬靜的論壇時光……
 // @homepage          https://github.com/hishis/forum-grandmaster-for-discuz
 // @icon              https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/favicon.ico
-// @updateURL         https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
-// @installURL        https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
-// @downloadURL       https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.js
+// @updateURL         https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.user.js
+// @installURL        https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.user.js
+// @downloadURL       https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.user.js
 // @supportURL        https://github.com/hishis/forum-grandmaster-for-discuz/issues
 // @match             https://www.52pojie.cn/
 // @match             https://www.right.com.cn/
