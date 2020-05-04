@@ -239,7 +239,7 @@
 
 unsafeWindow.addEventListener('beforescriptexecute', event => {
     let src = event.target.src;
-    if (!!~src.indexOf('/ads') || !!~src.indexOf('analytics') || !!~src.indexOf('logs') || !!~src.indexOf('alimama') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
+    if (!!~src.indexOf('/ads') || !!~src.indexOf('analytics') || !!~src.indexOf('logs') || !!~src.indexOf('alimama') || !!~src.indexOf('//cpro.baidustatic.com/cpro/ui/c.js') || !!~src.indexOf('hm.baidu.com') || !!~src.indexOf('cnzz.com') || !!~src.indexOf('js.users.51.la')) {
         event.preventDefault();
         event.stopPropagation();
     }
@@ -813,6 +813,7 @@ function main() {
     // bbs.pcbeta.com
     if (!!~hn.indexOf('bbs.pcbeta.com')) {
         setTimeout(() => {
+            !!~window.location.pathname.indexOf('viewthread') && GM_addStyle('#wp > div { display: none; }');
             GM_addStyle(`
                 #nv_forum > span,
                 .pls .tip,
