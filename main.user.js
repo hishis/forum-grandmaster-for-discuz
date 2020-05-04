@@ -523,29 +523,6 @@ function main() {
     // Execution as Show users online status
     !!member && show_users_online_status();
 
-    // Click the main building reply to skip to the bottom of the page
-    function skip_bottom(params) {
-        try {
-            params.removeAttribute('onclick');
-            params.href = 'javascript:;';
-            params.addEventListener('click', event => {
-                window.scrollTo(0, 54321);
-                let fastPostMessage = document.getElementById('fastpostmessage');
-                !!fastPostMessage && fastPostMessage.focus();
-            }, false);
-        } catch (error) {
-            // GM_log('You don\'t have permission to post content.');
-        }
-    }
-    if (document.getElementsByClassName('prev').length === 0) {
-        const locked = member && document.getElementsByClassName('locked');
-        if (typeof locked === 'object' && !!locked.length) {
-            for (let i = 0; i < locked.length; i++) {
-                skip_bottom(locked[i].getElementsByTagName('a')[0]);
-            }
-        }
-    }
-
     // Fast Post Message
     const fastPostEditor = document.getElementById('fastposteditor');
     const area = !!fastPostEditor ? fastPostEditor.getElementsByClassName('area')[0] : null;
