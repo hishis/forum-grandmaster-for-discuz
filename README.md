@@ -43,6 +43,7 @@
 * 办公模式：屏蔽自定义头像（使用办公图标头像）、缩小头像、简化头像下方信息、移除帖子背景图片、隐藏论坛用户签名。
 
 ### 补充说明
+* 想要使用油猴脚本，需要先安装 **油猴扩展**（浏览器扩展程序）；
 * 论坛大师油猴脚本支持 **Tampermonkey** 和 **Violentmonkey（暴力猴）** 扩展程序；
 * 某些浏览器安装扩展程序之后需要重启浏览器才会生效；
 * 论坛大师油猴脚本在 **网站主页** 是不生效的，需要打开帖子才会生效；
@@ -63,18 +64,10 @@
 --- | --- | --- | --- | --- | --- |
 Latest ✔ | Latest ✔ | Latest ✔ | Latest ❌ | Latest ✔ | Latest ✔ |
 
-### 安装
-[Install from GitHub](https://github.com/hishis/forum-grandmaster-for-discuz)
+### 开源地址
+[Forum Grandmaster for GitHub](https://github.com/hishis/forum-grandmaster-for-discuz)
 
-[Install from Greasy Fork](https://greasyfork.org/scripts/400250)（推荐）
+[Forum Grandmaster for Greasy Fork](https://greasyfork.org/scripts/400250)
 
-### 捐助
-这个页面上没有捐助按钮。
-
-主要原因是我认为捐助模式不能真正帮助项目发展，相反的，会对没有捐助的用户产生一种无意的诱导性的愧疚歧视感。
-
-当然，如果你非要坚持，你可以捐给 [Free Software Foundation（自由软件基金会）](https://www.fsf.org/ "Free Software Foundation")，他们才是无数类似论坛大师的项目得以存在的原因。
-
-不管如何，我都要在此对你们说谢谢你们对这个小项目持续的支持和热情，非常非常感谢。
-
-但是无论怎样都请你随意使用论坛大师，无需介怀对此项目没有付出任何经济上的贡献 – 因为你本来就不需要嘛。
+### 安装地址
+[Install from Greasy Fork](https://greasyfork.org/scripts/400250/code/main.user.js)
