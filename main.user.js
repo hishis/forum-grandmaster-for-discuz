@@ -544,10 +544,7 @@ function main() {
                 skip_bottom(locked[i].getElementsByTagName('a')[0]);
             }
         }
-        let fastre = member && document.getElementsByClassName('fastre')[0];
-        !!fastre && skip_bottom(fastre);
     }
-
 
     // Fast Post Message
     const fastPostEditor = document.getElementById('fastposteditor');
