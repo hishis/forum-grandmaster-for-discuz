@@ -254,6 +254,9 @@ function main() {
     // Hostname
     const hn = window.location.hostname;
 
+    // Uniform Resource Locator
+    const url = window.location.href;
+
     // User-Agent
     const ua = window.navigator.userAgent;
 
@@ -676,7 +679,6 @@ function main() {
     }
 
     // Edit Textarea
-    let url = window.location.href;
     if (!!~url.indexOf('mod=post') && !!~url.indexOf('action=edit')) {
         GM_addStyle('#rstnotice { display: none; }');
         let editTextarea = document.getElementById('e_textarea');
