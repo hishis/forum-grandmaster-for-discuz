@@ -70,4 +70,4 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ❌ | Latest ✔ | Latest ✔ |
 [Forum Grandmaster for Greasy Fork](https://greasyfork.org/scripts/400250)
 
 ### 安装地址
-[Install from Greasy Fork](https://greasyfork.org/scripts/400250/code/main.user.js)
+[Click to install Forum Grandmaster for Greasy Fork](https://greasyfork.org/scripts/400250/code/main.user.js)
