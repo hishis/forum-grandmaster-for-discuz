@@ -665,6 +665,7 @@ function main() {
                 posts_img[i].removeAttribute('onclick');
                 posts_img[i].removeAttribute('onmouseover');
                 posts_img[i].removeAttribute('onload');
+                posts_img[i].setAttribute('loading', 'lazy');
                 posts_img[i].addEventListener('click', event => {
                     event.preventDefault();
                 }, false);
