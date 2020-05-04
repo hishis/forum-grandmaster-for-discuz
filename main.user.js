@@ -1087,9 +1087,26 @@ function main() {
 
     // Speechless
     if (!!~url.indexOf('.com/htm_data/')) {
+        if (typeof r9aeadS === 'function') {
+            unsafeWindow.r9aeadS = function () {};
+            let ads = document.getElementsByClassName('tips');
+            for (let i = 0; i < ads.length; i++) {
+                ads[i].style.display = 'none';
+            }
+        } else {
+            setTimeout(() => {
+                let ads = document.getElementsByClassName('tips');
+                for (let i = 0; i < ads.length; i++) {
+                    ads[i].style.display = 'none';
+                }
+            }, 2222);
+        }
         setTimeout(() => {
             let image_big_text = document.getElementsByClassName('image-big-text');
             for (let i = 0; i < image_big_text.length; i++) {
+                image_big_text[i].addEventListener('contextmenu', event => {
+                    event.preventDefault();
+                }, false);
                 if (!!~image_big_text[i].title.indexOf('//')) {
                     let url = image_big_text[i].title.substring(image_big_text[i].title.indexOf('http'));
                     image_big_text[i].addEventListener('click', event => {
