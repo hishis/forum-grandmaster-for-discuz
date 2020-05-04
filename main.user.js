@@ -1120,8 +1120,8 @@ function main() {
             }
         }, 2000);
     }
-    if (hn === 'www.viidii.info') {
-        GM_openInTab(document.body.innerHTML.match(/<a href="(.+?)"/)[1], false);
+    if (hn === 'www.viidii.info' && !!~url.indexOf('&src=')) {
+        GM_openInTab(decodeURIComponent(url.split('&src=')[1].split('&')[0]), false);
         window.close();
     }
 }
