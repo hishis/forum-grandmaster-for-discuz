@@ -70,6 +70,6 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ❌ | Latest ✔ | Latest ✔ |
 [Forum Grandmaster for Greasy Fork](https://greasyfork.org/scripts/400250)
 
 ### 安装地址
-[Click to install Forum Grandmaster for GitHub](https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.user.js)（备选：每月更新）
+[Click to install Forum Grandmaster for GitHub](https://raw.githubusercontent.com/hishis/forum-grandmaster-for-discuz/master/main.user.js)
 
-[Click to install Forum Grandmaster for Greasy Fork](https://greasyfork.org/scripts/400250/code/main.user.js)（推荐：最新版本）
+[Click to install Forum Grandmaster for Greasy Fork](https://greasyfork.org/scripts/400250/code/main.user.js)（推荐）
