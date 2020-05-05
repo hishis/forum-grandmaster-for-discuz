@@ -530,8 +530,26 @@ function main() {
     const fastPostMessage = document.getElementById('fastpostmessage');
     const fastPostSubmit = document.getElementById('fastpostsubmit');
 
+
+    // Click the main building reply to skip to the bottom of the page
+    function skip_bottom(params) {
+        try {
+            params.removeAttribute('onclick');
+            params.href = 'javascript:;';
+            params.addEventListener('click', event => {
+                window.scrollTo(0, 54321);
+                !!fastPostMessage && fastPostMessage.focus();
+            }, false);
+        } catch (error) {
+            // GM_log('You don\'t need to post content.');
+        }
+    }
+    if (!!member && document.getElementsByClassName('prev').length === 0 && !!document.getElementsByClassName('fastre').length) {
+        skip_bottom(document.getElementsByClassName('fastre')[0]);
+    }
+
     // Harmonious
-    if (member && !!area) {
+    if (!!member && !!area) {
         // Harmonious button
         const harmonious_button = document.createElement('span');
         harmonious_button.className = 'harmonious-button';
@@ -885,7 +903,7 @@ function main() {
                 }
             `);
 
-            if (member === false) {
+            if (!!member === false) {
                 GM_addStyle(`
                     .function-buttons {
                         padding-top: 4px;
