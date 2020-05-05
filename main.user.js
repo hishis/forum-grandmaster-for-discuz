@@ -1057,18 +1057,27 @@ function main() {
 
     // Speechless
     if (!!~url.indexOf('.com/htm_data/')) {
-        if (typeof r9aeadS === 'function') {
-            unsafeWindow.r9aeadS = function () {};
+        function remove_ads() {
             let ads = document.getElementsByClassName('tips');
             for (let i = 0; i < ads.length; i++) {
                 ads[i].style.display = 'none';
             }
+            let f = document.getElementsByClassName('f24');
+            if (!!f.length) {
+                let parent = f[0].parentElement;
+                f = parent.getElementsByClassName('f24');
+                for (let i = 0; i < f.length; i++) {
+                    parent.removeChild(f[i]);
+                }
+            }
+        }
+        let bodyContent = document.body.innerHTML;
+        if (!!~bodyContent.indexOf('r9aeadS();') && !!~bodyContent.indexOf('setTimeout(function(){r9aeadS()}, 1603);') && !!~bodyContent.indexOf('function r9aeadS()') && typeof r9aeadS === 'function') {
+            unsafeWindow.r9aeadS = function () {};
+            remove_ads();
         } else {
             setTimeout(() => {
-                let ads = document.getElementsByClassName('tips');
-                for (let i = 0; i < ads.length; i++) {
-                    ads[i].style.display = 'none';
-                }
+                remove_ads();
             }, 2222);
         }
         setTimeout(() => {
