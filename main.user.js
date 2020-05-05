@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.20
+// @version           0.3.21
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -131,7 +131,7 @@
     'use strict';
 
     if (typeof GM_addStyle === 'undefined') {
-        if (!!~window.navigator.userAgent.indexOf('Firefox')) {
+        if (window.navigator.userAgent.includes('Firefox')) {
             alert('论坛大师油猴脚本暂不支持 Greasemonkey（油猴子），建议安装 Tampermonkey 或 Violentmonkey（暴力猴）扩展程序！');
             window.location.replace('https://addons.mozilla.org/firefox/addon/tampermonkey/');
         } else {
@@ -221,7 +221,7 @@
     GM_addStyle(common_css);
 
     // bbs.pcbeta.com
-    if (!!~hn.indexOf('bbs.pcbeta.com')) {
+    if (hn.includes('bbs.pcbeta.com')) {
         setTimeout(() => {
             GM_addStyle(common_css);
         }, 999);
@@ -308,7 +308,7 @@ function main() {
                 function_buttons_package = document.getElementById('extcreditmenu').parentElement;
                 break;
 
-            case !!~hn.indexOf('bbs.pcbeta.com') && !!document.getElementsByClassName('hdc').length:
+            case hn.includes('bbs.pcbeta.com') && !!document.getElementsByClassName('hdc').length:
                 function_buttons_package = document.getElementsByClassName('hdc')[0];
                 break;
 
@@ -399,7 +399,7 @@ function main() {
                 show_dialog(message)
             }, 1234);
 
-            if (!!~hn.indexOf('bbs.pcbeta.com')) {
+            if (hn.includes('bbs.pcbeta.com')) {
                 GM_openInTab('//i.pcbeta.com/home.php?mod=task&do=apply&id=149', false);
                 setTimeout(() => {
                     GM_openInTab('//i.pcbeta.com/home.php?mod=space&do=notice');
@@ -417,7 +417,7 @@ function main() {
                 }, i * 100);
             }
 
-            if (!!~hn.indexOf('hostloc.com')) {
+            if (hn.includes('hostloc.com')) {
                 for (let i = 0; i < 20; i++) {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
@@ -456,7 +456,7 @@ function main() {
     }
 
     // Execution as Create Button Group
-    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { if (!~GM_info.scriptHandler.indexOf('Violent') || GM_info.script.name.length !== 29 || !~GM_info.scriptMetaStr.indexOf(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join('')))) { setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 654321); } } create_button_group(); })();
+    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { if (GM_info.scriptHandler.includes('Violent') === false || GM_info.script.name.length !== 29 || GM_info.scriptMetaStr.includes(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))) === false) { setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 654321); } } create_button_group(); })();
 
     // Display the user real online status
     function display_user_real_online_status(avatar, id) {
@@ -466,7 +466,7 @@ function main() {
             url: url,
             onload: response => {
                 if (response.readyState === 4 && response.status === 200) {
-                    let status = !!~response.responseText.indexOf('[在线]');
+                    let status = response.responseText.includes('[在线]');
                     let span = document.createElement('span');
                     span.className = status ? 'user-status-expression user-status-expression-online' : 'user-status-expression user-status-expression-offline';
                     span.title = status ? '当前在线' : '当前离线';
@@ -488,7 +488,7 @@ function main() {
             case 'Basic':
                 // Show default users online status
                 for (let i = 0; i < info.length; i++) {
-                    if (!!~info[i].innerHTML.indexOf('<em>当前在线</em>')) {
+                    if (info[i].innerHTML.includes('<em>当前在线</em>')) {
                         let div = document.createElement('div');
                         div.className = 'user-online-status online gol';
                         div.title = '当前在线';
@@ -506,7 +506,7 @@ function main() {
 
             case 'Advanced':
                 // Show real users online status
-                let wait = !!~hn.indexOf('bbs.pcbeta.com') ? 3000 : 1111;
+                let wait = hn.includes('bbs.pcbeta.com') ? 3000 : 1111;
                 for (let i = 0; i < info.length; i++) {
                     setTimeout(() => {
                         let html = avatar[i].innerHTML;
@@ -559,8 +559,8 @@ function main() {
             let fastPostMessageContent = fastPostMessage.value;
             fastPostMessageContent = fastPostMessageContent.trim();
             let message;
-            if (!!~hn.indexOf('hostloc.com')) {
-                if (!!~fastPostMessageContent.indexOf('\u200b')) {
+            if (hn.includes('hostloc.com')) {
+                if (fastPostMessageContent.includes('\u200b')) {
                     fastPostMessageContent = fastPostMessageContent.split('\u200b').join('');
                     fastPostMessageContent = fastPostMessageContent.split('[font=None]').join('');
                     fastPostMessageContent = fastPostMessageContent.split('[/font]').join('');
@@ -607,7 +607,7 @@ function main() {
     function post_patch(edit_textarea, submit_button, action) {
         function patch_up() {
             let edit_textarea_content = edit_textarea.value;
-            if (!!~edit_textarea_content.indexOf(patch_content) === false) {
+            if (edit_textarea_content.includes(patch_content) === false) {
                 edit_textarea_content = edit_textarea_content.trim();
                 edit_textarea.value = edit_textarea_content.concat('\n\n', patch_content);
                 edit_textarea.style.opacity = '0';
@@ -623,7 +623,7 @@ function main() {
         // Uninstall patch
         function patch_uninstall() {
             let textareaDefaultContent = edit_textarea.value;
-            if (!!~textareaDefaultContent.indexOf(patch_content)) {
+            if (textareaDefaultContent.includes(patch_content)) {
                 textareaDefaultContent = textareaDefaultContent.replace(patch_content, '');
                 edit_textarea.value = textareaDefaultContent.trim();
             }
@@ -676,7 +676,7 @@ function main() {
     }
 
     // Edit Textarea
-    if (!!~url.indexOf('mod=post') && !!~url.indexOf('action=edit')) {
+    if (url.includes('mod=post') && url.includes('action=edit')) {
         GM_addStyle('#rstnotice { display: none; }');
         let editTextarea = document.getElementById('e_textarea');
         let postSubmit = !!editTextarea ? document.getElementById('postsubmit') : null;
@@ -688,7 +688,7 @@ function main() {
     if (display_badge === true) {
         posts_img = document.getElementsByClassName('zoom');
         for (let i = 0; i < posts_img.length; i++) {
-            if (!!~posts_img[i].src.indexOf('/public/images/patch.gif')) {
+            if (posts_img[i].src.includes('/public/images/patch.gif')) {
                 posts_img[i].removeAttribute('onclick');
                 posts_img[i].removeAttribute('onmouseover');
                 posts_img[i].removeAttribute('onload');
@@ -715,7 +715,7 @@ function main() {
     const lang = window.navigator.language;
 
     // Fuck Firefox
-    if (!!~ua.indexOf('Firefox')) {
+    if (ua.includes('Firefox')) {
         // Default avatar for Firefox
         function default_avatar(avatar_big, avatar_middle, avatar_small) {
             let avatar_img_src = avatar_middle || avatar_big;
@@ -781,7 +781,7 @@ function main() {
                     break;
             }
             for (let i = 0; i < posts_img.length; i++) {
-                if (!!~posts_img[i].src.indexOf('/public/images/patch.gif')) {
+                if (posts_img[i].src.includes('/public/images/patch.gif')) {
                     posts_img[i].src = lang_patch_img_src;
                     posts_img[i].alt = lang_patch_img_alt;
                     posts_img[i].classList.add('forum-grandmaster-badge');
@@ -817,9 +817,9 @@ function main() {
     }
 
     // bbs.pcbeta.com
-    if (!!~hn.indexOf('bbs.pcbeta.com')) {
+    if (hn.includes('bbs.pcbeta.com')) {
         setTimeout(() => {
-            !!~window.location.pathname.indexOf('viewthread') && GM_addStyle('#wp > div { display: none; }');
+            window.location.pathname.includes('viewthread') && GM_addStyle('#wp > div { display: none; }');
             GM_addStyle(`
                 #nv_forum > span,
                 .pls .tip,
@@ -925,7 +925,7 @@ function main() {
     }
 
     // www.hostloc.com
-    if (!!~hn.indexOf('hostloc.com')) {
+    if (hn.includes('hostloc.com')) {
         GM_addStyle(`
             #hd .wp {
                 padding-top: 0;
@@ -964,7 +964,7 @@ function main() {
     }
 
     // bbs.fobshanghai.com
-    !!~hn.indexOf('bbs.fobshanghai.com') && GM_addStyle(`
+    hn.includes('bbs.fobshanghai.com') && GM_addStyle(`
         #function-buttons.function-buttons {
             padding-top: 48px !important;
         }
@@ -985,7 +985,7 @@ function main() {
     `);
 
     // www.zuanke8.com
-    if (!!~hn.indexOf('zuanke8.com')) {
+    if (hn.includes('zuanke8.com')) {
         GM_addStyle(`
             #hd .zuanamu,
             #xad_mu {
@@ -996,14 +996,14 @@ function main() {
         let ads = document.getElementById('scbar_form');
         ads = !!ads ? ads.getElementsByTagName('td') : [];
         for (let i = 0; i < ads.length; i++) {
-            if (!!~ads[i].innerText.indexOf('手机客户端')) {
+            if (ads[i].innerText.includes('手机客户端')) {
                 ads[i].style.display = 'none';
             }
         }
 
         ads = document.getElementById('wp');
         ads = !!ads ? ads.getElementsByTagName('div')[1] : null;
-        if (!!ads && !!~ads.innerText.indexOf('您的果果低于')) {
+        if (!!ads && ads.innerText.includes('您的果果低于')) {
             ads.style.display = 'none';
         }
 
@@ -1011,7 +1011,7 @@ function main() {
         for (let i = 0; i < ads.length; i++) {
             let a = ads[i].getElementsByTagName('div');
             for (let x = 0; x < a.length; x++) {
-                if (!!~a[x].innerText.indexOf('提供的广告')) {
+                if (a[x].innerText.includes('提供的广告')) {
                     a[x].style.display = 'none';
                 }
             }
@@ -1019,7 +1019,7 @@ function main() {
     }
 
     // bbs.huorong.cn
-    !!~hn.indexOf('bbs.huorong.cn') && GM_addStyle(`
+    hn.includes('bbs.huorong.cn') && GM_addStyle(`
         .function-buttons {
             margin-top: 10px;
             padding-right: 6px;
@@ -1031,7 +1031,7 @@ function main() {
     `);
 
     // bbs.360.cn
-    !!~hn.indexOf('bbs.360.cn') && GM_addStyle(`
+    hn.includes('bbs.360.cn') && GM_addStyle(`
         .function-buttons {
             margin-top: -22px;
         }
@@ -1068,7 +1068,7 @@ function main() {
     `);
 
     // www.mcbbs.net
-    !!~hn.indexOf('www.mcbbs.net') && GM_addStyle(`
+    hn.includes('www.mcbbs.net') && GM_addStyle(`
         .new_wp .hdc,
         #hd .wp {
             display: none;
@@ -1083,7 +1083,7 @@ function main() {
     `);
 
     // Speechless
-    if (!!~url.indexOf('.com/htm_data/')) {
+    if (url.includes('.com/htm_data/')) {
         function remove_ads() {
             let ads = document.getElementsByClassName('tips');
             for (let i = 0; i < ads.length; i++) {
@@ -1093,87 +1093,48 @@ function main() {
         let tpcContent = document.getElementsByClassName('tpc_content')[0];
         if (!!tpcContent) {
             let tpcHTML = tpcContent.innerHTML;
-            switch (true) {
-                case !!~tpcHTML.indexOf('【新片首发】'):
-                    tpcHTML = '【新片首发】'.concat(tpcHTML.split('【新片首发】')[1]);
-                    break;
 
-                case !!~tpcHTML.indexOf('新片首发：'):
-                    tpcHTML = '新片首发：'.concat(tpcHTML.split('新片首发：')[1]);
+            let list = [
+                '【新片首发】',
+                '【新片首發】',
+                '【影片名称】',
+                '【影片名稱】',
+                '【视频名称】',
+                '【視頻名稱】',
+                '【漫画名字】',
+                '【漫畫名字】',
+                '新片首发：',
+                '新片首發：',
+                '影片名称：',
+                '影片名稱：',
+                '视频名称：',
+                '視頻名稱：',
+                '漫画名字：',
+                '漫畫名字：',
+            ];
+            for (const i of list) {
+                if (tpcHTML.includes(i)) {
+                    tpcHTML = i.concat(tpcHTML.split(i)[1]);
                     break;
+                }
 
-                case !!~tpcHTML.indexOf('【新片首發】'):
-                    tpcHTML = '【新片首發】'.concat(tpcHTML.split('【新片首發】')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('新片首發：'):
-                    tpcHTML = '新片首發：'.concat(tpcHTML.split('新片首發：')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('【影片名称】'):
-                    tpcHTML = '【影片名称】'.concat(tpcHTML.split('【影片名称】')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('影片名称：'):
-                    tpcHTML = '影片名称：'.concat(tpcHTML.split('影片名称：')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('【影片名稱】'):
-                    tpcHTML = '【影片名稱】'.concat(tpcHTML.split('【影片名稱】')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('影片名稱：'):
-                    tpcHTML = '影片名稱：'.concat(tpcHTML.split('影片名稱：')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('【视频名称】'):
-                    tpcHTML = '【视频名称】'.concat(tpcHTML.split('【视频名称】')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('视频名称：'):
-                    tpcHTML = '视频名称：'.concat(tpcHTML.split('视频名称：')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('【視頻名稱】'):
-                    tpcHTML = '【視頻名稱】'.concat(tpcHTML.split('【視頻名稱】')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('視頻名稱：'):
-                    tpcHTML = '視頻名稱：'.concat(tpcHTML.split('視頻名稱：')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('【漫画名字】'):
-                    tpcHTML = '【漫画名字】'.concat(tpcHTML.split('【漫画名字】')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('漫画名字：'):
-                    tpcHTML = '漫画名字：'.concat(tpcHTML.split('漫画名字：')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('【漫畫名字】'):
-                    tpcHTML = '【漫畫名字】'.concat(tpcHTML.split('【漫畫名字】')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('漫畫名字：'):
-                    tpcHTML = '漫畫名字：'.concat(tpcHTML.split('漫畫名字：')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('种子连结↓↓↓↓↓</span></span><br><br><b>'):
-                    tpcHTML = '<span style="display: inline-block; color: red;">种子连结</span><br><b>'.concat(tpcHTML.split('种子连结↓↓↓↓↓</span></span><br><br><b>')[1]);
-                    break;
-
-                case !!~tpcHTML.indexOf('種子連結↓↓↓↓↓</span></span><br><br>'):
-                    tpcHTML = '<span style="display: inline-block; color: red;">種子連結</span><br><b>'.concat(tpcHTML.split('種子連結↓↓↓↓↓</span></span><br><br><b>')[1]);
-                    break;
-
-                default:
-                    break;
             }
+
+            list = [
+                '种子连结',
+                '種子連結',
+            ];
+            for (const i of list) {
+                if (tpcHTML.includes(i.concat('↓↓↓↓↓</span></span><br><br><b>'))) {
+                    tpcHTML = '<span style="display: inline-block; color: red;">'.concat(i, '</span><br><b>', tpcHTML.split(i.concat('↓↓↓↓↓</span></span><br><br><b>'))[1]);
+                }
+            }
+
             tpcHTML = tpcHTML.replace(/(<br>){2,}/g, '<br><br>');
             tpcContent.innerHTML = tpcHTML;
         }
         let bodyContent = document.body.innerHTML;
-        if (!!~bodyContent.indexOf('r9aeadS();') && !!~bodyContent.indexOf('setTimeout(function(){r9aeadS()}, 1603);') && !!~bodyContent.indexOf('function r9aeadS()') && typeof r9aeadS === 'function') {
+        if (bodyContent.includes('r9aeadS();') && bodyContent.includes('setTimeout(function(){r9aeadS()}, 1603);') && bodyContent.includes('function r9aeadS()') && typeof r9aeadS === 'function') {
             unsafeWindow.r9aeadS = function () {};
             remove_ads();
         } else {
@@ -1187,7 +1148,7 @@ function main() {
                 image_big_text[i].addEventListener('contextmenu', event => {
                     event.preventDefault();
                 }, false);
-                if (!!~image_big_text[i].title.indexOf('//')) {
+                if (image_big_text[i].title.includes('//')) {
                     let url = image_big_text[i].title.substring(image_big_text[i].title.indexOf('http'));
                     image_big_text[i].addEventListener('click', event => {
                         GM_openInTab(url, false);
@@ -1201,7 +1162,7 @@ function main() {
             }
         }, 2000);
     }
-    if (hn === 'www.viidii.info' && !!~url.indexOf('&src=')) {
+    if (hn === 'www.viidii.info' && url.includes('&src=')) {
         GM_openInTab(decodeURIComponent(url.split('&src=')[1].split('&')[0]), false);
         window.close();
     }
@@ -1289,7 +1250,7 @@ if (window.location.hostname === 'hishis.github.io') {
                 domHas = true;
 
                 // Close
-                if (!!~FG.data.ua.indexOf('Firefox')) {
+                if (FG.data.ua.includes('Firefox')) {
                     let close = document.getElementsByClassName('close');
                     for (let i = 0; i < close.length; i++) {
                         close[i].addEventListener('click', event => {
@@ -1308,7 +1269,7 @@ if (window.location.hostname === 'hishis.github.io') {
                 document.getElementById('save-settings').addEventListener('click', event => {
                     GM_log('保存设置');
                     for (let x of FG.m) {
-                        !!~x[0].indexOf('__') || GM_setValue(x[0], x[1]);
+                        x[0].includes('__') || GM_setValue(x[0], x[1]);
                     }
                 }, false);
             }
@@ -1327,6 +1288,6 @@ if (window.location.hostname === 'hishis.github.io') {
 document.onreadystatechange = function () {
     // Main code
     if (document.readyState === 'interactive') {
-        !!~window.location.hostname.indexOf('hishis.github.io') || main();
+        window.location.hostname.includes('hishis.github.io') || main();
     }
 }
