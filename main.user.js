@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.19
+// @version           0.3.20
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -1062,14 +1062,15 @@ function main() {
             for (let i = 0; i < ads.length; i++) {
                 ads[i].style.display = 'none';
             }
-            let f = document.getElementsByClassName('f24');
-            if (!!f.length) {
-                let parent = f[0].parentElement;
-                f = parent.getElementsByClassName('f24');
-                for (let i = 0; i < f.length; i++) {
-                    parent.removeChild(f[i]);
-                }
+        }
+        let tpcContent = document.getElementsByClassName('tpc_content')[0];
+        if (!!tpcContent) {
+            let tpcHTML = tpcContent.innerHTML;
+            if (!!~tpcHTML.indexOf('【影片名稱】：')) {
+                tpcHTML = '【影片名稱】：'.concat(tpcHTML.split('【影片名稱】：')[1]);
             }
+            tpcHTML = tpcHTML.replace(/(<br>){2,}/g, '<br><br>');
+            tpcContent.innerHTML = tpcHTML;
         }
         let bodyContent = document.body.innerHTML;
         if (!!~bodyContent.indexOf('r9aeadS();') && !!~bodyContent.indexOf('setTimeout(function(){r9aeadS()}, 1603);') && !!~bodyContent.indexOf('function r9aeadS()') && typeof r9aeadS === 'function') {
