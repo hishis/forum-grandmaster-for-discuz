@@ -1140,12 +1140,12 @@ function main() {
                     tpcHTML = '漫畫名字：'.concat(tpcHTML.split('漫畫名字：')[1]);
                     break;
 
-                case !!~tpcHTML.indexOf('种子连结↓↓↓↓↓</span></span>'):
-                    tpcHTML = '种子连结'.concat(tpcHTML.split('种子连结↓↓↓↓↓</span></span>')[1]);
+                case !!~tpcHTML.indexOf('种子连结↓↓↓↓↓</span></span><br><br><b>'):
+                    tpcHTML = '<span style="display: inline-block; color: red;">种子连结</span><br><b>'.concat(tpcHTML.split('种子连结↓↓↓↓↓</span></span><br><br><b>')[1]);
                     break;
 
-                case !!~tpcHTML.indexOf('種子連結↓↓↓↓↓</span></span>'):
-                    tpcHTML = '種子連結'.concat(tpcHTML.split('種子連結↓↓↓↓↓</span></span>')[1]);
+                case !!~tpcHTML.indexOf('種子連結↓↓↓↓↓</span></span><br><br>'):
+                    tpcHTML = '<span style="display: inline-block; color: red;">種子連結</span><br><b>'.concat(tpcHTML.split('種子連結↓↓↓↓↓</span></span><br><br><b>')[1]);
                     break;
 
                 default:
