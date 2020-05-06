@@ -1120,15 +1120,11 @@ function main() {
 
             }
 
-            list = [
-                '官方网址：337788.com</a><br><br><br><br><br><br>',
-            ];
-            for (const i of list) {
-                if (tpcHTML.includes(i)) {
-                    tpcHTML = tpcHTML.split(i)[1];
-                    break;
-                }
+            let top = '.com</a><br><br><br><br><br><br><span class="f24"><span style="display:inline-block;color:Red">種子連結↓↓↓↓↓</span></span><br>';
+            if (tpcHTML.includes(top)) {
+                tpcHTML = '<span>種子連結</span><br>'.concat(tpcHTML.split(top)[1]);
             }
+
             tpcHTML = tpcHTML.replace(/(<br>){2,}/g, '<br><br>');
             tpcContent.innerHTML = tpcHTML;
         }
