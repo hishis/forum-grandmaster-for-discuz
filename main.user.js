@@ -328,10 +328,6 @@ function main() {
                 function_buttons_package = document.getElementById('nav');
                 break;
 
-            case !!document.getElementsByClassName('h').length:
-                function_buttons_package = document.getElementsByClassName('h')[0];
-                break;
-
             case !!document.getElementsByTagName('header').length:
                 function_buttons_package = document.getElementsByTagName('header')[0];
                 break;
@@ -687,19 +683,19 @@ function main() {
     let posts_img;
     if (display_badge === true) {
         posts_img = document.getElementsByClassName('zoom');
-        for (let i = 0; i < posts_img.length; i++) {
-            if (posts_img[i].src.includes('/public/images/patch.gif')) {
-                posts_img[i].removeAttribute('onclick');
-                posts_img[i].removeAttribute('onmouseover');
-                posts_img[i].removeAttribute('onload');
-                posts_img[i].setAttribute('loading', 'lazy');
-                posts_img[i].addEventListener('click', event => {
+        for (const i of posts_img) {
+            if (i.src.includes('/public/images/patch.gif')) {
+                i.removeAttribute('onclick');
+                i.removeAttribute('onmouseover');
+                i.removeAttribute('onload');
+                i.setAttribute('loading', 'lazy');
+                i.addEventListener('click', event => {
                     event.preventDefault();
                 }, false);
-                posts_img[i].addEventListener('dragstart', event => {
+                i.addEventListener('dragstart', event => {
                     event.preventDefault();
                 }, false);
-                posts_img[i].addEventListener('contextmenu', event => {
+                i.addEventListener('contextmenu', event => {
                     event.preventDefault();
                 }, false);
             }
@@ -780,11 +776,11 @@ function main() {
                     lang_patch_img_alt = 'Mozilla Firefox – Forum Grandmaster for Discuz!';
                     break;
             }
-            for (let i = 0; i < posts_img.length; i++) {
-                if (posts_img[i].src.includes('/public/images/patch.gif')) {
-                    posts_img[i].src = lang_patch_img_src;
-                    posts_img[i].alt = lang_patch_img_alt;
-                    posts_img[i].classList.add('forum-grandmaster-badge');
+            for (const i of posts_img) {
+                if (i.src.includes('/public/images/patch.gif')) {
+                    i.src = lang_patch_img_src;
+                    i.alt = lang_patch_img_alt;
+                    i.classList.add('forum-grandmaster-badge');
                 }
             }
         }
