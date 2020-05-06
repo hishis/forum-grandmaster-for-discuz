@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.21
+// @version           0.3.22
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -197,19 +197,19 @@
     // Scene mode: Standard, Home, Office
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
 
-    let common_css = ':root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}body,table,input,button,select,textarea,a{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.mono,.md,.code,.pre,.tt,mono,md,code,pre,tt,.pl .blockcode ol li,.pl .blockcode ul li{font-family:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}.ads,#ad_headerbanner,#ad_text,.ad_text,#ad_thread1_0,#ad_thread2_0,#ad_thread3_0,#ad_thread4_0,.ad_textlink1,.ad_textlink2,.ad_textlink3,.ad_textlink4,.plc .dnch_eo_pt,.plc .dnch_eo_pb,.l-ads,.left-ads,.r-ads,.right-ads,#diynavtop,#drk_colee_left1,#drk_colee_left2,#drk_ledtd,#hd .wp .a_mu,#nv_forum > .wp.cl > table,#nv_forum > #wp > #ct > .mn > .fl.bm > .bm.a_c,table .a_pr,.ad .plc .a_p,.a_h,.a_t,#postlist .a_pt,#postlist .a_pb,#nv_forum > #wp > #ct > .mn > table li.txt,#nv_forum > #wp > #ct > .mn > div > center,#nv_forum > #wp > #ct > .mn > div > table,#nv_forum > div > center,#nv_forum > div.a_fl,#nv_forum > div.a_fr,#nv_forum > div.a_cn,#fastpostform .pnpost > span{display:none}.image-big > img[data-link$=".com"],.image-big > img[data-link$=".net"],.image-big > img[data-link$=".org"],.image-big > img[data-link$=".cc"],.image-big > img[data-link$=".cn"],.image-big > img[data-link$=".com/"],.image-big > img[data-link$=".net/"],.image-big > img[data-link$=".org/"],.image-big > img[data-link$=".cc/"],.image-big > img[data-link$=".cn/"],.image-big > img[data-link*=".com:"],.image-big > img[data-link*=".net:"],.image-big > img[data-link*=".org:"],.image-big > img[data-link*=".cc:"],.image-big > img[data-link*=".cn:"],.image-big > img[data-link*=".com/?"],.image-big > img[data-link*=".net/?"],.image-big > img[data-link*=".org/?"],.image-big > img[data-link*=".cc/?"],.image-big > img[data-link*=".cn/?"],.image-big > img[data-link*="/Register"],.image-big > img[data-link*="/vip"],.image-big > img[ess-data*="://kk."],.image-big > img[ess-data*=".alicdn.com/"],.image-big > img[ess-data*=".sinaimg.cn/"],.tpc_content.do_not_catch > span[class="f16"] > span[style="display:inline-block;color:SeaGreen"] > a,.tpc_content.do_not_catch > span[class="f24"] > span[style="display:inline-block;color:SeaGreen"] > a,.tpc_content.do_not_catch > span[class="f32"] > span[style="display:inline-block;color:SeaGreen"] > a{display:none}#main .do_not_catch .tips{padding:0;user-select:none}#main .do_not_catch .tips .sptable_do_not_remove td{color:rgba(0,0,0,0);cursor:default}#main .do_not_catch .tips .sptable_do_not_remove h4,#main .do_not_catch .tips .sptable_do_not_remove a,#main .do_not_catch .tips .sptable_do_not_remove .sptable_info{display:none}.pls .avatar{position:relative;padding-top:1px;text-align:center}.pls .avatar img,#main .t.t2 table .tr1 table .tac img{padding:0;width:120px;height:120px;object-fit:contain;background:none;border:4px solid #fff;box-shadow:0 0 4px #bbb}.pls .avatar img:hover,#main .t.t2 table .tr1 table .tac img:hover{background:#fff;box-shadow:0 0 8px #bbb}#main .t.t2 table .tr1 table .tac img,#main .t.t2 table .tr1 table .tac img:hover{box-shadow:none}.bui .m{text-align:center}.bui .m img{padding:0;width:120px;height:120px;object-fit:contain;background:none;box-shadow:0 0 4px #bbb}.bui .m img:hover{background:#fff}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{object-fit:contain}.user-online-status{display:block;margin:0;border-collapse:collapse;text-align:center;position:absolute;left:0;top:0;width:10px;height:10px;cursor:help}.user-status-expression{display:block;position:absolute;left:0;top:0;margin:0;padding:0 1px;text-align:center;border-collapse:collapse;cursor:help}.user-status-expression-online::after{content:"🌝"}.user-status-expression-offline::after{content:"🌚"}.offline{filter:grayscale(100%)}.function-buttons{padding:0 0 4px 0;text-align:right;white-space:nowrap}.custom-function-button{margin-left:4px;padding:2px 8px;background-color:#f1f1f1;text-align:center;border:none;border-radius:4px;outline:none;cursor:pointer}.custom-function-button:hover{box-shadow:0 1px 2px #bbb}.button-disabled{color:#808080;cursor:default}.button-disabled:hover{box-shadow:none}.pl .blockcode em{display:none}#hiddenpoststip{padding:0}.t_f .zoom{margin:4px auto;box-shadow:0 0 2px #bbb}.t_f .zoom:hover{box-shadow:0 0 4px #bbb}#hiddenpoststip a{height:32px;line-height:32px;font-size:16px}#hiddenpoststip a:hover{color:#f33}#hiddenpoststip a::before{padding-right:8px;content:"🌜"}#hiddenpoststip a::after{padding-left:8px;content:"🌛"}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{display:none;margin:0 auto;padding:0;border:none;box-shadow:none;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.svg");user-select:none;transition:1s;cursor:default;opacity:0.5}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{opacity:1}h1 img,h2 img,.logo,.banner,.function-buttons,.cl .wp .y a,.cl .wp .z a,#um,#nv,#pt,.fwinmask,.user-online-status,.pls .hm,.pls .bui,.pls .avatar,.pls .tns,.pls p,.pls dl,.pls li,.plc .po,.plc .pi,.plc .y,.plc > p,.pgt,.pgs,.pstatus,.pcb .rate,.bm_h,#tools,.image-big .image-big-text,.modact,.bar,#hiddenpoststip,#fastsmiliesdiv,.harmonious-button{user-select:none}#fastposteditor .area{position:relative}#fastposteditor .area .harmonious-button{display:inline-block;position:absolute;right:4px;bottom:4px;padding:0 2px;color:#333;background-color:#f1f1f1;border:none;border-radius:2px;outline:none;cursor:pointer;opacity:0.5}#fastposteditor .area .harmonious-button:hover{color:#369;box-shadow:0 0 4px #bbb;opacity:1}.fwinmask input,.fwinmask button{cursor:pointer}.image-big > .image-big-text{position:absolute;bottom:2px;right:2px;padding:4px;font-size:16px;border-radius:4px;box-shadow:0 0 2px #ddd;opacity:0.5;cursor:pointer}.image-big > .image-big-text:hover{box-shadow:0 0 8px #fff;opacity:1}';
+    let common_css = ':root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}body,table,input,button,select,textarea,a{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.mono,.md,.code,.pre,.tt,mono,md,code,pre,tt,.pl .blockcode ol li,.pl .blockcode ul li{font-family:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}.ads,#ad_headerbanner,#ad_text,.ad_text,#ad_thread1_0,#ad_thread2_0,#ad_thread3_0,#ad_thread4_0,.ad_textlink1,.ad_textlink2,.ad_textlink3,.ad_textlink4,.plc .dnch_eo_pt,.plc .dnch_eo_pb,.l-ads,.left-ads,.r-ads,.right-ads,#diynavtop,#drk_colee_left1,#drk_colee_left2,#drk_ledtd,#hd .wp .a_mu,#nv_forum > .wp.cl > table,#nv_forum > #wp > #ct > .mn > .fl.bm > .bm.a_c,table .a_pr,.ad .plc .a_p,.a_h,.a_t,#postlist .a_pt,#postlist .a_pb,#nv_forum > #wp > #ct > .mn > table li.txt,#nv_forum > #wp > #ct > .mn > div > center,#nv_forum > #wp > #ct > .mn > div > table,#nv_forum > div > center,#nv_forum > div.a_fl,#nv_forum > div.a_fr,#nv_forum > div.a_cn,#fastpostform .pnpost > span{display:none}.image-big > img[data-link$=".com"],.image-big > img[data-link$=".net"],.image-big > img[data-link$=".org"],.image-big > img[data-link$=".cc"],.image-big > img[data-link$=".cn"],.image-big > img[data-link$=".com/"],.image-big > img[data-link$=".net/"],.image-big > img[data-link$=".org/"],.image-big > img[data-link$=".cc/"],.image-big > img[data-link$=".cn/"],.image-big > img[data-link*=".com:"],.image-big > img[data-link*=".net:"],.image-big > img[data-link*=".org:"],.image-big > img[data-link*=".cc:"],.image-big > img[data-link*=".cn:"],.image-big > img[data-link*=".com/?"],.image-big > img[data-link*=".net/?"],.image-big > img[data-link*=".org/?"],.image-big > img[data-link*=".cc/?"],.image-big > img[data-link*=".cn/?"],.image-big > img[data-link*="/Register"],.image-big > img[data-link*="/vip"],.image-big > img[ess-data*="://kk."],.image-big > img[ess-data*=".alicdn.com/"],.image-big > img[ess-data*=".sinaimg.cn/"],.tpc_content.do_not_catch > span[class="f16"] > span[style="display:inline-block;color:SeaGreen"] > a,.tpc_content.do_not_catch > span[class="f24"] > span[style="display:inline-block;color:SeaGreen"] > a,.tpc_content.do_not_catch > span[class="f32"] > span[style="display:inline-block;color:SeaGreen"] > a{display:none}#main .do_not_catch .tips{padding:0;user-select:none}#main .do_not_catch .tips .sptable_do_not_remove td{color:rgba(0,0,0,0);cursor:default}#main .do_not_catch .tips .sptable_do_not_remove h4,#main .do_not_catch .tips .sptable_do_not_remove a,#main .do_not_catch .tips .sptable_do_not_remove .sptable_info{display:none}.pls .avatar{position:relative;padding-top:1px;text-align:center}.pls .avatar img,#fastpostform .pls .avatar img,#main .t.t2 table .tr1 table .tac img{padding:0;width:120px;height:120px;object-fit:contain;background:none;border:4px solid #fff;box-shadow:0 0 4px #bbb}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,#main .t.t2 table .tr1 table .tac img:hover{background:#fff;box-shadow:0 0 8px #bbb}#main .t.t2 table .tr1 table .tac img,#main .t.t2 table .tr1 table .tac img:hover{box-shadow:none}.bui .m{text-align:center}.bui .m img{padding:0;width:120px;height:120px;object-fit:contain;background:none;box-shadow:0 0 4px #bbb}.bui .m img:hover{background:#fff}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{object-fit:contain}.user-online-status{display:block;margin:0;border-collapse:collapse;text-align:center;position:absolute;left:0;top:0;width:10px;height:10px;cursor:help}.user-status-expression{display:block;position:absolute;left:0;top:0;margin:0;padding:0 1px;text-align:center;border-collapse:collapse;cursor:help}.user-status-expression-online::after{content:"🌝"}.user-status-expression-offline::after{content:"🌚"}.offline{filter:grayscale(100%)}.function-buttons{padding:0 0 4px 0;text-align:right;white-space:nowrap}.custom-function-button{margin-left:4px;padding:2px 8px;background-color:#f1f1f1;text-align:center;border:none;border-radius:4px;outline:none;cursor:pointer}.custom-function-button:hover{box-shadow:0 1px 2px #bbb}.button-disabled{color:#808080;cursor:default}.button-disabled:hover{box-shadow:none}.pl .blockcode em{display:none}#hiddenpoststip{padding:0}.t_f .zoom{margin:4px auto;box-shadow:0 0 2px #bbb}.t_f .zoom:hover{box-shadow:0 0 4px #bbb}#hiddenpoststip a{height:32px;line-height:32px;font-size:16px}#hiddenpoststip a:hover{color:#f33}#hiddenpoststip a::before{padding-right:8px;content:"🌜"}#hiddenpoststip a::after{padding-left:8px;content:"🌛"}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{display:none;margin:0 auto;padding:0;border:none;box-shadow:none;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/patch.svg");user-select:none;transition:1s;cursor:default;opacity:0.5}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{opacity:1}h1 img,h2 img,.logo,.banner,.function-buttons,.cl .wp .y a,.cl .wp .z a,#um,#nv,#pt,.fwinmask,.user-online-status,.pls .hm,.pls .bui,.pls .avatar,.pls .tns,.pls p,.pls dl,.pls li,.plc .po,.plc .pi,.plc .y,.plc > p,.pgt,.pgs,.pstatus,.pcb .rate,.bm_h,#tools,.image-big .image-big-text,.modact,.bar,#hiddenpoststip,#fastsmiliesdiv,.harmonious-button{user-select:none}#fastposteditor .area{position:relative}#fastposteditor .area .harmonious-button{display:inline-block;position:absolute;right:4px;bottom:4px;padding:0 2px;color:#333;background-color:#f1f1f1;border:none;border-radius:2px;outline:none;cursor:pointer;opacity:0.5}#fastposteditor .area .harmonious-button:hover{color:#369;box-shadow:0 0 4px #bbb;opacity:1}.fwinmask input,.fwinmask button{cursor:pointer}.image-big > .image-big-text{position:absolute;bottom:2px;right:2px;padding:4px;font-size:16px;border-radius:4px;box-shadow:0 0 2px #ddd;opacity:0.5;cursor:pointer}.image-big > .image-big-text:hover{box-shadow:0 0 8px #fff;opacity:1}';
 
     switch (scene_mode) {
         case 'Standard':
-            common_css += '#Mode-Standard{user-select:none}.pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{border-radius:50%;transition:0.5s}.pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{transform:rotate(360deg)}.bui .m img{border-radius:50%;transition:0.5s}.bui .m img:hover{border-radius:0}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{border-radius:50%;transition:0.5s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{transform:rotate(360deg)}';
+            common_css += '#Mode-Standard{user-select:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{border-radius:50%;transition:0.5s}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{transform:rotate(360deg)}.bui .m img{border-radius:50%;transition:0.5s}.bui .m img:hover{border-radius:0}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{border-radius:50%;transition:0.5s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{transform:rotate(360deg)}';
             break;
 
         case 'Home':
-            common_css += '#Mode-Home{user-select:none}.pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif");border-radius:50%;transition:0.7s}.pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{}.bui .m img:hover{}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif");border-radius:50%;transition:0.7s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{content:none;border-radius:0}.sign img,.signature img{display:none}';
+            common_css += '#Mode-Home{user-select:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif");border-radius:50%;transition:0.7s}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{}.bui .m img:hover{}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif");border-radius:50%;transition:0.7s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{content:none;border-radius:0}.sign img,.signature img{display:none}';
             break;
 
         case 'Office':
-            common_css += '#Mode-Office{user-select:none}body{background:none}.pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}.pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{filter:grayscale(100%)}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{filter:none}#hd .wp .comiis_nav,.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body,.dnch_eo_f{display:none}#postlist .plhin{background:none}.sign,.signature{display:none}';
+            common_css += '#Mode-Office{user-select:none}body{background:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{filter:grayscale(100%)}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{filter:none}#hd .wp .comiis_nav,.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body,.dnch_eo_f{display:none}#postlist .plhin{background:none}.sign,.signature{display:none}';
             break;
 
         default:
@@ -418,7 +418,7 @@ function main() {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
                             method: 'GET',
-                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 47000 + 100), '.html'),
+                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 47777 + 100), '.html'),
                             timeout: 10000,
                         });
                     }, i * 100 + 1000);
@@ -717,30 +717,29 @@ function main() {
             let avatar_img_src = avatar_middle || avatar_big;
             let avatar = document.querySelectorAll('.avatar .avtm img');
             avatar = !!avatar.length ? avatar : document.querySelectorAll('.pls .avatar img');
-            for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = avatar_img_src;
+            for (const i of avatar) {
+                i.src = avatar_img_src;
+            }
+
+            avatar = document.querySelector('#fastpostform .pls .avatar img');
+            if (!!avatar) {
+                avatar.src = avatar_img_src;
             }
 
             avatar_img_src = avatar_small || avatar_middle || avatar_big;
 
-            avatar = document.querySelectorAll('#tath a img');
-            for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = avatar_img_src;
-            }
-
-            avatar = document.querySelectorAll('.ratl_l a img');
-            for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = avatar_img_src;
-            }
-
-            avatar = document.querySelectorAll('.cm .vm img');
-            for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = avatar_img_src;
-            }
-
-            avatar = document.querySelectorAll('.rate dd li img');
-            for (let i = 0; i < avatar.length; i++) {
-                avatar[i].src = avatar_img_src;
+            let list = [
+                '#um .avt a img',
+                '#tath a img',
+                '.ratl_l a img',
+                '.cm .vm img',
+                '.rate dd li img',
+            ];
+            for (const i of list) {
+                let avatar = document.querySelectorAll(i);
+                for (const i of avatar) {
+                    i.src = avatar_img_src;
+                }
             }
         }
 
@@ -807,8 +806,8 @@ function main() {
     // ads
     let ads = document.getElementsByClassName('adsbygoogle');
     if (!!ads.length) {
-        for (let i = 0; i < ads.length; i++) {
-            ads[i].style.display = 'none';
+        for (const i of ads) {
+            i.style.display = 'none';
         }
     }
 
@@ -940,13 +939,13 @@ function main() {
                 `
                 <span class="img-upload"><em>🖼</em>伊姆古尔</span>
                 <span class="img-upload"><em>🖼</em>路过图床</span>
-                <span class="img-upload"><em>🖼</em>布克图床</span>
+                <span class="img-upload"><em>🖼</em>图网图床</span>
                 <span class="img-upload"><em>🖼</em>虐恋图床</span>
                 `;
             let up_list = [
                 'https://imgur.com/upload',
                 'https://imgchr.com/',
-                'https://www.picbed.tk/',
+                'https://img.wang/',
                 'https://sm.ms/',
             ];
             let up = spanButtonPlaceholder.getElementsByClassName('img-upload');
@@ -954,7 +953,6 @@ function main() {
                 up[i].addEventListener('click', event => {
                     GM_openInTab(up_list[i], false);
                 }, false);
-
             }
         }
     }
@@ -991,9 +989,9 @@ function main() {
 
         let ads = document.getElementById('scbar_form');
         ads = !!ads ? ads.getElementsByTagName('td') : [];
-        for (let i = 0; i < ads.length; i++) {
-            if (ads[i].innerText.includes('手机客户端')) {
-                ads[i].style.display = 'none';
+        for (const i of ads) {
+            if (i.innerText.includes('手机客户端')) {
+                i.style.display = 'none';
             }
         }
 
@@ -1004,11 +1002,11 @@ function main() {
         }
 
         ads = document.getElementsByClassName('pct');
-        for (let i = 0; i < ads.length; i++) {
-            let a = ads[i].getElementsByTagName('div');
-            for (let x = 0; x < a.length; x++) {
-                if (a[x].innerText.includes('提供的广告')) {
-                    a[x].style.display = 'none';
+        for (const i of ads) {
+            let a = i.getElementsByTagName('div');
+            for (const i of a) {
+                if (i.innerText.includes('提供的广告')) {
+                    i.style.display = 'none';
                 }
             }
         }
@@ -1144,20 +1142,20 @@ function main() {
         }
         setTimeout(() => {
             let image_big_text = document.getElementsByClassName('image-big-text');
-            for (let i = 0; i < image_big_text.length; i++) {
-                image_big_text[i].addEventListener('contextmenu', event => {
+            for (const i of image_big_text) {
+                i.addEventListener('contextmenu', event => {
                     event.preventDefault();
                 }, false);
-                if (image_big_text[i].title.includes('//')) {
-                    let url = image_big_text[i].title.substring(image_big_text[i].title.indexOf('http'));
-                    image_big_text[i].addEventListener('click', event => {
+                if (i.title.includes('//')) {
+                    let url = i.title.substring(i.title.indexOf('http'));
+                    i.addEventListener('click', event => {
                         GM_openInTab(url, false);
                     }, false);
-                    image_big_text[i].title = url;
-                    image_big_text[i].innerHTML = '图片地址';
+                    i.title = url;
+                    i.innerHTML = '图片地址';
                 } else {
-                    image_big_text[i].removeAttribute('title');
-                    image_big_text[i].style.cursor = 'default';
+                    i.removeAttribute('title');
+                    i.style.cursor = 'default';
                 }
             }
         }, 2000);
@@ -1200,8 +1198,8 @@ if (window.location.hostname === 'hishis.github.io') {
     FG.m = new Map();
 
     let list = GM_listValues();
-    for (let i = 0; i < list.length; i++) {
-        FG.m.set(list[i], GM_getValue(list[i]));
+    for (const i of list) {
+        FG.m.set(i, GM_getValue(i));
     }
 
     FG.m.set('SCENE_MODE', GM_getValue('SCENE_MODE', 'Standard'));
@@ -1252,8 +1250,8 @@ if (window.location.hostname === 'hishis.github.io') {
                 // Close
                 if (FG.data.ua.includes('Firefox')) {
                     let close = document.getElementsByClassName('close');
-                    for (let i = 0; i < close.length; i++) {
-                        close[i].addEventListener('click', event => {
+                    for (const i of close) {
+                        i.addEventListener('click', event => {
                             window.close();
                         }, false);
                     }
@@ -1262,14 +1260,14 @@ if (window.location.hostname === 'hishis.github.io') {
                 document.getElementById('default-settings').addEventListener('click', event => {
                     GM_log('恢复系统默认设置');
                     let list = GM_listValues();
-                    for (let i = 0; i < list.length; i++) {
-                        GM_deleteValue(list[i]);
+                    for (const i of list) {
+                        GM_deleteValue(i);
                     }
                 }, false);
                 document.getElementById('save-settings').addEventListener('click', event => {
                     GM_log('保存设置');
-                    for (let x of FG.m) {
-                        x[0].includes('__') || GM_setValue(x[0], x[1]);
+                    for (const i of FG.m) {
+                        i[0].includes('__') || GM_setValue(i[0], i[1]);
                     }
                 }, false);
             }
