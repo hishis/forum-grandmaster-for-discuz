@@ -699,10 +699,10 @@ function main() {
         let usergroup = document.getElementById('g_upmine');
         usergroup = !!usergroup ? usergroup.innerHTML : '';
         if (usergroup.includes('论坛神仙')) {
-            let label =  document.createElement('label');
-            label.setAttribute('for', 'isanonymous');
-            label.innerHTML = '<input id="isanonymous" class="pc" type="checkbox" name="isanonymous" value="1" />匿名发帖';
-            params.parentNode.appendChild(label);
+            let anonymous =  document.createElement('label');
+            anonymous.setAttribute('for', 'isanonymous');
+            anonymous.innerHTML = '<input type="checkbox" id="isanonymous" class="pc" name="isanonymous" value="1" />匿名发帖';
+            params.parentNode.appendChild(anonymous);
         }
     }
     !!fastPostMessage && anonymous_post(fastPostMessage);
@@ -967,7 +967,7 @@ function main() {
                 `
                 <span class="img-upload"><em>🖼</em>伊姆古尔</span>
                 <span class="img-upload"><em>🖼</em>路过图床</span>
-                <span class="img-upload"><em>🖼</em>图网图床</span>
+                <span class="img-upload"><em>🖼</em>图王图床</span>
                 <span class="img-upload"><em>🖼</em>虐恋图床</span>
                 `;
             let up_list = [
