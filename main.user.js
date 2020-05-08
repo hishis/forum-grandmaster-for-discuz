@@ -40,6 +40,7 @@
 // @match             http*://www.aihao.cc/
 // @match             http*://bbs.nas66.com/
 // @match             http*://www.viidii.info/?action=image&*
+// @match             http*://www.viidii.info/?http*://*
 // @match             http*://*/forum.php
 // @match             http*://*/forum-*.html
 // @match             http*://*/forumdisplay.php?*
@@ -1193,9 +1194,32 @@ function main() {
             }
         }, 2000);
     }
-    if (hn === 'www.viidii.info' && url.includes('&src=')) {
-        GM_openInTab(decodeURIComponent(url.split('&src=')[1].split('&')[0]), false);
-        window.close();
+    if (hn === 'www.viidii.info') {
+        let href;
+        switch (true) {
+            case url.includes('/?action=image') && url.includes('&url='):
+                href = decodeURIComponent(url.split('&url=')[1].split('&')[0]);
+                break;
+
+            case url.includes('/?action=image') && url.includes('&src='):
+                href = decodeURIComponent(url.split('&src=')[1].split('&')[0]);
+                break;
+
+            case url.includes('/?http') && url.includes('_php?name='):
+                href = 'https://download.bbcb.tw/list.php?name=' + url.split('?name=')[1].split('&')[0];
+                break;
+
+            case url.includes('/?http') && url.includes('_php?hash='):
+                href = '';
+                break;
+
+            default:
+                break;
+        }
+        if (!!href) {
+            GM_openInTab(href, false);
+            window.close();
+        }
     }
 }
 
