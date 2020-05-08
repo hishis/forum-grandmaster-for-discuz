@@ -597,10 +597,12 @@ function main() {
             }
         }, false);
 
-        // Mousedown event
-        submit_button.addEventListener('mousedown', event => {
-            patch_up(666);
-        }, false);
+        if (action === 'Edit Textarea') {
+            // Mousedown event
+            submit_button.addEventListener('mousedown', event => {
+                patch_up(666);
+            }, false);
+        }
 
         // Click event
         submit_button.addEventListener('click', patch_up, false);
