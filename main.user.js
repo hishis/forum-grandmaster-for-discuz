@@ -1197,11 +1197,11 @@ function main() {
     if (hn === 'www.viidii.info') {
         let href;
         switch (true) {
-            case url.includes('/?action=image') && url.includes('&url='):
+            case url.includes('/?action=image') && url.includes('&url=http'):
                 href = decodeURIComponent(url.split('&url=')[1].split('&')[0]);
                 break;
 
-            case url.includes('/?action=image') && url.includes('&src='):
+            case url.includes('/?action=image') && url.includes('&src=http'):
                 href = decodeURIComponent(url.split('&src=')[1].split('&')[0]);
                 break;
 
