@@ -547,7 +547,7 @@ function main() {
     // Post Patch
     const patch_content = '[img]'.concat(window.location.protocol, '//cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]');
     function post_patch(edit_textarea, submit_button, action) {
-        function patch_up() {
+        function patch_up(presence = 200) {
             let edit_textarea_content = edit_textarea.value;
             if (edit_textarea_content.includes(patch_content) === false) {
                 edit_textarea_content = edit_textarea_content.trim();
@@ -558,7 +558,7 @@ function main() {
                         edit_textarea.value = edit_textarea_content;
                     }
                     edit_textarea.style.opacity = '1';
-                }, 200);
+                }, presence);
             }
         }
 
@@ -594,6 +594,11 @@ function main() {
                 if (action === 'Fast Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
                 if (action === 'Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
             }
+        }, false);
+
+        // Mousedown event
+        submit_button.addEventListener('mousedown', event => {
+            patch_up(666);
         }, false);
 
         // Click event
