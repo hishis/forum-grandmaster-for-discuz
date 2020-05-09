@@ -666,14 +666,14 @@ function main() {
                         PostMessageContent = PostMessageContent.split('\u200d').join('');
                         PostMessageContent = PostMessageContent.split('\u200e').join('');
                         PostMessageContent = PostMessageContent.split('\u200f').join('');
-                        PostMessageContent = PostMessageContent.split('[font=None]').join('');
+                        PostMessageContent = PostMessageContent.split('[font=i]').join('');
                         PostMessageContent = PostMessageContent.split('[/font]').join('');
                         if (!!PostMessageContent.length) {
-                            params.value = '[font=None]' + Array.from(PostMessageContent).join('[/font][font=None]') + '[/font]';
+                            params.value = '[font=i]' + Array.from(PostMessageContent).join('[/font][font=i]') + '[/font]';
                             message = '免疫完成！<span style="color: var(--gray);">（通过使用论坛标签）</span>';
                         }
                     } else {
-                        PostMessageContent = PostMessageContent.split('[font=None]').join('');
+                        PostMessageContent = PostMessageContent.split('[font=i]').join('');
                         PostMessageContent = PostMessageContent.split('[/font]').join('');
                         if (!!PostMessageContent.length) {
                             params.value = Array.from(PostMessageContent).join('\u200b');
@@ -687,10 +687,10 @@ function main() {
                     PostMessageContent = PostMessageContent.split('\u200d').join('');
                     PostMessageContent = PostMessageContent.split('\u200e').join('');
                     PostMessageContent = PostMessageContent.split('\u200f').join('');
-                    PostMessageContent = PostMessageContent.split('[font=None]').join('');
+                    PostMessageContent = PostMessageContent.split('[font=i]').join('');
                     PostMessageContent = PostMessageContent.split('[/font]').join('');
                     if (!!PostMessageContent.length) {
-                        params.value = '[font=None]' + Array.from(PostMessageContent).join('[/font][font=None]') + '[/font]';
+                        params.value = '[font=i]' + Array.from(PostMessageContent).join('[/font][font=i]') + '[/font]';
                         message = '免疫完成！';
                         show_dialog(message);
                     }
@@ -705,7 +705,7 @@ function main() {
                 PostMessageContent = PostMessageContent.split('\u200d').join('');
                 PostMessageContent = PostMessageContent.split('\u200e').join('');
                 PostMessageContent = PostMessageContent.split('\u200f').join('');
-                PostMessageContent = PostMessageContent.split('[font=None]').join('');
+                PostMessageContent = PostMessageContent.split('[font=i]').join('');
                 PostMessageContent = PostMessageContent.split('[/font]').join('');
                 params.value = PostMessageContent;
                 let message = '取消免疫';
