@@ -80,6 +80,7 @@
 // @connect           self
 // @connect           greasyfork.org
 // @connect           hunhun.appspot.com
+// @connect           hunter.workers.dev
 // @grant             unsafeWindow
 // @grant             GM_addStyle
 // @grant             GM_deleteValue
