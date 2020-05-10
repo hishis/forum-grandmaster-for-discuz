@@ -557,9 +557,6 @@ function main() {
             ['图王图床', 'https://img.wang/'],
             ['虐恋图床', 'https://sm.ms/'],
         ]);
-        if (params === 'Fast Post' && hn.includes('52pojie.cn')) {
-            m.set('笑果图床', 'https://imagelol.com/');
-        }
         if (params === 'Post' && hn.includes('hostloc.com')) {
             m.set('笑果图床', 'https://imagelol.com/');
         }
@@ -654,7 +651,7 @@ function main() {
     }
 
     // Fast Post - Image Hosting
-    !!fastPostMessage && !!fastPostSubmit && image_hosting('Fast Post');
+    !!fastPostMessage && !!fastPostSubmit && !!hn.includes('hostloc.com') && image_hosting('Fast Post');
 
     // Fast Post - Patch
     !!fastPostMessage && !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Fast Post');
@@ -669,7 +666,7 @@ function main() {
                     const postSubmit = !!postMessage ? document.getElementById('postsubmit') : null;
 
                     // Post - Image Hosting
-                    !!postSubmit && image_hosting('Post');
+                    !!postSubmit && !!hn.includes('hostloc.com') && image_hosting('Post');
 
                     // Post - Post form area enhance
                     !!postMessage && post_form_area_enhance(postMessage);
