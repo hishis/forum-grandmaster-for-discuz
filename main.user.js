@@ -553,6 +553,9 @@ function main() {
             ['图王图床', 'https://img.wang/'],
             ['虐恋图床', 'https://sm.ms/'],
         ]);
+        if (params === 'Fast Post' && hn.includes('52pojie.cn')) {
+            m.set('笑果图床', 'https://imagelol.com/');
+        }
         if (params === 'Post' && hn.includes('hostloc.com')) {
             m.set('笑果图床', 'https://imagelol.com/');
         }
