@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.25
+// @version           0.3.26
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -50,6 +50,7 @@
 // @match             http*://*/htm_data/*.html
 // @match             http*://*/read.php?*
 // @match             http*://*/forum.php?mod=viewthread&tid=*
+// @match             http*://*/forum.php?mod=post&action=newthread&*
 // @match             http*://*/forum.php?mod=post&action=edit&*
 // @match             http*://*/bbs/forum.php
 // @match             http*://*/bbs/forum-*.html
@@ -58,6 +59,7 @@
 // @match             http*://*/bbs/viewthread-*.html
 // @match             http*://*/bbs/viewthread.php?*
 // @match             http*://*/bbs/forum.php?mod=viewthread&tid=*
+// @match             http*://*/bbs/forum.php?mod=post&action=newthread&*
 // @match             http*://*/bbs/forum.php?mod=post&action=edit&*
 // @match             http*://*/forum/forum.php
 // @match             http*://*/forum/forum-*.html
@@ -66,6 +68,7 @@
 // @match             http*://*/forum/viewthread-*.html
 // @match             http*://*/forum/viewthread.php?*
 // @match             http*://*/forum/forum.php?mod=viewthread&tid=*
+// @match             http*://*/forum/forum.php?mod=post&action=newthread&*
 // @match             http*://*/forum/forum.php?mod=post&action=edit&*
 // @match             http*://hishis.github.io/tools/forum-grandmaster/
 // @compatible        Chrome  Works with Tampermonkey for Chrome
@@ -638,7 +641,7 @@ function main() {
             }
         }, false);
 
-        if (action === 'Edit Post') {
+        if (action === 'Create Post' || action === 'Edit Post') {
             // Mousedown event
             submit_button.addEventListener('mousedown', event => {
                 patch_up(666);
@@ -677,8 +680,19 @@ function main() {
         }
     }
 
+    // Create Post
+    if (url.includes('?mod=post') && url.includes('&action=new')) {
+        GM_addStyle('#rstnotice { display: none; }');
+        let editTextarea = document.getElementById('e_textarea');
+        let btn = document.getElementsByClassName('pnpost')[0];
+        if (!!btn) {
+            btn = btn.getElementsByTagName('button')[0];
+        }
+        !!editTextarea && !!btn && post_patch(editTextarea, btn, 'Create Post');
+    }
+
     // Edit Post
-    if (url.includes('mod=post') && url.includes('action=edit')) {
+    if (url.includes('?mod=post') && url.includes('&action=edit')) {
         GM_addStyle('#rstnotice { display: none; }');
         let editTextarea = document.getElementById('e_textarea');
         let postSubmit = !!editTextarea ? document.getElementById('postsubmit') : null;
