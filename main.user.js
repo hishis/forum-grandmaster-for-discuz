@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.24
+// @version           0.3.25
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -198,7 +198,7 @@
     // Scene mode: Standard, Home, Office
     let scene_mode = GM_getValue('SCENE_MODE', 'Standard');
 
-    let common_css = ':root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}body,table,input,button,select,textarea,a{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.mono,.md,.code,.pre,.tt,mono,md,code,pre,tt,.pl .blockcode ol li,.pl .blockcode ul li{font-family:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}.ads,#ad_headerbanner,#ad_text,.ad_text,#ad_thread1_0,#ad_thread2_0,#ad_thread3_0,#ad_thread4_0,.ad_textlink1,.ad_textlink2,.ad_textlink3,.ad_textlink4,.plc .dnch_eo_pt,.plc .dnch_eo_pb,.l-ads,.left-ads,.r-ads,.right-ads,#diynavtop,#drk_colee_left1,#drk_colee_left2,#drk_ledtd,#hd .wp .a_mu,#nv_forum > .wp.cl > table,#nv_forum > #wp > #ct > .mn > .fl.bm > .bm.a_c,table .a_pr,.ad .plc .a_p,.a_h,.a_t,#postlist .a_pt,#postlist .a_pb,#nv_forum > #wp > #ct > .mn > table li.txt,#nv_forum > #wp > #ct > .mn > div > center,#nv_forum > #wp > #ct > .mn > div > table,#nv_forum > div > center,#nv_forum > div.a_fl,#nv_forum > div.a_fr,#nv_forum > div.a_cn,#fastpostform .pnpost > span{display:none}.image-big > img[data-link$=".com"],.image-big > img[data-link$=".net"],.image-big > img[data-link$=".org"],.image-big > img[data-link$=".cc"],.image-big > img[data-link$=".cn"],.image-big > img[data-link$=".com/"],.image-big > img[data-link$=".net/"],.image-big > img[data-link$=".org/"],.image-big > img[data-link$=".cc/"],.image-big > img[data-link$=".cn/"],.image-big > img[data-link*=".com:"],.image-big > img[data-link*=".net:"],.image-big > img[data-link*=".org:"],.image-big > img[data-link*=".cc:"],.image-big > img[data-link*=".cn:"],.image-big > img[data-link*=".com/?"],.image-big > img[data-link*=".net/?"],.image-big > img[data-link*=".org/?"],.image-big > img[data-link*=".cc/?"],.image-big > img[data-link*=".cn/?"],.image-big > img[data-link*="/Register"],.image-big > img[data-link*="/vip"],.image-big > img[ess-data*="://kk."],.image-big > img[ess-data*=".alicdn.com/"],.image-big > img[ess-data*=".sinaimg.cn/"],.tpc_content.do_not_catch > span[class="f16"] > span[style="display:inline-block;color:SeaGreen"] > a,.tpc_content.do_not_catch > span[class="f24"] > span[style="display:inline-block;color:SeaGreen"] > a,.tpc_content.do_not_catch > span[class="f32"] > span[style="display:inline-block;color:SeaGreen"] > a{display:none}#main .do_not_catch .tips{padding:0;user-select:none}#main .do_not_catch .tips .sptable_do_not_remove td{color:rgba(0,0,0,0);cursor:default}#main .do_not_catch .tips .sptable_do_not_remove h4,#main .do_not_catch .tips .sptable_do_not_remove a,#main .do_not_catch .tips .sptable_do_not_remove .sptable_info{display:none}.pls .avatar{position:relative;padding-top:1px;text-align:center}.pls .avatar img,#fastpostform .pls .avatar img,#main .t.t2 table .tr1 table .tac img{padding:0;width:120px;height:120px;object-fit:contain;background:none;border:4px solid #fff;box-shadow:0 0 4px #bbb}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,#main .t.t2 table .tr1 table .tac img:hover{background:#fff;box-shadow:0 0 8px #bbb}#main .t.t2 table .tr1 table .tac img,#main .t.t2 table .tr1 table .tac img:hover{box-shadow:none}.bui .m{text-align:center}.bui .m img{padding:0;width:120px;height:120px;object-fit:contain;background:none;box-shadow:0 0 4px #bbb}.bui .m img:hover{background:#fff}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{object-fit:contain}.user-online-status{display:block;margin:0;border-collapse:collapse;text-align:center;position:absolute;left:0;top:0;width:10px;height:10px;cursor:help}.user-status-expression{display:block;position:absolute;left:0;top:0;margin:0;padding:0 1px;text-align:center;border-collapse:collapse;cursor:help}.user-status-expression-online::after{content:"🌝"}.user-status-expression-offline::after{content:"🌚"}.offline{filter:grayscale(100%)}.function-buttons{padding:0 0 4px 0;text-align:right;white-space:nowrap}.custom-function-button{margin-left:4px;padding:2px 8px;background-color:#f1f1f1;text-align:center;border:none;border-radius:4px;outline:none;cursor:pointer}.custom-function-button:hover{box-shadow:0 1px 2px #bbb}.button-disabled{color:#808080;cursor:default}.button-disabled:hover{box-shadow:none}.pl .blockcode em{display:none}#hiddenpoststip{padding:0}.t_f .zoom{margin:4px auto;box-shadow:0 0 2px #bbb}.t_f .zoom:hover{box-shadow:0 0 4px #bbb}#hiddenpoststip a{height:32px;line-height:32px;font-size:16px}#hiddenpoststip a:hover{color:#f33}#hiddenpoststip a::before{padding-right:8px;content:"🌜"}#hiddenpoststip a::after{padding-left:8px;content:"🌛"}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{display:none;margin:0 auto;padding:0;border:none;box-shadow:none;content:url("//cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.svg");user-select:none;transition:1s;cursor:default;opacity:0.5}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{opacity:1}h1 img,h2 img,.logo,.banner,.function-buttons,.cl .wp .y a,.cl .wp .z a,#um,#nv,#pt,.fwinmask,.user-online-status,.pls .hm,.pls .bui,.pls .avatar,.pls .tns,.pls p,.pls dl,.pls li,.plc .po,.plc .pi,.plc .y,.plc > p,.pgt,.pgs,.pstatus,.pcb .rate,.bm_h,#tools,.image-big .image-big-text,.modact,.bar,#hiddenpoststip,#fastsmiliesdiv,.area > label,.harmonious-button{user-select:none}#fastpostform .area,#postform .area{position:relative}#fastpostform .area .harmonious-button,#postform .area .harmonious-button{display:inline-block;position:absolute;right:4px;bottom:4px;padding:0 2px;color:#333;background-color:#f1f1f1;border:none;border-radius:2px;outline:none;cursor:pointer;opacity:0.5}#fastpostform .area .harmonious-button:hover,#postform .area .harmonious-button:hover{color:#369;box-shadow:0 0 4px #bbb;opacity:1}.fwinmask input,.fwinmask button{cursor:pointer}.image-big > .image-big-text{position:absolute;bottom:2px;right:2px;padding:4px;font-size:16px;border-radius:4px;box-shadow:0 0 2px #ddd;opacity:0.5;cursor:pointer}.image-big > .image-big-text:hover{box-shadow:0 0 8px #fff;opacity:1}';
+    let common_css = ':root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}body,table,input,button,select,textarea,a{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans CJK","PingFang SC","Hiragino Sans GB","Microsoft YaHei New","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.mono,.md,.code,.pre,.tt,mono,md,code,pre,tt,.pl .blockcode ol li,.pl .blockcode ul li{font-family:"Fira Code",Hack,"Source Code Pro","Source Code Variable",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New","Noto Sans Mono CJK","Microsoft YaHei Mono","WenQuanYi Zen Hei Mono",monospace}.ads,#ad_headerbanner,#ad_text,.ad_text,#ad_thread1_0,#ad_thread2_0,#ad_thread3_0,#ad_thread4_0,.ad_textlink1,.ad_textlink2,.ad_textlink3,.ad_textlink4,.plc .dnch_eo_pt,.plc .dnch_eo_pb,.l-ads,.left-ads,.r-ads,.right-ads,#diynavtop,#drk_colee_left1,#drk_colee_left2,#drk_ledtd,#hd .wp .a_mu,#nv_forum > .wp.cl > table,#nv_forum > #wp > #ct > .mn > .fl.bm > .bm.a_c,table .a_pr,.ad .plc .a_p,.a_h,.a_t,#postlist .a_pt,#postlist .a_pb,#nv_forum > #wp > #ct > .mn > table li.txt,#nv_forum > #wp > #ct > .mn > div > center,#nv_forum > #wp > #ct > .mn > div > table,#nv_forum > div > center,#nv_forum > div.a_fl,#nv_forum > div.a_fr,#nv_forum > div.a_cn,#fastpostform .pnpost > span{display:none}.image-big > img[data-link$=".com"],.image-big > img[data-link$=".net"],.image-big > img[data-link$=".org"],.image-big > img[data-link$=".cc"],.image-big > img[data-link$=".cn"],.image-big > img[data-link$=".com/"],.image-big > img[data-link$=".net/"],.image-big > img[data-link$=".org/"],.image-big > img[data-link$=".cc/"],.image-big > img[data-link$=".cn/"],.image-big > img[data-link*=".com:"],.image-big > img[data-link*=".net:"],.image-big > img[data-link*=".org:"],.image-big > img[data-link*=".cc:"],.image-big > img[data-link*=".cn:"],.image-big > img[data-link*=".com/?"],.image-big > img[data-link*=".net/?"],.image-big > img[data-link*=".org/?"],.image-big > img[data-link*=".cc/?"],.image-big > img[data-link*=".cn/?"],.image-big > img[data-link*="/Register"],.image-big > img[data-link*="/vip"],.image-big > img[ess-data*="://kk."],.image-big > img[ess-data*=".alicdn.com/"],.image-big > img[ess-data*=".sinaimg.cn/"],.tpc_content.do_not_catch > span[class="f16"] > span[style="display:inline-block;color:SeaGreen"] > a,.tpc_content.do_not_catch > span[class="f24"] > span[style="display:inline-block;color:SeaGreen"] > a,.tpc_content.do_not_catch > span[class="f32"] > span[style="display:inline-block;color:SeaGreen"] > a{display:none}#main .do_not_catch .tips{padding:0;user-select:none}#main .do_not_catch .tips .sptable_do_not_remove td{color:rgba(0,0,0,0);cursor:default}#main .do_not_catch .tips .sptable_do_not_remove h4,#main .do_not_catch .tips .sptable_do_not_remove a,#main .do_not_catch .tips .sptable_do_not_remove .sptable_info{display:none}.pls .avatar{position:relative;padding-top:1px;text-align:center}.pls .avatar img,#fastpostform .pls .avatar img,#main .t.t2 table .tr1 table .tac img{padding:0;width:120px;height:120px;object-fit:contain;background:none;border:4px solid #fff;box-shadow:0 0 4px #bbb}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,#main .t.t2 table .tr1 table .tac img:hover{background:#fff;box-shadow:0 0 8px #bbb}#main .t.t2 table .tr1 table .tac img,#main .t.t2 table .tr1 table .tac img:hover{box-shadow:none}.bui .m{text-align:center}.bui .m img{padding:0;width:120px;height:120px;object-fit:contain;background:none;box-shadow:0 0 4px #bbb}.bui .m img:hover{background:#fff}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{object-fit:contain}.user-online-status{display:block;margin:0;border-collapse:collapse;text-align:center;position:absolute;left:0;top:0;width:10px;height:10px;cursor:help}.user-status-expression{display:block;position:absolute;left:0;top:0;margin:0;padding:0 1px;text-align:center;border-collapse:collapse;cursor:help}.user-status-expression-online::after{content:"🌝"}.user-status-expression-offline::after{content:"🌚"}.offline{filter:grayscale(100%)}.function-buttons{padding:0 0 4px 0;text-align:right;white-space:nowrap}.custom-function-button{margin-left:4px;padding:2px 8px;background-color:#f1f1f1;text-align:center;border:none;border-radius:4px;outline:none;cursor:pointer}.custom-function-button:hover{box-shadow:0 1px 2px #bbb}.button-disabled{color:#808080;cursor:default}.button-disabled:hover{box-shadow:none}.pl .blockcode em{display:none}#hiddenpoststip{padding:0}.t_f .zoom{margin:4px auto;box-shadow:0 0 2px #bbb}.t_f .zoom:hover{box-shadow:0 0 4px #bbb}#hiddenpoststip a{height:32px;line-height:32px;font-size:16px}#hiddenpoststip a:hover{color:#f33}#hiddenpoststip a::before{padding-right:8px;content:"🌜"}#hiddenpoststip a::after{padding-left:8px;content:"🌛"}.forum-grandmaster-badge,.t_f .zoom[src$="/public/images/patch.gif"]{display:none;margin:0 auto;padding:0;border:none;box-shadow:none;content:url("//cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.svg");user-select:none;transition:1s;cursor:default;opacity:0.5}.forum-grandmaster-badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{opacity:1}h1 img,h2 img,.logo,.banner,.function-buttons,.cl .wp .y a,.cl .wp .z a,#um,#nv,#pt,.fwinmask,.user-online-status,.pls .hm,.pls .bui,.pls .avatar,.pls .tns,.pls p,.pls dl,.pls li,.plc .po,.plc .pi,.plc .y,.plc > p,.pgt,.pgs,.pstatus,.pcb .rate,.bm_h,#tools,.image-big .image-big-text,.modact,.bar,#hiddenpoststip,#fastsmiliesdiv,.area > label,.harmonious-button{user-select:none}#fastpostform .area,#postform .area{position:relative}#fastpostform .area .harmonious-button,#postform .area .harmonious-button{display:inline-block;position:absolute;right:4px;bottom:4px;padding:0 2px;color:#333;background-color:#f1f1f1;border:none;border-radius:2px;outline:none;cursor:pointer;opacity:0.5}#fastpostform .area .harmonious-button:hover,#postform .area .harmonious-button:hover{color:#369;box-shadow:0 0 4px #bbb;opacity:1}.bar .y .img-hosting .img-upload{margin-left:2px;cursor:pointer}.bar .y .img-hosting .img-upload:hover{color:#f33}.fwinmask input,.fwinmask button{cursor:pointer}.image-big > .image-big-text{position:absolute;bottom:2px;right:2px;padding:4px;font-size:16px;border-radius:4px;box-shadow:0 0 2px #ddd;opacity:0.5;cursor:pointer}.image-big > .image-big-text:hover{box-shadow:0 0 8px #fff;opacity:1}';
 
     switch (scene_mode) {
         case 'Standard':
@@ -521,7 +521,7 @@ function main() {
     // Execution as Show users online status
     !!member && show_users_online_status();
 
-    // Fast Post Message
+    // Fast Post
     const fastPostEditor = document.getElementById('fastposteditor');
     const area = !!fastPostEditor ? fastPostEditor.getElementsByClassName('area')[0] : null;
     const fastPostMessage = document.getElementById('fastpostmessage');
@@ -543,6 +543,44 @@ function main() {
     }
     if (!!member && document.getElementsByClassName('prev').length === 0 && !!document.getElementsByClassName('fastre').length) {
         skip_bottom(document.getElementsByClassName('fastre')[0]);
+    }
+
+    // Image Hosting
+    function image_hosting(params) {
+        const m = new Map([
+            ['伊姆古尔', 'https://imgur.com/upload'],
+            ['路过图床', 'https://imgchr.com/'],
+            ['图王图床', 'https://img.wang/'],
+            ['虐恋图床', 'https://sm.ms/'],
+        ]);
+        if (params === 'Post' && hn.includes('hostloc.com')) {
+            m.set('笑果图床', 'https://imagelol.com/');
+        }
+        const img_hosting = document.createElement('span');
+        img_hosting.className = 'img-hosting';
+        let h = '';
+        for (const i of m) {
+            h += '<span class="img-upload" onclick="window.open(\'' + i[1] + '\');"><em>🖼</em>' + i[0] + '</span>'
+        }
+        img_hosting.innerHTML = h;
+        let y;
+        switch (true) {
+            case params === 'Fast Post':
+                y = document.getElementById('fastposteditor');
+                y = !!y ? y.getElementsByClassName('bar')[0] : null;
+                y = !!y ? y.getElementsByClassName('y')[0] : null;
+                break;
+
+            case params === 'Post':
+                y = document.getElementById('floatlayout_reply');
+                y = !!y ? y.getElementsByClassName('bar')[0] : null;
+                y = !!y ? y.getElementsByClassName('y')[0] : null;
+                break;
+
+            default:
+                break;
+        }
+        !!y && y.appendChild(img_hosting);
     }
 
     // Post Patch
@@ -587,17 +625,17 @@ function main() {
         edit_textarea.addEventListener('keydown', event => {
             if (event.ctrlKey && event.which === 13) {
                 patch_up();
-                if (action === 'Fast Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
-                if (action === 'Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
+                if (action === 'Fast Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
+                if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
             }
             if (event.altKey && event.which === 83) {
                 patch_up();
-                if (action === 'Fast Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
-                if (action === 'Post Message' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
+                if (action === 'Fast Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
+                if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
             }
         }, false);
 
-        if (action === 'Edit Textarea') {
+        if (action === 'Edit Post') {
             // Mousedown event
             submit_button.addEventListener('mousedown', event => {
                 patch_up(666);
@@ -608,10 +646,13 @@ function main() {
         submit_button.addEventListener('click', patch_up, false);
     }
 
-    // Fast Post Message
-    !!fastPostMessage && !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Fast Post Message');
+    // Fast Post - Image Hosting
+    !!fastPostMessage && !!fastPostSubmit && image_hosting('Fast Post');
 
-    // Post Message
+    // Fast Post - Patch
+    !!fastPostMessage && !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Fast Post');
+
+    // Post
     const fastre = document.getElementsByClassName('fastre');
     if (!!fastre.length) {
         for (const i of fastre) {
@@ -619,21 +660,27 @@ function main() {
                 setTimeout(() => {
                     const postMessage = document.getElementById('postmessage');
                     const postSubmit = !!postMessage ? document.getElementById('postsubmit') : null;
-                    !!postSubmit && post_patch(postMessage, postSubmit , 'Post Message');
 
-                    // Anonymous
+                    // Post - Image Hosting
+                    !!postSubmit && image_hosting('Post');
+
+                    // Post - Post form area enhance
                     !!postMessage && post_form_area_enhance(postMessage);
+
+                    // Post - Patch
+                    !!postSubmit && post_patch(postMessage, postSubmit , 'Post');
                 }, 2000);
             }, false);
         }
     }
 
-    // Edit Textarea
+    // Edit Post
     if (url.includes('mod=post') && url.includes('action=edit')) {
         GM_addStyle('#rstnotice { display: none; }');
         let editTextarea = document.getElementById('e_textarea');
         let postSubmit = !!editTextarea ? document.getElementById('postsubmit') : null;
-        !!postSubmit && post_patch(editTextarea, postSubmit, 'Edit Textarea');
+        // Edit Post - Patch
+        !!postSubmit && post_patch(editTextarea, postSubmit, 'Edit Post');
     }
 
     // Post Form Area Enhance
@@ -714,6 +761,8 @@ function main() {
             params.parentNode.appendChild(harmonious_button);
         }
     }
+
+    // Fast Post - Post form area enhance
     !!fastPostMessage && !!fastPostSubmit && post_form_area_enhance(fastPostMessage);
 
     // Badge
@@ -962,36 +1011,7 @@ function main() {
             #hd .wp {
                 padding-top: 0;
             }
-            #spanButtonPlaceholder .img-upload {
-                margin-left: 2px;
-                cursor: pointer;
-            }
-            #spanButtonPlaceholder .img-upload:hover {
-                color: #f33;
-            }
         `);
-        let spanButtonPlaceholder = document.getElementById('spanButtonPlaceholder');
-        if (spanButtonPlaceholder) {
-            spanButtonPlaceholder.innerHTML = //
-                `
-                <span class="img-upload"><em>🖼</em>伊姆古尔</span>
-                <span class="img-upload"><em>🖼</em>路过图床</span>
-                <span class="img-upload"><em>🖼</em>图王图床</span>
-                <span class="img-upload"><em>🖼</em>虐恋图床</span>
-                `;
-            let up_list = [
-                'https://imgur.com/upload',
-                'https://imgchr.com/',
-                'https://img.wang/',
-                'https://sm.ms/',
-            ];
-            let up = spanButtonPlaceholder.getElementsByClassName('img-upload');
-            for (let i = 0; i < up.length; i++) {
-                up[i].addEventListener('click', event => {
-                    GM_openInTab(up_list[i], false);
-                }, false);
-            }
-        }
     }
 
     // bbs.fobshanghai.com
