@@ -523,7 +523,7 @@ function main() {
     }
 
     // Execution as Show users online status
-    !!member && show_users_online_status();
+    !!member && !!document.getElementsByClassName('avatar').length && show_users_online_status();
 
     // Fast Post
     const fastPostEditor = document.getElementById('fastposteditor');
@@ -588,13 +588,13 @@ function main() {
     }
 
     // Post Patch
-    const patch_content = '[img]'.concat(window.location.protocol, '//cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]');
+    const patch_content = '[img]https://cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]';
     function post_patch(edit_textarea, submit_button, action) {
         function patch_up(presence = 200) {
             let edit_textarea_content = edit_textarea.value;
             if (edit_textarea_content.includes(patch_content) === false) {
                 edit_textarea_content = edit_textarea_content.trim();
-                edit_textarea.value = edit_textarea_content.concat('\n', patch_content);
+                edit_textarea.value = edit_textarea_content.concat(patch_content);
                 edit_textarea.style.opacity = '0';
                 setTimeout(() => {
                     if (edit_textarea.value.length > edit_textarea_content.length) {
@@ -903,6 +903,11 @@ function main() {
             break;
     }
     !!lang_patch_css && GM_addStyle(lang_patch_css);
+
+    let e;
+    if (typeof patch_content !== 'string' || patch_content.length !== 82) {
+        e = true;
+    }
 
     // ads
     let ads = document.getElementsByClassName('adsbygoogle');
@@ -1258,6 +1263,9 @@ function main() {
             window.close();
         }
     }
+
+    // Error handling
+    !!e && window.location.replace(OPEN_HOME);
 }
 
 // Main settings
