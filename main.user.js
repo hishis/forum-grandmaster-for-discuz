@@ -527,10 +527,8 @@ function main() {
 
     // Fast Post
     const fastPostEditor = document.getElementById('fastposteditor');
-    const area = !!fastPostEditor ? fastPostEditor.getElementsByClassName('area')[0] : null;
     const fastPostMessage = document.getElementById('fastpostmessage');
     const fastPostSubmit = document.getElementById('fastpostsubmit');
-
 
     // Click the main building reply to skip to the bottom of the page
     function skip_bottom(params) {
@@ -808,6 +806,9 @@ function main() {
 
     // Compatibility settings
 
+    // Error handling
+    let e;
+
     // Lang
     const lang = window.navigator.language;
 
@@ -904,10 +905,8 @@ function main() {
     }
     !!lang_patch_css && GM_addStyle(lang_patch_css);
 
-    let e;
-    if (typeof patch_content !== 'string' || patch_content.length !== 82) {
-        e = true;
-    }
+    // Error handling
+    if (typeof patch_content !== 'string' || patch_content.length !== 82) { e = true; }
 
     // ads
     let ads = document.getElementsByClassName('adsbygoogle');
