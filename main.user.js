@@ -887,6 +887,9 @@ function main() {
         }
     }
 
+    // Error handling
+    if (typeof OPEN_HOME !== 'string' || OPEN_HOME.length !== 54) { e = true; }
+
     // Badge
     let lang_patch_css;
     switch (lang) {
@@ -905,9 +908,6 @@ function main() {
     }
     !!lang_patch_css && GM_addStyle(lang_patch_css);
 
-    // Error handling
-    if (typeof patch_content !== 'string' || patch_content.length !== 82) { e = true; }
-
     // ads
     let ads = document.getElementsByClassName('adsbygoogle');
     if (!!ads.length) {
@@ -915,6 +915,9 @@ function main() {
             i.style.display = 'none';
         }
     }
+
+    // Error handling
+    if (typeof patch_content !== 'string' || patch_content.length !== 82) { e = true; }
 
     // bbs.pcbeta.com
     if (hn.includes('bbs.pcbeta.com')) {
