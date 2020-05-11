@@ -1289,7 +1289,7 @@ if (window.location.hostname === 'hishis.github.io') {
     GM_log('%c默认语言：'.concat(FG.data.lang), consoleCSS)
     GM_log('%c网络自由：'.concat(FG.data.freedom_of_network), consoleCSS)
 
-    if (GM_info.scriptMetaStr.includes('// @updateURL')) {
+    if (GM_info.scriptMetaStr.includes('// @updateURL') && GM_info.scriptMetaStr.includes('/main.user.js')) {
         FG.data.GitHub = true;
     } else {
         FG.data.GitHub = false;
