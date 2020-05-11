@@ -1329,6 +1329,10 @@ if (window.location.hostname === 'hishis.github.io') {
             timeout: 10000,
             onload: response => {
                 if (response.readyState === 4 && response.status === 200) {
+                    FG.data.name = response.responseText.match(/\/\/\s@name\s+(.+)/)[1];
+                    FG.data.version = response.responseText.match(/\/\/\s@version\s+(.+)/)[1];
+
+                    // Historical issues
                     FG.script.ServerVersion = response.responseText.match(/\/\/\s@version\s+(.+)/)[1];
                 }
             }
@@ -1370,7 +1374,7 @@ if (window.location.hostname === 'hishis.github.io') {
 
     setTimeout(() => {
         check_version();
-    }, 2000);
+    }, 1000);
 
     setTimeout(() => {
         check_freedom_of_network();
