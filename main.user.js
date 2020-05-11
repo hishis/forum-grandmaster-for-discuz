@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.28
+// @version           0.3.29
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -912,21 +912,6 @@ function main() {
         }
     }
 
-    // navigator.plugins spoofing
-    if (typeof wrappedJSObject === 'undefined') {
-        Object.defineProperty(navigator, 'plugins', {
-            get: function () {
-                return {
-                    length: 0
-                };
-            }
-        });
-    } else {
-        Object.defineProperty(wrappedJSObject.navigator, 'plugins', {
-            value: 0
-        });
-    }
-
     // bbs.pcbeta.com
     if (hn.includes('bbs.pcbeta.com')) {
         setTimeout(() => {
@@ -1304,6 +1289,12 @@ if (window.location.hostname === 'hishis.github.io') {
     GM_log('%c默认语言：'.concat(FG.data.lang), consoleCSS)
     GM_log('%c网络自由：'.concat(FG.data.freedom_of_network), consoleCSS)
 
+    if (GM_info.scriptMetaStr.includes('// @updateURL')) {
+        FG.data.GitHub = true;
+    } else {
+        FG.data.GitHub = false;
+    }
+
     FG.m = new Map();
 
     let list = GM_listValues();
@@ -1338,6 +1329,8 @@ if (window.location.hostname === 'hishis.github.io') {
 
     // Check Version
     function check_version() {
+        FG.data.name = '';
+        FG.data.description = '';
         GM_xmlhttpRequest({
             method: 'GET',
             headers: {
