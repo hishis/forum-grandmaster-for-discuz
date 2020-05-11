@@ -1390,11 +1390,9 @@ if (window.location.hostname === 'hishis.github.io') {
         }, i * 200 + 200);
     }
 
-    if (FG.data.GitHub === false) {
-        setTimeout(() => {
-            check_version();
-        }, 100);
-    }
+    !!FG.data.GitHub || setTimeout(() => {
+        check_version();
+    }, 100);
 
     setTimeout(() => {
         check_freedom_of_network();
