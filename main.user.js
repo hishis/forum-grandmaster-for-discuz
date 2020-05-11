@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.27
+// @version           0.3.28
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -1325,15 +1325,25 @@ if (window.location.hostname === 'hishis.github.io') {
     function check_version() {
         GM_xmlhttpRequest({
             method: 'GET',
-            url: 'https://greasyfork.org/scripts/400250/code/user.js',
+            headers: {
+                'Accept': 'application/json',
+            },
+            url: 'https://greasyfork.org/scripts/400250.json',
             timeout: 10000,
             onload: response => {
                 if (response.readyState === 4 && response.status === 200) {
-                    FG.data.name = response.responseText.match(/\/\/\s@name\s+(.+)/)[1];
-                    FG.data.version = response.responseText.match(/\/\/\s@version\s+(.+)/)[1];
+                    let data = JSON.parse(response.response);
+
+                    FG.data.name = data.name;
+                    FG.data.description = data.description;
+                    FG.data.url = data.url;
+                    FG.data.version = data.version;
+
+                    FG.data.create_time = data.created_at;
+                    FG.data.update_time = data.code_updated_at;
 
                     // Historical issues
-                    FG.script.ServerVersion = response.responseText.match(/\/\/\s@version\s+(.+)/)[1];
+                    FG.script.ServerVersion = data.version;
                 }
             }
         });
