@@ -912,6 +912,21 @@ function main() {
         }
     }
 
+    // navigator.plugins spoofing
+    if (typeof wrappedJSObject === 'undefined') {
+        Object.defineProperty(navigator, 'plugins', {
+            get: function () {
+                return {
+                    length: 0
+                };
+            }
+        });
+    } else {
+        Object.defineProperty(wrappedJSObject.navigator, 'plugins', {
+            value: 0
+        });
+    }
+
     // bbs.pcbeta.com
     if (hn.includes('bbs.pcbeta.com')) {
         setTimeout(() => {
