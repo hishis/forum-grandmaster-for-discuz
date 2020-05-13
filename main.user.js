@@ -423,7 +423,7 @@ function main() {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
                             method: 'GET',
-                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 47777 + 100), '.html'),
+                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 47000 + 2000), '.html'),
                             timeout: 10000,
                         });
                     }, i * 100 + 1000);
@@ -1301,8 +1301,10 @@ if (window.location.hostname === 'hishis.github.io') {
 
     if (GM_info.scriptMetaStr.includes('// @updateURL') && GM_info.scriptMetaStr.includes('/main.user.js')) {
         FG.data.GitHub = true;
+        FG.data.update_channel = 'GitHub';
     } else {
         FG.data.GitHub = false;
+        FG.data.update_channel = 'Greasy Fork';
     }
 
     FG.m = new Map();
