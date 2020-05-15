@@ -586,7 +586,7 @@ function main() {
     }
 
     // Post Patch
-    const patch_content = '[img]https://forum-master.cdn.bcebos.com/public/images/patch.gif[/img]';
+    const patch_content = '[img]https://cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]';
     function post_patch(edit_textarea, submit_button, action) {
         function patch_up(presence = 200) {
             let edit_textarea_content = edit_textarea.value;
@@ -917,7 +917,7 @@ function main() {
     }
 
     // Error handling
-    if (typeof patch_content !== 'string' || patch_content.length !== 70) { e = true; }
+    if (typeof patch_content !== 'string' || patch_content.length !== 82) { e = true; }
 
     // bbs.pcbeta.com
     if (hn.includes('bbs.pcbeta.com')) {
