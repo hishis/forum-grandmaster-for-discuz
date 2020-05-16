@@ -1211,6 +1211,16 @@ function main() {
                 tpcHTML = '<span>種子連結</span><br>'.concat(tpcHTML.split(top)[1]);
             }
 
+            top = '.com</a><br><br><br>C';
+            if (tpcHTML.includes(top)) {
+                tpcHTML = 'C'.concat(tpcHTML.split(top)[1]);
+            }
+
+            top = '.com</a><br><br><br>H';
+            if (tpcHTML.includes(top)) {
+                tpcHTML = 'H'.concat(tpcHTML.split(top)[1]);
+            }
+
             tpcHTML = tpcHTML.replace(/(<br>){2,}/g, '<br><br>');
             tpcContent.innerHTML = tpcHTML;
         }
