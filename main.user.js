@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.30
+// @version           0.3.31
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -214,7 +214,7 @@
             break;
 
         case 'Office':
-            common_css += '#Mode-Office{user-select:none}body{background:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}.t_f img.badge,.t_f .zoom[src$="/public/images/patch.gif"]{filter:grayscale(100%)}.t_f img.badge:hover,.t_f .zoom[src$="/public/images/patch.gif"]:hover{filter:none}#hd .wp .comiis_nav,.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body,.dnch_eo_f{display:none}#postlist .plhin{background:none}.sign,.signature{display:none}';
+            common_css += '#Mode-Office{user-select:none}body{background:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}#hd .wp .comiis_nav,.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body,.dnch_eo_f{display:none}#postlist .plhin{background:none}.sign,.signature{display:none}';
             break;
 
         default:
@@ -586,7 +586,7 @@ function main() {
     }
 
     // Post Patch
-    const patch_content = '[img]https://cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]';
+    const p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '[img]https://cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]';
     function post_patch(edit_textarea, submit_button, action) {
         function patch_up(presence = 200) {
             let edit_textarea_content = edit_textarea.value;
@@ -1328,12 +1328,17 @@ if (window.location.hostname === 'hishis.github.io') {
     function check_freedom_of_network() {
         GM_xmlhttpRequest({
             method: 'GET',
-            url: 'https://hunhun.appspot.com/api/status/json/data.json',
-            timeout: 2000,
-            responseType: 'json',
+            headers: {
+                'Accept': 'application/json',
+            },
+            url: '//hunhun.appspot.com/api/status/json/data.json',
+            timeout: 10000,
             onload: response => {
-                if (response.readyState === 4 && response.status === 200 && response.response.status === true) {
-                    GM_setValue('FREEDOM_OF_NETWORK', true);
+                if (response.readyState === 4 && response.status === 200) {
+                    let data = JSON.parse(response.response);
+                    if (data.status === true) {
+                        GM_setValue('FREEDOM_OF_NETWORK', true);
+                    }
                 }
             },
             onerror: error => {
@@ -1354,7 +1359,7 @@ if (window.location.hostname === 'hishis.github.io') {
             headers: {
                 'Accept': 'application/json',
             },
-            url: 'https://greasyfork.org/scripts/400250.json',
+            url: '//greasyfork.org/scripts/400250.json',
             timeout: 10000,
             onload: response => {
                 if (response.readyState === 4 && response.status === 200) {
