@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.31
+// @version           0.3.32
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -897,11 +897,10 @@ function main() {
         case 'zh-HK':
         case 'zh-MO':
         case 'zh-TW':
-            lang_patch_css = '.t_f .zoom[src$="/public/images/patch.gif"]{content:url("//img.shields.io/badge/油猴腳本-論壇大師-blue")}';
+            lang_patch_css = '.t_f img.badge,.t_f .zoom[src$="/public/images/patch.gif"]{content:url("//img.shields.io/badge/油猴腳本-論壇大師-blue")}';
             break;
 
         default:
-            lang_patch_css = '.t_f .zoom[src$="/public/images/patch.gif"]{content:url("//img.shields.io/badge/Greasy%20Fork-Forum%20Grandmaster%20for%20Discuz!-blue")}';
             break;
     }
     !!lang_patch_css && GM_addStyle(lang_patch_css);
