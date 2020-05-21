@@ -39,6 +39,8 @@
 // @match             http*://www.fglt.cn/
 // @match             http*://www.aihao.cc/
 // @match             http*://bbs.nas66.com/
+// @match             http*://keylol.com/*
+// @match             http*://www.keylol.com/*
 // @match             http*://www.viidii.info/?action=image&*
 // @match             http*://www.viidii.info/?http*://*
 // @match             http*://*/forum.php
