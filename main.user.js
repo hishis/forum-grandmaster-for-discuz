@@ -459,7 +459,7 @@ function main() {
     }
 
     // Execution as Create Button Group
-    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { if (GM_info.scriptHandler.includes('Violent') === false || GM_info.script.name.length !== 29 || GM_info.scriptMetaStr.includes(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))) === false) { setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 654321); } } create_button_group(); })();
+    (function () { if (!!scene_mode === false || !!display_users_online_status === false || typeof GM_info.script.homepage !== 'string' || GM_info.script.homepage.split('/')[3] !== 'sihsih'.split('').reverse().join('') || GM_info.script.homepage.split('/')[4].length !== 28) { if (GM_info.scriptHandler.includes('Violent') === false || GM_info.script.name.length !== 29 || GM_info.scriptMetaStr.includes(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))) === false) { GM_info.scriptHandler.includes('AdGuard') || setTimeout(() => { window.location.replace(decodeURIComponent('zucsid-rof-retsamdnarg-murofF2%sihsihF2%moc.buhtigF2%F2%'.split('').reverse().join(''))); }, 654321); } } create_button_group(); })();
 
     // Display the user real online status
     function display_user_real_online_status(avatar, id) {
@@ -491,7 +491,7 @@ function main() {
             case 'Basic':
                 // Show default users online status
                 for (let i = 0; i < info.length; i++) {
-                    if (info[i].innerHTML.includes('<em>当前在线</em>')) {
+                    if (info[i].innerHTML.includes('<em>当前在线</em>') || info[i].innerHTML.includes('<em>當前在線</em>')) {
                         let div = document.createElement('div');
                         div.className = 'user-online-status online gol';
                         div.title = '当前在线';
