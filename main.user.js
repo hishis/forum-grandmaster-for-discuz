@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.32
+// @version           0.3.33
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -1168,9 +1168,17 @@ function main() {
             }
         }
 
+        unsafeWindow.r1aeadS = function () {};
+        unsafeWindow.r2aeadS = function () {};
+        unsafeWindow.r3aeadS = function () {};
+        unsafeWindow.r4aeadS = function () {};
+        unsafeWindow.r5aeadS = function () {};
+        unsafeWindow.r6aeadS = function () {};
+        unsafeWindow.r7aeadS = function () {};
+        unsafeWindow.r8aeadS = function () {};
+        unsafeWindow.r9aeadS = function () {};
         let bodyContent = document.body.innerHTML;
         if (bodyContent.includes('r9aeadS();') && bodyContent.includes('setTimeout(function(){r9aeadS()}, 1603);') && bodyContent.includes('function r9aeadS()') && typeof r9aeadS === 'function') {
-            unsafeWindow.r9aeadS = function () {};
             remove_ads();
         } else {
             setTimeout(() => {
