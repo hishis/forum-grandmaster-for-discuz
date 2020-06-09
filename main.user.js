@@ -1168,6 +1168,7 @@ function main() {
             }
         }
 
+        unsafeWindow.readS = function () {};
         unsafeWindow.r1aeadS = function () {};
         unsafeWindow.r2aeadS = function () {};
         unsafeWindow.r3aeadS = function () {};
