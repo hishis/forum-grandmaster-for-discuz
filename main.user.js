@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.33
+// @version           0.3.34
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -81,8 +81,8 @@
 // @run-at            document-start
 // @connect           self
 // @connect           greasyfork.org
-// @connect           hunhun.appspot.com
-// @connect           hunter.workers.dev
+// @connect           appspot.com
+// @connect           workers.dev
 // @grant             unsafeWindow
 // @grant             GM_addStyle
 // @grant             GM_deleteValue
@@ -554,12 +554,12 @@ function main() {
         const m = new Map([
             ['伊姆古尔', 'https://imgur.com/upload'],
             ['路过图床', 'https://imgchr.com/'],
-            ['图王图床', 'https://img.wang/'],
+            ['鸡霸图床', 'https://gejiba.com/'],
             ['虐恋图床', 'https://sm.ms/'],
         ]);
-        if (params === 'Post' && hn.includes('hostloc.com')) {
-            m.set('笑果图床', 'https://imagelol.com/');
-        }
+        // if (params === 'Post' && hn.includes('hostloc.com')) {
+        //     m.set('笑果图床', 'https://imagelol.com/');
+        // }
         const img_hosting = document.createElement('span');
         img_hosting.className = 'img-hosting';
         let h = '';
@@ -1334,32 +1334,6 @@ if (window.location.hostname === 'hishis.github.io') {
     FG.m.set('DISPLAY_USERS_ONLINE_STATUS', GM_getValue('DISPLAY_USERS_ONLINE_STATUS', 'None'));
     FG.m.set('DISPLAY_BADGE', GM_getValue('DISPLAY_BADGE', false));
 
-    // Freedom of network
-    function check_freedom_of_network() {
-        GM_xmlhttpRequest({
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-            },
-            url: '//hunhun.appspot.com/api/status/json/data.json',
-            timeout: 10000,
-            onload: response => {
-                if (response.readyState === 4 && response.status === 200) {
-                    let data = JSON.parse(response.response);
-                    if (data.status === true) {
-                        GM_setValue('FREEDOM_OF_NETWORK', true);
-                    }
-                }
-            },
-            onerror: error => {
-                GM_setValue('FREEDOM_OF_NETWORK', false);
-            },
-            ontimeout: timeout => {
-                GM_setValue('FREEDOM_OF_NETWORK', false);
-            }
-        });
-    }
-
     // Check Version
     function check_version() {
         FG.data.name = '';
@@ -1426,10 +1400,6 @@ if (window.location.hostname === 'hishis.github.io') {
     !!FG.data.GitHub || setTimeout(() => {
         check_version();
     }, 100);
-
-    setTimeout(() => {
-        check_freedom_of_network();
-    }, 9999);
 }
 
 document.onreadystatechange = function () {
