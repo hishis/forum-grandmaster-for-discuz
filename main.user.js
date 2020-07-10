@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.34
+// @version           0.3.35
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -410,25 +410,25 @@ function main() {
                 return false;
             }
 
-            for (let i = 0; i < 10; i++) {
-                setTimeout(() => {
-                    GM_xmlhttpRequest({
-                        method: 'GET',
-                        url: '../home.php?mod=task&do=apply&id=' + i,
-                        timeout: 10000,
-                    });
-                }, i * 100);
-            }
-
             if (hn.includes('hostloc.com')) {
                 for (let i = 0; i < 20; i++) {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
                             method: 'GET',
-                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 47000 + 2000), '.html'),
+                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 49000 + 2000), '.html'),
                             timeout: 10000,
                         });
-                    }, i * 100 + 1000);
+                    }, i * 1234 + 1000);
+                }
+            } else {
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        GM_xmlhttpRequest({
+                            method: 'GET',
+                            url: '../home.php?mod=task&do=apply&id=' + i,
+                            timeout: 10000,
+                        });
+                    }, i * 100);
                 }
             }
         }
