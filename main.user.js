@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.35
+// @version           0.3.36
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -397,7 +397,8 @@ function main() {
             check_in.disabled = true;
             check_in.classList.add('button-disabled');
             setTimeout(() => {
-                let message = '签到完成';
+                // let message = '签到完成';
+                let message = hn.includes('hostloc.com') ? '签到任务正在执行，预计20秒内完成！' : '签到完成';
                 check_in.innerHTML = message;
                 show_dialog(message)
             }, 1234);
@@ -411,14 +412,14 @@ function main() {
             }
 
             if (hn.includes('hostloc.com')) {
-                for (let i = 0; i < 20; i++) {
+                for (let i = 0; i < 12; i++) {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
                             method: 'GET',
                             url: '../space-uid-'.concat(Math.ceil(Math.random() * 49000 + 2000), '.html'),
                             timeout: 10000,
                         });
-                    }, i * 1234 + 1000);
+                    }, i * 2222 + 1000);
                 }
             } else {
                 for (let i = 0; i < 10; i++) {
@@ -510,6 +511,7 @@ function main() {
             case 'Advanced':
                 // Show real users online status
                 let wait = hn.includes('bbs.pcbeta.com') ? 3000 : 1111;
+                wait = hn.includes('hostloc.com') ? 3210 : wait;
                 for (let i = 0; i < info.length; i++) {
                     setTimeout(() => {
                         let html = avatar[i].innerHTML;
