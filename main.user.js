@@ -397,9 +397,9 @@ function main() {
             check_in.disabled = true;
             check_in.classList.add('button-disabled');
             setTimeout(() => {
+                check_in.innerHTML = '签到完成';
                 // let message = '签到完成';
                 let message = hn.includes('hostloc.com') ? '签到任务开始执行，预计20秒内完成！' : '签到完成';
-                check_in.innerHTML = message;
                 show_dialog(message)
             }, 1234);
 
