@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.37
+// @version           0.3.38
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -590,7 +590,10 @@ function main() {
     }
 
     // Post Patch
-    const p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '[img]https://cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]';
+    let p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '[img]https://cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]';
+    if (hn.includes('52pojie.cn')) {
+        p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '\n\n[color=Silver]论[b][/b]坛[b][/b]大[b][/b]师 · 油[b][/b]猴[b][/b]脚[b][/b]本[/color]';
+    }
     function post_patch(edit_textarea, submit_button, action) {
         function patch_up(presence = 200) {
             let edit_textarea_content = edit_textarea.value;
@@ -653,7 +656,7 @@ function main() {
     }
 
     // Fast Post - Image Hosting
-    !!fastPostMessage && !!fastPostSubmit && !!hn.includes('hostloc.com') && image_hosting('Fast Post');
+    !!fastPostMessage && !!fastPostSubmit && hn.includes('hostloc.com') && image_hosting('Fast Post');
 
     // Fast Post - Patch
     !!fastPostMessage && !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Fast Post');
@@ -668,7 +671,7 @@ function main() {
                     const postSubmit = !!postMessage ? document.getElementById('postsubmit') : null;
 
                     // Post - Image Hosting
-                    !!postSubmit && !!hn.includes('hostloc.com') && image_hosting('Post');
+                    !!postSubmit && hn.includes('hostloc.com') && image_hosting('Post');
 
                     // Post - Post form area enhance
                     !!postMessage && post_form_area_enhance(postMessage);
@@ -916,7 +919,7 @@ function main() {
     }
 
     // Error handling
-    if (typeof patch_content !== 'string' || patch_content.length !== 82) { e = true; }
+    if (typeof patch_content !== 'string' || patch_content.length !== 82 && patch_content.length !== 77) { e = true; }
 
     // bbs.pcbeta.com
     if (hn.includes('bbs.pcbeta.com')) {
