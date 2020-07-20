@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.39
+// @version           0.3.40
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -592,7 +592,7 @@ function main() {
     // Post Patch
     let p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '[img]https://cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]';
     if (hn.includes('52pojie.cn')) {
-        p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '\n\n[color=Silver]论[b][/b]坛[b][/b]大[b][/b]师 · 油[b][/b]猴[b][/b]脚[b][/b]本[/color]';
+        p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '';
     }
     function post_patch(edit_textarea, submit_button, action) {
         function patch_up(presence = 200) {
@@ -919,7 +919,7 @@ function main() {
     }
 
     // Error handling
-    if (typeof patch_content !== 'string' || patch_content.length !== 82 && patch_content.length !== 77) { e = true; }
+    if (typeof patch_content !== 'string' || patch_content.length !== 82 && patch_content.length !== 0) { e = true; }
 
     // bbs.pcbeta.com
     if (hn.includes('bbs.pcbeta.com')) {
