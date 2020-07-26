@@ -70,7 +70,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ❌ | Latest ✔ | Latest ✔ |
 
 [Forum Grandmaster for Discuz! – Greasy Fork](https://greasyfork.org/scripts/400250)
 
-### 安装地址
+### 安装地址（任选其一）
 [Click to install Forum Grandmaster for Discuz! – GitHub](https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/main.user.js)
 
 [Click to install Forum Grandmaster for Discuz! – Greasy Fork](https://greasyfork.org/scripts/400250)
