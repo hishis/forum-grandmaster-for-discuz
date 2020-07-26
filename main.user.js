@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.41
+// @version           0.3.42
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -23,6 +23,7 @@
 // @downloadURL       https://cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/main.user.js
 // @supportURL        https://github.com/hishis/forum-grandmaster-for-discuz/issues
 // @match             http*://www.52pojie.cn/
+// @match             http*://www.chiphell.com/
 // @match             http*://www.right.com.cn/
 // @match             http*://bbs.kafan.cn/
 // @match             http*://www.hostloc.com/
@@ -81,8 +82,6 @@
 // @run-at            document-start
 // @connect           self
 // @connect           greasyfork.org
-// @connect           appspot.com
-// @connect           workers.dev
 // @grant             unsafeWindow
 // @grant             GM_addStyle
 // @grant             GM_deleteValue
