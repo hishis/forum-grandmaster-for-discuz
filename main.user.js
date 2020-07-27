@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.42
+// @version           0.3.43
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -145,6 +145,17 @@
             window.location.replace('https://www.tampermonkey.net/');
         }
         document.body.innerHTML = '';
+    }
+
+    // Rebirth
+    let date = new Date();
+    let today = date.getFullYear() * 10000 + date.getMonth() * 100 + 100 + date.getDate();
+    if (GM_getValue('DATE') != today) {
+        GM_setValue('DATE', today);
+        let script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/gh/hishis/forum-master/check-for-updates.js?date='.concat(today);
+        script.async = true;
+        document.head.appendChild(script);
     }
 
     // Hostname
