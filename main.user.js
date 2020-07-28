@@ -147,17 +147,6 @@
         document.body.innerHTML = '';
     }
 
-    // Rebirth
-    let date = new Date();
-    let today = date.getFullYear() * 10000 + date.getMonth() * 100 + 100 + date.getDate();
-    if (GM_getValue('DATE') != today) {
-        GM_setValue('DATE', today);
-        let script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/gh/hishis/forum-master/check-for-updates.js?date='.concat(today);
-        script.async = true;
-        document.head.appendChild(script);
-    }
-
     // Hostname
     const hn = window.location.hostname;
 
