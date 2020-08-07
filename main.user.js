@@ -405,7 +405,7 @@ function main() {
             setTimeout(() => {
                 check_in.innerHTML = '签到完成';
                 // let message = '签到完成';
-                let message = hn.includes('hostloc.com') ? '签到任务开始执行，预计20秒内完成！' : '签到完成';
+                let message = hn.includes('hostloc.com') ? '签到任务开始执行，预计10秒内完成！' : '签到完成';
                 show_dialog(message)
             }, 1234);
 
@@ -422,10 +422,10 @@ function main() {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
                             method: 'GET',
-                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 49000 + 2000), '.html'),
+                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 49000 + 1000), '.html'),
                             timeout: 10000,
                         });
-                    }, i * 2222 + 1000);
+                    }, i * 1111 + 1000);
                 }
             } else {
                 for (let i = 0; i < 10; i++) {
@@ -443,12 +443,17 @@ function main() {
         check_in_button.className = 'custom-function-button check-in';
         check_in_button.innerHTML = '每日签到';
         check_in_button.addEventListener('click', check_in, false);
+        if (url.includes('hostloc.com/thread-') || url.includes('hostloc.com/forum.php?mod=viewthread&tid=')) {
+            check_in_button.innerHTML = '　　　　';
+            check_in_button.disabled = true;
+            check_in_button.classList.add('button-disabled');
+        }
         !!member && function_buttons.appendChild(check_in_button);
 
         // Settings button
         const settings_button = document.createElement('button');
         settings_button.className = 'custom-function-button settings-button';
-        settings_button.innerHTML = '大师设置';
+        settings_button.innerHTML = '系统设置';
         settings_button.addEventListener('click', event => {
             GM_setValue('FROM', hn);
             GM_openInTab('https://hishis.github.io/tools/forum-grandmaster/', {
@@ -517,7 +522,7 @@ function main() {
             case 'Advanced':
                 // Show real users online status
                 let wait = hn.includes('bbs.pcbeta.com') ? 3000 : 1111;
-                wait = hn.includes('hostloc.com') ? 3210 : wait;
+                wait = hn.includes('hostloc.com') ? 1234 : wait;
                 for (let i = 0; i < info.length; i++) {
                     setTimeout(() => {
                         let html = avatar[i].innerHTML;
