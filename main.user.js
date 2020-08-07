@@ -620,7 +620,7 @@ function main() {
         // Remove ads posts
         if (url.includes('/forum-') || url.includes('/forum.php?mod=forumdisplay')) {
             let first_post = document.getElementById('threadlisttableid').getElementsByTagName('tbody')[0];
-            first_post.innerHTML = first_post.innerHTML.replace('公告: ', '');
+            first_post.innerHTML = first_post.innerHTML.replace(/<strong class=".+?">.+?</, '<strong><');
             let first_post_links = first_post.getElementsByTagName('a');
             first_post_links[0].innerText = '论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……';
             first_post_links[0].href = HOME_PAGE;
