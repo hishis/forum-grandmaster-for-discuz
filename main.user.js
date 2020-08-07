@@ -48,6 +48,7 @@
 // @match             http*://*/forum-*.html
 // @match             http*://*/forumdisplay.php?*
 // @match             http*://*/thread-*.html
+// @match             http*://*/thread-*.html?d=*
 // @match             http*://*/viewthread-*.html
 // @match             http*://*/viewthread.php?*
 // @match             http*://*/htm_data/*.html
@@ -60,6 +61,7 @@
 // @match             http*://*/bbs/forum-*.html
 // @match             http*://*/bbs/forumdisplay.php?*
 // @match             http*://*/bbs/thread-*.html
+// @match             http*://*/bbs/thread-*.html?d=*
 // @match             http*://*/bbs/viewthread-*.html
 // @match             http*://*/bbs/viewthread.php?*
 // @match             http*://*/bbs/forum.php?mod=viewthread&tid=*
@@ -70,6 +72,7 @@
 // @match             http*://*/forum/forum-*.html
 // @match             http*://*/forum/forumdisplay.php?*
 // @match             http*://*/forum/thread-*.html
+// @match             http*://*/forum/thread-*.html?d=*
 // @match             http*://*/forum/viewthread-*.html
 // @match             http*://*/forum/viewthread.php?*
 // @match             http*://*/forum/forum.php?mod=viewthread&tid=*
