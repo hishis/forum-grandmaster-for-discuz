@@ -402,19 +402,18 @@ function main() {
             check_in.innerHTML = '正在签到';
             check_in.disabled = true;
             check_in.classList.add('button-disabled');
-            setTimeout(() => {
-                check_in.innerHTML = '签到完成';
-                // let message = '签到完成';
-                let message = hn.includes('hostloc.com') ? '签到任务开始执行，预计10秒内完成！' : '签到完成';
-                show_dialog(message)
-            }, 1234);
 
-            if (hn.includes('bbs.pcbeta.com')) {
-                GM_openInTab('//i.pcbeta.com/home.php?mod=task&do=apply&id=149', false);
+            let message = '签到完成';
+            if (hn.includes('hostloc.com')) {
                 setTimeout(() => {
-                    GM_openInTab('//i.pcbeta.com/home.php?mod=space&do=notice');
-                }, 500);
-                return false;
+                    check_in.innerHTML = message;
+                    show_dialog(message);
+                }, 10000);
+            } else {
+                setTimeout(() => {
+                    check_in.innerHTML = message;
+                    show_dialog(message);
+                }, 1000);
             }
 
             if (hn.includes('hostloc.com')) {
@@ -423,7 +422,7 @@ function main() {
                         GM_xmlhttpRequest({
                             method: 'GET',
                             url: '../space-uid-'.concat(Math.ceil(Math.random() * 49000 + 1000), '.html'),
-                            timeout: 10000,
+                            timeout: 7777,
                         });
                     }, i * 1111 + 1000);
                 }
@@ -438,6 +437,14 @@ function main() {
                     }, i * 100);
                 }
             }
+
+            if (hn.includes('bbs.pcbeta.com')) {
+                GM_openInTab('//i.pcbeta.com/home.php?mod=task&do=apply&id=149', false);
+                setTimeout(() => {
+                    GM_openInTab('//i.pcbeta.com/home.php?mod=space&do=notice');
+                }, 500);
+                return false;
+            }
         }
         const check_in_button = document.createElement('button');
         check_in_button.className = 'custom-function-button check-in';
@@ -447,6 +454,11 @@ function main() {
             check_in_button.innerHTML = '　　　　';
             check_in_button.disabled = true;
             check_in_button.classList.add('button-disabled');
+            setTimeout(() => {
+                check_in_button.innerHTML = '每日签到';
+                check_in_button.disabled = false;
+                check_in_button.classList.remove('button-disabled');
+            }, 11111);
         }
         !!member && function_buttons.appendChild(check_in_button);
 
