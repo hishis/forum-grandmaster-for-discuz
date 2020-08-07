@@ -614,6 +614,12 @@ function main() {
                 }
             }
         }
+
+        GM_addStyle(`
+            #toptb > .wp > .z > a[style] {
+                display: none;
+            }
+        `);
     }
     function post_patch(edit_textarea, submit_button, action) {
         function patch_up(presence = 200) {
