@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.43
+// @version           0.3.44
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -53,6 +53,7 @@
 // @match             http*://*/htm_data/*.html
 // @match             http*://*/read.php?*
 // @match             http*://*/forum.php?mod=viewthread&tid=*
+// @match             http*://*/forum.php?mod=forumdisplay&fid=*
 // @match             http*://*/forum.php?mod=post&action=newthread&*
 // @match             http*://*/forum.php?mod=post&action=edit&*
 // @match             http*://*/bbs/forum.php
@@ -62,6 +63,7 @@
 // @match             http*://*/bbs/viewthread-*.html
 // @match             http*://*/bbs/viewthread.php?*
 // @match             http*://*/bbs/forum.php?mod=viewthread&tid=*
+// @match             http*://*/bbs/forum.php?mod=forumdisplay&fid=*
 // @match             http*://*/bbs/forum.php?mod=post&action=newthread&*
 // @match             http*://*/bbs/forum.php?mod=post&action=edit&*
 // @match             http*://*/forum/forum.php
@@ -71,6 +73,7 @@
 // @match             http*://*/forum/viewthread-*.html
 // @match             http*://*/forum/viewthread.php?*
 // @match             http*://*/forum/forum.php?mod=viewthread&tid=*
+// @match             http*://*/forum/forum.php?mod=forumdisplay&fid=*
 // @match             http*://*/forum/forum.php?mod=post&action=newthread&*
 // @match             http*://*/forum/forum.php?mod=post&action=edit&*
 // @match             http*://hishis.github.io/tools/forum-grandmaster/
@@ -81,6 +84,7 @@
 // @compatible        Safari  Works with Tampermonkey for Safari
 // @run-at            document-start
 // @connect           self
+// @connect           cdn.jsdelivr.net
 // @connect           greasyfork.org
 // @grant             unsafeWindow
 // @grant             GM_addStyle
@@ -593,8 +597,16 @@ function main() {
     if (hn.includes('52pojie.cn')) {
         p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '';
 
-        // 移除广告帖
+        // Remove ads posts
         if (url.includes('/forum-') || url.includes('/forum.php?mod=forumdisplay')) {
+            let first_post = document.getElementById('threadlisttableid').getElementsByTagName('tbody')[0];
+            first_post.innerHTML = first_post.innerHTML.replace('公告: ', '');
+            let first_post_links = first_post.getElementsByTagName('a');
+            first_post_links[0].innerText = '论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……';
+            first_post_links[0].href = HOME_PAGE;
+            first_post_links[1].innerText = '论坛大师';
+            first_post_links[1].href = OPEN_HOME;
+
             let by_list = document.getElementById('threadlisttableid').getElementsByClassName('by');
             for (const by of by_list) {
                 if (by.innerText.includes('Hmily')) {
