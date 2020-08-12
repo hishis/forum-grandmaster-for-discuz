@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name              论坛大师 – Discuz!
+// @name              Forum Grandmaster for Discuz!
 // @name:en           Forum Grandmaster for Discuz!
 // @name:zh           论坛大师 – Discuz!
 // @name:zh-CN        论坛大师 – Discuz!
@@ -9,7 +9,7 @@
 // @namespace         Forum Grandmaster for Discuz!
 // @version           0.3.45
 // @author            hostname
-// @description       🔊论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……
+// @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:zh    🔊论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……
 // @description:zh-CN 🔊论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……
