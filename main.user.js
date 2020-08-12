@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.44
+// @version           0.3.45
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -636,7 +636,9 @@ function main() {
         }
 
         GM_addStyle(`
-            #toptb > .wp > .z > a[style] {
+            #toptb > .wp > .z > a[style],
+            #nv > a > img[src$="/scan.gif"],
+            #navmenu > li > a.jzwx {
                 display: none;
             }
         `);
