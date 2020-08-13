@@ -645,7 +645,7 @@ function main() {
 
         let top = document.getElementById('jz52top');
         let return_home = !!top ? top.getElementsByClassName('returnboard')[0] : false;
-        if (!!return_home && return_home.href === 'index.php') {
+        if (!!return_home && /index\.php$/.test(return_home.href)) {
             return_home.href = '/';
         }
     }
