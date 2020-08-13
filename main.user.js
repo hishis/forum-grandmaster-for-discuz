@@ -642,6 +642,12 @@ function main() {
                 display: none;
             }
         `);
+
+        let top = document.getElementById('jz52top');
+        let return_home = !!top ? top.getElementsByClassName('returnboard')[0] : false;
+        if (!!return_home && return_home.href === 'index.php') {
+            return_home.href = '/';
+        }
     }
     function post_patch(edit_textarea, submit_button, action) {
         function patch_up(presence = 200) {
