@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.45
+// @version           0.3.46
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -33,7 +33,6 @@
 // @match             http*://bbs.ydss.cn/
 // @match             http*://bbs.fobshanghai.com/
 // @match             http*://bbs.huorong.cn/
-// @match             http*://bbs.360.cn/
 // @match             http*://www.gebi1.com/
 // @match             http*://www.advertcn.com/
 // @match             http*://www.fglt.net/
@@ -1157,43 +1156,6 @@ function main() {
 
         .custom-function-button {
             background-color: #fff;
-        }
-    `);
-
-    // bbs.360.cn
-    hn.includes('bbs.360.cn') && GM_addStyle(`
-        .function-buttons {
-            margin-top: -22px;
-        }
-
-        .custom-function-button {
-            background-color: #f1f2f6;
-        }
-
-        .custom-function-button:hover {
-            color: #f33;
-            background-color: #fff;
-        }
-
-        .apk-download,
-        .apk-download-pannel,
-        .pls .tip,
-        ignore_js_op .tip {
-            display: none;
-        }
-
-        .pls .avatar img {
-            padding: 0;
-            background: none;
-            width: 54px;
-            height: 54px;
-            border: none;
-            border-radius: 50% !important;
-            box-shadow: 0 0 2px #bbb !important;
-        }
-
-        .pls .avatar img:hover {
-            border-radius: 0 !important;
         }
     `);
 
