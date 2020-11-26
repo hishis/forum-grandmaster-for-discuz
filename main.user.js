@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.46
+// @version           0.3.47
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -1191,6 +1191,16 @@ function main() {
         }
 
         unsafeWindow.readS = function () {};
+        unsafeWindow.r1eadS = function () {};
+        unsafeWindow.r2eadS = function () {};
+        unsafeWindow.r3eadS = function () {};
+        unsafeWindow.r4eadS = function () {};
+        unsafeWindow.r5eadS = function () {};
+        unsafeWindow.r6eadS = function () {};
+        unsafeWindow.r7eadS = function () {};
+        unsafeWindow.r8eadS = function () {};
+        unsafeWindow.r9eadS = function () {};
+        unsafeWindow.raeadS = function () {};
         unsafeWindow.r1aeadS = function () {};
         unsafeWindow.r2aeadS = function () {};
         unsafeWindow.r3aeadS = function () {};
