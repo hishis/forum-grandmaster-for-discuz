@@ -612,7 +612,7 @@ function main() {
     }
 
     // Post Patch
-    let p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '[img]https://cdn.jsdelivr.net/gh/hishis/forum-master/public/images/patch.gif[/img]';
+    let p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '[img]https://cdn.jsdelivr.net/gh/master-of-forums/master-of-forums/src/images/patch.gif[/img]';
     if (hn.includes('52pojie.cn')) {
         p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '';
 
