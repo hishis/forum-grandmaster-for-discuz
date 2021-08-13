@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.50
+// @version           0.3.51
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -577,7 +577,7 @@ function main() {
     function image_hosting(params) {
         const m = new Map([
             ['伊姆古尔', 'https://imgur.com/upload'],
-            ['路过图床', 'https://imgchr.com/'],
+            ['免费图床', 'https://imgurl.org/'],
             ['牛图图床', 'https://www.niupic.com/'],
             ['秒拍图床', 'https://www.mpimg.cn/'],
         ]);
