@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.49
+// @version           0.3.50
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -840,7 +840,7 @@ function main() {
     if (display_badge === true) {
         posts_img = document.getElementsByClassName('zoom');
         for (const i of posts_img) {
-            if (i.src.includes('/public/images/patch.gif')) {
+            if (i.src.includes('/images/patch.gif')) {
                 i.removeAttribute('onclick');
                 i.removeAttribute('onmouseover');
                 i.removeAttribute('onload');
@@ -935,7 +935,7 @@ function main() {
                     break;
             }
             for (const i of posts_img) {
-                if (i.src.includes('/public/images/patch.gif')) {
+                if (i.src.includes('/images/patch.gif')) {
                     i.src = lang_patch_img_src;
                     i.alt = lang_patch_img_alt;
                     i.classList.add('badge');
