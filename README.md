@@ -1,5 +1,5 @@
 # 论坛大师 – Discuz!
-[![GitHub](https://img.shields.io/badge/论坛大师-GitHub-blue?logo=GitHub)](https://github.com/hishis/forum-grandmaster-for-discuz)
+[![GitHub](https://img.shields.io/badge/论坛大师-GitHub-blue?logo=GitHub)](https://github.com/master-of-forums/master-of-forums)
 [![Greasy Fork](https://img.shields.io/badge/论坛大师-Greasy%20Fork-blue?logo=Socket.io)](https://greasyfork.org/scripts/400250)
 [![Mozilla Public License](https://img.shields.io/badge/License-MPL-blue?logo=Open%20Source%20Initiative)](https://www.mozilla.org/MPL/2.0/)
 [![Repo size](https://img.shields.io/github/repo-size/hishis/forum-grandmaster-for-discuz?logo=Git)](https://github.com/hishis/forum-grandmaster-for-discuz)
