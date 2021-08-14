@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.51
+// @version           0.3.52
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -973,7 +973,7 @@ function main() {
     }
 
     // Error handling
-    if (typeof patch_content !== 'string' || patch_content.length !== 82 && patch_content.length !== 0) { e = true; }
+    if (typeof patch_content !== 'string' || patch_content.length !== 93 && patch_content.length !== 0) { e = true; }
 
     // bbs.pcbeta.com
     if (hn.includes('bbs.pcbeta.com')) {
