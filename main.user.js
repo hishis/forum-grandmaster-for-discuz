@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.54
+// @version           0.3.55
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -420,7 +420,7 @@ function main() {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
                             method: 'GET',
-                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 49000 + 1000), '.html'),
+                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 54000 + 1000), '.html'),
                             timeout: 7777,
                         });
                     }, i * 1111 + 1000);
@@ -844,7 +844,6 @@ function main() {
                 i.removeAttribute('onclick');
                 i.removeAttribute('onmouseover');
                 i.removeAttribute('onload');
-                i.setAttribute('loading', 'lazy');
                 i.addEventListener('click', event => {
                     event.preventDefault();
                 }, false);
