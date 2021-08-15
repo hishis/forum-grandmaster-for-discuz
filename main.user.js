@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師 – Discuz!
 // @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.57
+// @version           0.3.58
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -152,7 +152,7 @@
     }
 
     // Hostname
-    const hn = window.location.hostname;
+    const HN = window.location.hostname;
 
     // User-Agent
     const ua = window.navigator.userAgent;
@@ -231,7 +231,7 @@
     GM_addStyle(common_css);
 
     // bbs.pcbeta.com
-    if (hn.includes('bbs.pcbeta.com')) {
+    if (HN.includes('bbs.pcbeta.com')) {
         setTimeout(() => {
             GM_addStyle(common_css);
         }, 999);
@@ -255,7 +255,7 @@ function main() {
     let display_badge = GM_getValue('DISPLAY_BADGE', false);
 
     // Hostname
-    const hn = window.location.hostname;
+    const HN = window.location.hostname;
 
     // Uniform Resource Locator
     const url = window.location.href;
@@ -318,7 +318,7 @@ function main() {
                 function_buttons_package = document.getElementById('extcreditmenu').parentElement;
                 break;
 
-            case hn.includes('bbs.pcbeta.com') && !!document.getElementsByClassName('hdc').length:
+            case HN.includes('bbs.pcbeta.com') && !!document.getElementsByClassName('hdc').length:
                 function_buttons_package = document.getElementsByClassName('hdc')[0];
                 break;
 
@@ -401,7 +401,7 @@ function main() {
             check_in.classList.add('button-disabled');
 
             let message = '签到完成';
-            if (hn.includes('hostloc.com')) {
+            if (HN.includes('hostloc.com')) {
                 setTimeout(() => {
                     check_in.innerHTML = message;
                     show_dialog(message);
@@ -413,13 +413,13 @@ function main() {
                 }, 1000);
             }
 
-            if (hn.includes('hostloc.com')) {
-                for (let i = 0; i < 12; i++) {
+            if (HN.includes('hostloc.com')) {
+                for (let i = 0; i < 15; i++) {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
                             method: 'GET',
-                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 54321 + 1000), '.html'),
-                            timeout: 7777,
+                            url: '../space-uid-'.concat(Math.ceil(Math.random() * 50000 + 5000), '.html'),
+                            timeout: 4000,
                         });
                     }, i * 1111 + 1000);
                 }
@@ -435,11 +435,11 @@ function main() {
                 }
             }
 
-            if (hn.includes('bbs.pcbeta.com')) {
+            if (HN.includes('bbs.pcbeta.com')) {
                 GM_openInTab('//i.pcbeta.com/home.php?mod=task&do=apply&id=149', false);
                 setTimeout(() => {
                     GM_openInTab('//i.pcbeta.com/home.php?mod=space&do=notice');
-                }, 500);
+                }, 400);
                 return false;
             }
         }
@@ -464,7 +464,7 @@ function main() {
         settings_button.className = 'custom-function-button settings-button';
         settings_button.innerHTML = '系统设置';
         settings_button.addEventListener('click', event => {
-            GM_setValue('FROM', hn);
+            GM_setValue('FROM', HN);
             GM_openInTab('https://hishis.github.io/tools/forum-grandmaster/', {
                 active: true,
                 insert: true,
@@ -490,7 +490,7 @@ function main() {
             url: url,
             onload: response => {
                 if (response.readyState === 4 && response.status === 200) {
-                    let status = response.responseText.includes('[在线]');
+                    let status = response.responseText.includes('\[在线\]');
                     let span = document.createElement('span');
                     span.className = status ? 'user-status-expression user-status-expression-online' : 'user-status-expression user-status-expression-offline';
                     span.title = status ? '当前在线' : '当前离线';
@@ -530,14 +530,14 @@ function main() {
 
             case 'Advanced':
                 // Show real users online status
-                let wait = hn.includes('bbs.pcbeta.com') ? 3000 : 1111;
-                wait = hn.includes('hostloc.com') ? 1234 : wait;
+                let wait = HN.includes('bbs.pcbeta.com') ? 3000 : 1111;
+                wait = HN.includes('hostloc.com') ? 1234 : wait;
                 for (let i = 0; i < info.length; i++) {
                     setTimeout(() => {
                         let html = avatar[i].innerHTML;
                         let id = /\d/.test(html) ? html.match(/\d+/)[0] : info[i].innerHTML.match(/\d+/)[0];
                         display_user_real_online_status(avatar[i], id);
-                    }, i * wait + 1000);
+                    }, i * wait + 1111);
                 }
                 break;
 
@@ -579,7 +579,7 @@ function main() {
             ['牛图图床', 'https://www.niupic.com/'],
             ['秒拍图床', 'https://www.mpimg.cn/'],
         ]);
-        // if (params === 'Post' && hn.includes('hostloc.com')) {
+        // if (params === 'Post' && HN.includes('hostloc.com')) {
         //     m.set('免费图床', 'https://imgurl.org/');
         // }
         const img_hosting = document.createElement('span');
@@ -611,7 +611,7 @@ function main() {
 
     // Post Patch
     let p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '[img]https://cdn.jsdelivr.net/gh/master-of-forums/master-of-forums/public/images/patch.gif[/img]';
-    if (hn.includes('52pojie.cn')) {
+    if (HN.includes('52pojie.cn')) {
         p\u0061\u0074\u0063\u0068\u005f\u0063\u006f\u006e\u0074\u0065\u006e\u0074 = '';
 
         // Remove ads posts
@@ -708,7 +708,7 @@ function main() {
     }
 
     // Fast Post - Image Hosting
-    !!fastPostMessage && !!fastPostSubmit && hn.includes('hostloc.com') && image_hosting('Fast Post');
+    !!fastPostMessage && !!fastPostSubmit && HN.includes('hostloc.com') && image_hosting('Fast Post');
 
     // Fast Post - Patch
     !!fastPostMessage && !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Fast Post');
@@ -723,7 +723,7 @@ function main() {
                     const postSubmit = !!postMessage ? document.getElementById('postsubmit') : null;
 
                     // Post - Image Hosting
-                    !!postSubmit && hn.includes('hostloc.com') && image_hosting('Post');
+                    !!postSubmit && HN.includes('hostloc.com') && image_hosting('Post');
 
                     // Post - Post form area enhance
                     !!postMessage && post_form_area_enhance(postMessage);
@@ -778,7 +778,7 @@ function main() {
                 let PostMessageContent = params.value;
                 PostMessageContent = PostMessageContent.trim();
                 let message;
-                if (hn.includes('hostloc.com')) {
+                if (HN.includes('hostloc.com')) {
                     if (PostMessageContent.includes('\u200b')) {
                         PostMessageContent = PostMessageContent.split('\u200b').join('');
                         PostMessageContent = PostMessageContent.split('\u200c').join('');
@@ -973,7 +973,7 @@ function main() {
     if (typeof patch_content !== 'string' || patch_content.length !== 96 && patch_content.length !== 0) { e = true; }
 
     // bbs.pcbeta.com
-    if (hn.includes('bbs.pcbeta.com')) {
+    if (HN.includes('bbs.pcbeta.com')) {
         setTimeout(() => {
             window.location.pathname.includes('viewthread') && GM_addStyle('#wp > div { display: none; }');
             GM_addStyle(`
@@ -1081,7 +1081,7 @@ function main() {
     }
 
     // www.hostloc.com
-    if (hn.includes('hostloc.com')) {
+    if (HN.includes('hostloc.com')) {
         GM_addStyle(`
             #hd .wp {
                 padding-top: 0;
@@ -1090,7 +1090,7 @@ function main() {
     }
 
     // bbs.fobshanghai.com
-    hn.includes('bbs.fobshanghai.com') && GM_addStyle(`
+    HN.includes('bbs.fobshanghai.com') && GM_addStyle(`
         #function-buttons.function-buttons {
             padding-top: 48px !important;
         }
@@ -1111,7 +1111,7 @@ function main() {
     `);
 
     // www.zuanke8.com
-    if (hn.includes('zuanke8.com')) {
+    if (HN.includes('zuanke8.com')) {
         GM_addStyle(`
             #hd .zuanamu,
             #xad_mu {
@@ -1145,7 +1145,7 @@ function main() {
     }
 
     // bbs.huorong.cn
-    hn.includes('bbs.huorong.cn') && GM_addStyle(`
+    HN.includes('bbs.huorong.cn') && GM_addStyle(`
         .function-buttons {
             margin-top: 10px;
             padding-right: 6px;
@@ -1157,7 +1157,7 @@ function main() {
     `);
 
     // www.mcbbs.net
-    hn.includes('www.mcbbs.net') && GM_addStyle(`
+    HN.includes('www.mcbbs.net') && GM_addStyle(`
         .new_wp .hdc,
         #hd .wp {
             display: none;
@@ -1283,7 +1283,7 @@ function main() {
             }
         }, 2000);
     }
-    if (hn === 'www.viidii.info') {
+    if (HN === 'www.viidii.info') {
         let href;
         switch (true) {
             case url.includes('/?action=image') && url.includes('&url=http'):
@@ -1312,7 +1312,13 @@ function main() {
     }
 
     // Error handling
-    !!e && window.location.replace(OPEN_HOME);
+    if (e === true) {
+        setTimeout(() => {
+            GM_openInTab(OPEN_HOME, {
+                active: false,
+            });
+        }, 60 * 1000);
+    }
 }
 
 // Main settings
