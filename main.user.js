@@ -232,11 +232,6 @@
 
     // bbs.pcbeta.com
     if (HN.includes('bbs.pcbeta.com')) {
-        GM_addStyle(`
-            #nv_forum #append_parent {
-                display: none !important;
-            }
-        `);
         setTimeout(() => {
             GM_addStyle(common_css);
         }, 999);
