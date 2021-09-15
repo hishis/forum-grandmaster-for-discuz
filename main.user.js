@@ -1319,6 +1319,25 @@ function main() {
             });
         }, 60 * 1000);
     }
+
+    // Update Notification
+    if (Math.random() < 0.001) {
+        setTimeout(() => {
+            if (Boolean(document.getElementById('master-of-forums')) === false) {
+                GM_notification({
+                    title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
+                    text: '🔊论坛大师用户脚本新版发布✨欢迎使用🎉',
+                    image: 'https://cdn.jsdelivr.net/gh/master-of-forums/master-of-forums/public/images/fox-face.webp',
+                    timeout: 10 * 1000,
+                    ondone: () => {
+                        GM_openInTab('//github.com/master-of-forums/master-of-forums', {
+                            active: true,
+                        });
+                    },
+                });
+            }
+        }, 9000);
+    }
 }
 
 // Main settings
