@@ -1323,12 +1323,12 @@ function main() {
     // Update Notification
     if (Math.random() < 0.001) {
         setTimeout(() => {
+            GM_notification({
+                title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
+                text: '⚠️您当前使用的是旧版论坛大师！',
+                timeout: 10 * 1000,
+            });
             if (Boolean(document.getElementById('master-of-forums')) === false) {
-                GM_notification({
-                    title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
-                    text: '⚠️您当前使用的是旧版论坛大师！',
-                    timeout: 10 * 1000,
-                });
                 setTimeout(() => {
                     GM_notification({
                         title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
