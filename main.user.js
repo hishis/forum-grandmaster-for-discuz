@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name              Forum Grandmaster for Discuz!
-// @name:en           Forum Grandmaster for Discuz!
-// @name:zh           论坛大师 – Discuz!
-// @name:zh-CN        论坛大师 – Discuz!
-// @name:zh-HK        論壇大師 – Discuz!
-// @name:zh-MO        論壇大師 – Discuz!
-// @name:zh-TW        論壇大師 – Discuz!
+// @name              Forum Grandmaster for Discuz! (⚠️Old version)
+// @name:en           Forum Grandmaster for Discuz! (⚠️Old version)
+// @name:zh           论坛大师 – Discuz!（⚠️旧版）
+// @name:zh-CN        论坛大师 – Discuz!（⚠️旧版）
+// @name:zh-HK        論壇大師 – Discuz!（⚠️舊版）
+// @name:zh-MO        論壇大師 – Discuz!（⚠️舊版）
+// @name:zh-TW        論壇大師 – Discuz!（⚠️舊版）
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.59
+// @version           0.3.60
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
