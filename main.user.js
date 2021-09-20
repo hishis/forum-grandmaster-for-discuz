@@ -362,10 +362,15 @@ function main() {
         // Open Home button
         const open_home_button = document.createElement('button');
         open_home_button.className = 'custom-function-button open-home-button';
-        open_home_button.innerHTML = '论坛大师（🔔发现新版🔔）';
+        open_home_button.innerHTML = '论坛大师';
         open_home_button.addEventListener('click', event => {
             GM_openInTab('https://github.com/master-of-forums/master-of-forums', false);
         }, false);
+        setTimeout(() => {
+            if (Boolean(document.getElementById('master-of-forums')) === false) {
+                open_home_button.innerHTML += '（\u{1F4A1}发现新版\u{1F4A1}）';
+            }
+        }, 3000);
         function_buttons.appendChild(open_home_button);
 
         // Scene mode button
