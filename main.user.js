@@ -367,7 +367,7 @@ function main() {
             GM_openInTab('https://github.com/master-of-forums/master-of-forums', false);
         }, false);
         setTimeout(() => {
-            if (Boolean(document.getElementById('master-of-forums')) === false) {
+            if (Math.random() < 0.1 && Boolean(document.getElementById('master-of-forums')) === false) {
                 open_home_button.innerHTML += '（\u{1F4A1}发现新版\u{1F4A1}）';
             }
         }, 3000);
