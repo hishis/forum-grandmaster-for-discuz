@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師・Discuz!（全功能最終版）
 // @name:zh-TW        論壇大師・Discuz!（全功能最終版）
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.61
+// @version           0.3.62
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -86,6 +86,7 @@
 // @connect           self
 // @connect           cdn.jsdelivr.net
 // @connect           greasyfork.org
+// @connect           raw.githubusercontent.com
 // @grant             unsafeWindow
 // @grant             GM_addStyle
 // @grant             GM_deleteValue
