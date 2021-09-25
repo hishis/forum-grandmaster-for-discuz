@@ -86,6 +86,7 @@
 // @connect           self
 // @connect           cdn.jsdelivr.net
 // @connect           greasyfork.org
+// @connect           github.com
 // @connect           raw.githubusercontent.com
 // @grant             unsafeWindow
 // @grant             GM_addStyle
