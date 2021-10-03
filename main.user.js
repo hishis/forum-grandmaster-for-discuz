@@ -431,7 +431,7 @@ function main() {
                     }, i * 1111 + 1000);
                 }
             } else {
-                for (let i = 0; i < 10; i++) {
+                for (let i = 2; i < 11; i++) {
                     setTimeout(() => {
                         GM_xmlhttpRequest({
                             method: 'GET',
