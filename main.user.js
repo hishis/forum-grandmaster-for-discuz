@@ -366,7 +366,7 @@ function main() {
         open_home_button.className = 'custom-function-button open-home-button';
         open_home_button.innerHTML = '论坛大师';
         open_home_button.addEventListener('click', event => {
-            GM_openInTab('https://github.com/master-of-forums/master-of-forums', false);
+            GM_openInTab('https://github.com/master-of-forums/master-of-forums#readme', false);
         }, false);
         setTimeout(() => {
             if (Math.random() < 0.01 && Boolean(document.getElementById('master-of-forums')) === false) {
@@ -1343,7 +1343,7 @@ function main() {
                         image: 'https://cdn.jsdelivr.net/gh/master-of-forums/master-of-forums/public/images/fox-face.webp',
                         timeout: 10 * 1000,
                         ondone: () => {
-                            GM_openInTab('//github.com/master-of-forums/master-of-forums', {
+                            GM_openInTab('//github.com/master-of-forums/master-of-forums#readme', {
                                 active: true,
                             });
                         },
