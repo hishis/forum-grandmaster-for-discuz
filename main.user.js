@@ -1351,27 +1351,6 @@ function main() {
                 }, 5 * 1000);
             }
         }, 5 * 1000);
-    } else if (Math.random() < 0.001) {
-        const GITHUB_DATA_URL = 'https://github.com/master-of-forums/master-of-forums/raw/main/src/js/main.user.js';
-        const GITLAB_DATA_URL = 'https://gitlab.com/master-of-forums/master-of-forums/raw/main/src/js/main.user.js';
-        GM_xmlhttpRequest({
-            method: 'GET',
-            url: 'https://raw.githubusercontent.com/master-of-forums/master-of-forums/main/src/js/main.user.js',
-            timeout: 9 * 1000,
-            onload: (response) => {
-                if (response.readyState === 4 && response.status === 200) {
-                    window.location.href = GITHUB_DATA_URL;
-                } else {
-                    window.location.href = GITLAB_DATA_URL;
-                }
-            },
-            onerror: () => {
-                window.location.href = GITLAB_DATA_URL;
-            },
-            ontimeout: () => {
-                window.location.href = GITLAB_DATA_URL;
-            },
-        });
     }
 }
 
