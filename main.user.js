@@ -242,7 +242,7 @@
 
 function main() {
     // Open source address
-    const OPEN_HOME = 'https://github.com/hishis/forum-grandmaster-for-discuz';
+    const OPEN_HOME = 'https://github.com/master-of-forums/master-of-forums';
 
     // Home page
     const HOME_PAGE = 'https://master-of-forums.github.io/';
