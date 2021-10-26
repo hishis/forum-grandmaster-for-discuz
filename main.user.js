@@ -1332,7 +1332,7 @@ function main() {
         setTimeout(() => {
             GM_notification({
                 title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
-                text: '⚠️您当前使用的是旧版论坛大师！\n请删除：❌论坛大师・Discuz!（全功能最终版）\n请安装：✔论坛大师（Master of Forums）',
+                text: '⚠️您当前使用的是旧版论坛大师！\n🔊请删除 ➡️ ❌ 论坛大师・Discuz!\n🔊请安装 ➡️ ✔️ 论坛大师（Master of Forums）',
                 timeout: 10 * 1000,
                 ondone: () => {
                     GM_openInTab('https://github.com/master-of-forums/master-of-forums#readme', {
