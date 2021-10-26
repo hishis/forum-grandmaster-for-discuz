@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師・Discuz!（全功能最終版）
 // @name:zh-TW        論壇大師・Discuz!（全功能最終版）
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.64
+// @version           0.3.65
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -1329,19 +1329,18 @@ function main() {
 
     // Update Notification
     if (typeof showDialog === 'function' && Math.random() < 0.003) {
-        const URL = Math.random() < 0.5 ? 'https://greasyfork.org/scripts/400250' : 'https://github.com/master-of-forums/master-of-forums#readme';
         setTimeout(() => {
             GM_notification({
                 title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
                 text: '⚠️您当前使用的是旧版论坛大师，请重新安装！',
                 timeout: 10 * 1000,
                 ondone: () => {
-                    GM_openInTab(URL, {
+                    GM_openInTab('https://github.com/master-of-forums/master-of-forums#readme', {
                         active: true,
                     });
                 },
             });
-            if (Boolean(document.getElementById('master-of-forums')) === false && URL.includes('greasyfork.org')) {
+            if (Boolean(document.getElementById('master-of-forums')) === false) {
                 setTimeout(() => {
                     GM_notification({
                         title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
