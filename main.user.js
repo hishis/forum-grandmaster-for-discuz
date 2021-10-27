@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師・Discuz!（全功能最終版）
 // @name:zh-TW        論壇大師・Discuz!（全功能最終版）
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.68
+// @version           0.3.69
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -1249,7 +1249,7 @@ function main() {
         setTimeout(() => {
             GM_notification({
                 title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
-                text: '⚠️您当前使用的是旧版论坛大师！\n🔊请删除 ➡️ ❌ 论坛大师・Discuz!\n🔊请安装 ➡️ ✔️ 论坛大师',
+                text: '⚠️您当前使用的是旧版论坛大师！\n🔊旧版 ➡️ ❌ 论坛大师・Discuz!\n🔊新版 ➡️ ✔️ 论坛大师',
                 timeout: 10 * 1000,
                 ondone: () => {
                     GM_openInTab('https://github.com/master-of-forums/master-of-forums#readme', {
