@@ -1398,4 +1398,3 @@ document.onreadystatechange = function () {
         window.location.hostname.includes('hishis.github.io') || main();
     }
 }
-
