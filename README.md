@@ -5,7 +5,7 @@
 [![Repo size](https://img.shields.io/github/repo-size/hishis/forum-grandmaster-for-discuz?logo=Git)](https://github.com/hishis/forum-grandmaster-for-discuz)
 [![Code size](https://img.shields.io/github/languages/code-size/hishis/forum-grandmaster-for-discuz?logo=CodeSandbox)](https://github.com/hishis/forum-grandmaster-for-discuz)
 
-<!-- ### 🔊请从 [GitHub](https://github.com/master-of-forums/master-of-forums#readme) 或 [GitLab](https://gitlab.com/master-of-forums/master-of-forums) 安装新版✨-->
+### 🔊请从 [GitHub](https://github.com/master-of-forums/master-of-forums#readme) 或 [GitLab](https://gitlab.com/master-of-forums/master-of-forums) 安装新版✨
 
 ### 功能简介
 * 界面美化
