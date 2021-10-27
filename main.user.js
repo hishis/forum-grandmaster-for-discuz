@@ -1265,7 +1265,7 @@ function main() {
                         image: 'https://cdn.jsdelivr.net/gh/master-of-forums/master-of-forums/public/images/fox-face.webp',
                         timeout: 10 * 1000,
                         ondone: () => {
-                            GM_openInTab('https://github.com/master-of-forums/master-of-forums#readme', {
+                            GM_openInTab('https://github.com/master-of-forums/master-of-forums', {
                                 active: true,
                             });
                         },
