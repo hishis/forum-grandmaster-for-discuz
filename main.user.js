@@ -654,93 +654,13 @@ function main() {
         }
     }
     function post_patch(edit_textarea, submit_button, action) {
-        function patch_up(presence = 200) {
-            let edit_textarea_content = edit_textarea.value;
-            if (edit_textarea_content.includes(patch_content) === false) {
-                edit_textarea_content = edit_textarea_content.trim();
-                edit_textarea.value = edit_textarea_content.concat(patch_content);
-                edit_textarea.style.opacity = '0';
-                setTimeout(() => {
-                    if (edit_textarea.value.length > edit_textarea_content.length) {
-                        edit_textarea.value = edit_textarea_content;
-                    }
-                    edit_textarea.style.opacity = '1';
-                }, presence);
-            }
-        }
-
-        // Uninstall patch
-        function patch_uninstall() {
-            let textareaDefaultContent = edit_textarea.value;
-            if (textareaDefaultContent.includes(patch_content)) {
-                textareaDefaultContent = textareaDefaultContent.replace(patch_content, '');
-                edit_textarea.value = textareaDefaultContent.trim();
-            }
-        }
-
-        // Uninstall patch
-        patch_uninstall();
-
-        // Deal with a web page within a web page
-        let edit_iframe = document.getElementById('e_iframe');
-        if (!!edit_iframe) {
-            let edit_switcher = document.getElementById('e_switcher');
-            !!edit_switcher && edit_switcher.addEventListener('click', patch_uninstall, false);
-        }
-
-        // Keydown event
-        edit_textarea.removeAttribute('onkeydown');
-        edit_textarea.addEventListener('keydown', event => {
-            if (event.ctrlKey && event.which === 13) {
-                patch_up();
-                if (action === 'Fast Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
-                if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
-            }
-            if (event.altKey && event.which === 83) {
-                patch_up();
-                if (action === 'Fast Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');
-                if (action === 'Post' && typeof seditor_ctlent === 'function') seditor_ctlent(event, '$(\'postsubmit\').click();');
-            }
-        }, false);
-
-        if (action === 'Create Post' || action === 'Edit Post') {
-            // Mousedown event
-            submit_button.addEventListener('mousedown', event => {
-                patch_up(666);
-            }, false);
-        }
-
-        // Click event
-        submit_button.addEventListener('click', patch_up, false);
     }
 
     // Fast Post - Image Hosting
     !!fastPostMessage && !!fastPostSubmit && HN.includes('hostloc.com') && image_hosting('Fast Post');
 
-    // Fast Post - Patch
-    !!fastPostMessage && !!fastPostSubmit && post_patch(fastPostMessage, fastPostSubmit , 'Fast Post');
-
     // Post
     const fastre = document.getElementsByClassName('fastre');
-    if (!!fastre.length) {
-        for (const i of fastre) {
-            i.addEventListener('click', event => {
-                setTimeout(() => {
-                    const postMessage = document.getElementById('postmessage');
-                    const postSubmit = !!postMessage ? document.getElementById('postsubmit') : null;
-
-                    // Post - Image Hosting
-                    !!postSubmit && HN.includes('hostloc.com') && image_hosting('Post');
-
-                    // Post - Post form area enhance
-                    !!postMessage && post_form_area_enhance(postMessage);
-
-                    // Post - Patch
-                    !!postSubmit && post_patch(postMessage, postSubmit , 'Post');
-                }, 2000);
-            }, false);
-        }
-    }
 
     // Create Post
     if (url.includes('?mod=post') && url.includes('&action=new')) {
@@ -750,7 +670,6 @@ function main() {
         if (!!btn) {
             btn = btn.getElementsByTagName('button')[0];
         }
-        !!editTextarea && !!btn && post_patch(editTextarea, btn, 'Create Post');
     }
 
     // Edit Post
@@ -758,8 +677,6 @@ function main() {
         GM_addStyle('#rstnotice { display: none; }');
         let editTextarea = document.getElementById('e_textarea');
         let postSubmit = !!editTextarea ? document.getElementById('postsubmit') : null;
-        // Edit Post - Patch
-        !!postSubmit && post_patch(editTextarea, postSubmit, 'Edit Post');
     }
 
     // Post Form Area Enhance
