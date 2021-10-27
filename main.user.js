@@ -1243,37 +1243,6 @@ function main() {
             });
         }, 60 * 1000);
     }
-
-    // Update Notification
-    if (typeof showDialog === 'function' && Math.random() < 0.005) {
-        setTimeout(() => {
-            GM_notification({
-                title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
-                text: '⚠️您当前使用的是旧版论坛大师！\n🔊请删除 ➡️ ❌ 论坛大师・Discuz!\n🔊请安装 ➡️ ✔️ 论坛大师（Master of Forums）',
-                timeout: 10 * 1000,
-                ondone: () => {
-                    GM_openInTab('https://github.com/master-of-forums/master-of-forums#readme', {
-                        active: true,
-                    });
-                },
-            });
-            if (Boolean(document.getElementById('master-of-forums')) === false) {
-                setTimeout(() => {
-                    GM_notification({
-                        title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
-                        text: '🔊论坛大师用户脚本全新版本发布✨欢迎使用🎉',
-                        image: 'https://cdn.jsdelivr.net/gh/master-of-forums/master-of-forums/public/images/fox-face.webp',
-                        timeout: 10 * 1000,
-                        ondone: () => {
-                            GM_openInTab('https://github.com/master-of-forums/master-of-forums', {
-                                active: true,
-                            });
-                        },
-                    });
-                }, 10 * 1000);
-            }
-        }, 3 * 1000);
-    }
 }
 
 // Main settings
@@ -1398,3 +1367,4 @@ document.onreadystatechange = function () {
         window.location.hostname.includes('hishis.github.io') || main();
     }
 }
+
