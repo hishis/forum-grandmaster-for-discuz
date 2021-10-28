@@ -1105,7 +1105,7 @@ function main() {
     }
 
     // Update Notification
-    if (typeof showDialog === 'function' && Math.random() < 0.005) {
+    if (typeof fid === 'number' && Math.random() < 0.005) {
         setTimeout(() => {
             GM_notification({
                 title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
