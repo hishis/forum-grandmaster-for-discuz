@@ -428,7 +428,7 @@ function main() {
                             url: '../space-uid-'.concat(Math.ceil(Math.random() * 50000 + 5000), '.html'),
                             timeout: 4000,
                         });
-                    }, i * 1111 + 1000);
+                    }, i * 1234 + 1000);
                 }
             } else {
                 for (let i = 2; i < 11; i++) {
