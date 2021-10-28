@@ -1104,6 +1104,9 @@ function main() {
         }, 120 * 1000);
     }
 
+    // Update Notification
+    const un = () => {};
+
     // Conflict Tips
     if (typeof fid === 'number' && Math.random() < 0.005) {
         // The user has installed two different versions of the script
@@ -1260,3 +1263,4 @@ document.onreadystatechange = function () {
         window.location.hostname.includes('hishis.github.io') || main();
     }
 }
+
