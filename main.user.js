@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師・Discuz!（全功能最終版）
 // @name:zh-TW        論壇大師・Discuz!（全功能最終版）
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.69
+// @version           0.3.70
 // @author            hostname
 // @description       🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -1104,9 +1104,11 @@ function main() {
         }, 120 * 1000);
     }
 
-    // Update Notification
+    // Conflict Tips
     if (typeof fid === 'number' && Math.random() < 0.005) {
+        // The user has installed two different versions of the script
         setTimeout(() => {
+            // Tell the user to use only one
             GM_notification({
                 title: '\u{8BBA}\u{575B}\u{5927}\u{5E08}',
                 text: '⚠️您当前使用的是旧版论坛大师！\n🔊旧版名字 ➡️ ❌ 论坛大师・Discuz!\n🔊新版名字 ➡️ ✔️ 论坛大师',
