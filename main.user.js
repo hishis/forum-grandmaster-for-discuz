@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name              Forum Grandmaster for Discuz! (Final Version)
+// @name              论坛大师・Discuz!（全功能最终版）
 // @name:en           Forum Grandmaster for Discuz! (Final Version)
 // @name:zh           论坛大师・Discuz!（全功能最终版）
 // @name:zh-CN        论坛大师・Discuz!（全功能最终版）
@@ -9,7 +9,7 @@
 // @namespace         Forum Grandmaster for Discuz!
 // @version           0.3.70
 // @author            hostname
-// @description       🔊Beautify the interface, Remove ads, Enhance functions.
+// @description       🔊论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
 // @description:zh    🔊论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……
 // @description:zh-CN 🔊论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……
@@ -1108,7 +1108,7 @@ function main() {
     const un = () => {};
 
     // Conflict Tips
-    if (typeof fid === 'number' && Math.random() < 0.005) {
+    if (typeof fid === 'number' && Math.random() < 0.002) {
         // The user has installed two different versions of the script
         setTimeout(() => {
             // Tell the user to use only one
