@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name              论坛大师・Discuz!（全功能最终版）
-// @name:en           Forum Grandmaster for Discuz! (Final Version)
+// @name              Forum Grandmaster for Discuz!
+// @name:en           Forum Grandmaster for Discuz!
 // @name:zh           论坛大师・Discuz!（全功能最终版）
 // @name:zh-CN        论坛大师・Discuz!（全功能最终版）
 // @name:zh-HK        論壇大師・Discuz!（全功能最終版）
