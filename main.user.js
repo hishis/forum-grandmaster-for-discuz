@@ -7,7 +7,7 @@
 // @name:zh-MO        論壇大師・Discuz!（全功能最終版）
 // @name:zh-TW        論壇大師・Discuz!（全功能最終版）
 // @namespace         Forum Grandmaster for Discuz!
-// @version           0.3.70
+// @version           0.3.71
 // @author            hostname
 // @description       🔊论坛网站页面美化、广告移除、功能增强。美轮美奂的视觉享受，安然恬静的论坛时光……
 // @description:en    🔊Beautify the interface, Remove ads, Enhance functions.
@@ -217,11 +217,11 @@
             break;
 
         case 'Home':
-            common_css += '#Mode-Home{user-select:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif");border-radius:50%;transition:0.7s}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{}.bui .m img:hover{}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif");border-radius:50%;transition:0.7s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{content:none;border-radius:0}.sign img,.signature img{display:none}';
+            common_css += '#Mode-Home{user-select:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_middle.gif");border-radius:50%;transition:0.7s}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{}.bui .m img:hover{}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/noavatar_small.gif");border-radius:50%;transition:0.7s}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{content:none;border-radius:0}.sign img,.signature img{display: none}';
             break;
 
         case 'Office':
-            common_css += '#Mode-Office{user-select:none}body{background:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}#hd .wp .comiis_nav,.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body,.dnch_eo_f{display:none}#postlist .plhin{background:none}.sign,.signature{display:none}';
+            common_css += '#Mode-Office{user-select:none}body{background:none}.pls .avatar img,#fastpostform .pls .avatar img,.personinformaion .person-imgs img,#main .t.t2 table .tr1 table .tac img{width:60px;height:60px;content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}.pls .avatar img:hover,#fastpostform .pls .avatar img:hover,.personinformaion .person-imgs img:hover,#main .t.t2 table .tr1 table .tac img:hover{border-radius:0}.bui .m img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png")}#um .avt img,#tath img,.rate table img,.rate dd li img,.cm .vm img,.card_mn .avt img{content:url("//cdn.jsdelivr.net/gh/hishis/forum-grandmaster-for-discuz/public/images/Microsoft-Office-Logo.png");border-radius:50%}#um .avt img:hover,#tath img:hover,.rate table img:hover,.rate dd li img:hover,.cm .vm img:hover,.card_mn .avt img:hover{border-radius:0}.pls .avatar{margin:10px auto;width:60px;height:60px}.pls .avatar img{width:60px;height:60px}.pls .avatar img:hover{border-radius:0}#hd .wp .comiis_nav,.md_ctrl,p.xg1,nav.toc,.scbar_hot_td,.pls .avatar_p .vm,fieldset,.hm-t-container,.hm-t-main,.hm-t-body,.dnch_eo_f{display:none}#postlist .plhin{background:none}.sign,.signature{display: none}';
             break;
 
         default:
@@ -1108,7 +1108,7 @@ function main() {
     const un = () => {};
 
     // Conflict Tips
-    if (typeof fid === 'number' && Math.random() < 0.002) {
+    if (typeof fid === 'number' && Math.random() < 0.001) {
         // The user has installed two different versions of the script
         setTimeout(() => {
             // Tell the user to use only one
