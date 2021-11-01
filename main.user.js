@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name              Forum Grandmaster for Discuz!
 // @name:en           Forum Grandmaster for Discuz!
-// @name:zh           论坛大师・Discuz!（全功能最终版）
-// @name:zh-CN        论坛大师・Discuz!（全功能最终版）
-// @name:zh-HK        論壇大師・Discuz!（全功能最終版）
-// @name:zh-MO        論壇大師・Discuz!（全功能最終版）
-// @name:zh-TW        論壇大師・Discuz!（全功能最終版）
+// @name:zh           论坛大师 – Discuz!
+// @name:zh-CN        论坛大师 – Discuz!
+// @name:zh-HK        論壇大師 – Discuz!
+// @name:zh-MO        論壇大師 – Discuz!
+// @name:zh-TW        論壇大師 – Discuz!
 // @namespace         Forum Grandmaster for Discuz!
 // @version           0.3.71
 // @author            hostname
